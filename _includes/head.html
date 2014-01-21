@@ -1,0 +1,31 @@
+<head>
+    <meta charset="utf-8" />
+    <script>
+        (function flagSVG() {
+            var ns = {'svg': 'http://www.w3.org/2000/svg'};
+            if(document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1")) {document.getElementsByTagName('html')[0].className += ' svg';}
+        })();
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="/assets/styles/styles.css" />
+    <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+    <link rel="shortcut icon" type="image/x-icon" href="#" />
+    <link rel="apple-touch-icon-precomposed" href="#" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="twitter:site" content="@gdndevelopers" />
+    <meta name="twitter:title" content="{{ page.title }}" />
+    <meta name="twitter:description" content="{{ page.summary }}" />
+    <meta name="twitter:creator" content="{{ page.author }}" />
+    <meta name="twitter:card" content="summary" />
+
+    <title>
+    {% if page.title %}
+        {{ page.title }} &middot; {{ site.title }}
+    {% else %}
+        {{ site.title }} &middot; {{ site.tagline }}
+    {% endif %}
+    </title>
+</head>

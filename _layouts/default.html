@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+{% include head.html %}
+
+<body>
+    <header class="banner" role="banner">
+        <div class="container">
+            <h1 class="banner__title"><a rel="home" href="/">{{ site.title }}</a></h1>
+        </div>
+    </header><!--/@banner-->
+
+    <main class="main" role="main">
+        <div class="container">
+            {{ content }}
+        </div>
+    </main><!--/@main-->
+
+    <nav class="navigation" role="navigation">
+        <div class="container">
+            <ul class="navigation__site nav">
+                {% assign url = page.url|remove:'index.html' %}
+                {% for link in site.navigation %}
+                <li class="nav__item {% if url == link.url %} nav__item--active{% endif %}"><a href="{{link.url}}" title="{{link.title}}">{{link.text}}</a></li>
+                {% endfor %}
+                <li class="nav__item"><strong><a href="http://theguardian.com/uk?view=mobile">Preview website</a></strong></li>
+            </ul>
+
+            <ul class="navigation__social nav">
+                <li class="nav__item"><a class="i i-twitter" href="https://twitter.com/gdndevelopers">Twitter</a></li>
+                <li class="nav__item"><a class="i i-github" href="http://github.com/guardian/frontend">GitHub</a></li>
+                <li class="nav__item"><a class="i i-rss" href="/atom.xml">RSS</a></li>
+            </ul>
+        </div>
+    </nav><!--/@navigation-->
+
+    <footer class="footer u-cf" role="contentinfo">
+        <div class="footer__primary">
+            <div class="container">
+                <div class="footer__banner u-cf">
+                    <a href="http://www.theguardian.com/uk" class="guardian-logo-wrapper guardian-logo-wrapper--footer hide-on-mobile">
+                        <span class="u-h">The Guardian</span>
+                        <i class="i i-guardian-logo"></i>
+                    </a>
+                    <a class="top top--footer" href="#top">Back to top<i class="i i-arrow-small-up"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__secondary" role="contentinfo">
+            <div class="container">
+                <ul class="colophon u-cf">
+                    <li class="colophon__item"><a href="http://www.theguardian.com/help/2012/nov/26/guardian-mobile-site">Help</a></li>
+                    <li class="colophon__item"><a href="http://www.theguardian.com/help/contact-us">Contact us</a></li>
+                    <li class="colophon__item"><a href="http://survey.omniture.com/d1/hosted/815f9cfba1" target="_blank">Feedback</a></li>
+                    <li class="colophon__item"><a href="http://www.theguardian.com/help/terms-of-service">Terms &#38; conditions</a></li>
+                    <li class="colophon__item"><a href="http://www.theguardian.com/help/privacy-policy">Privacy policy</a></li>
+                    <li class="colophon__item"><a href="http://www.theguardian.com/info/cookies">Cookie policy</a></li>
+                </ul>
+                <div class="footer__misc">
+                    <div class="really-serious-copyright">&#169; Guardian News and Media Limited or its affiliated companies. All&#160;rights&#160;reserved.</div>
+                </div>
+            </div>
+        </div>
+    </footer><!--/@contentinfo-->
+</body>
+</html>

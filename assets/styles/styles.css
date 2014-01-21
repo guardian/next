@@ -1,0 +1,1761 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "AgateSans";
+  src: url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Ag-Sans-1-Web-Reg.eot");
+  src: url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Ag-Sans-1-Web-Reg.eot?#iefix") format("embedded-opentype"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Ag-Sans-1-Web-Reg.woff") format("woff"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Ag-Sans-1-Web-Reg.ttf") format("truetype"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Ag-Sans-1-Web-Reg.svg#Guardian-Text-Egyp-Web-Reg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "EgyptianText";
+  src: url("http://pasteup.guim.co.uk/fonts/WebEgyptianHinted-Regular.eot");
+  src: url("http://pasteup.guim.co.uk/fonts/WebEgyptianHinted-Regular.eot?#iefix") format("embedded-opentype"), url("http://pasteup.guim.co.uk/fonts/WebEgyptianHinted-Regular.woff") format("woff"), url("http://pasteup.guim.co.uk/fonts/WebEgyptianHinted-Regular.ttf") format("truetype"), url("http://pasteup.guim.co.uk/fonts/WebEgyptianHinted-Regular.svg#Guardian Text Egyptian Web") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'EgyptianText';
+  src: url("http://pasteup.guim.co.uk/fonts/WebEgyptianHinted-RegularItalic.eot");
+  src: url("http://pasteup.guim.co.uk/fonts/WebEgyptianHinted-RegularItalic.eot?#iefix") format("embedded-opentype"), url("http://pasteup.guim.co.uk/fonts/WebEgyptianHinted-RegularItalic.woff") format("woff"), url("http://pasteup.guim.co.uk/fonts/WebEgyptianHinted-RegularItalic.ttf") format("truetype"), url("http://pasteup.guim.co.uk/fonts/WebEgyptianHinted-RegularItalic.svg#Guardian Text Egyptian Web") format("svg");
+  font-weight: normal;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "EgyptianText";
+  src: url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Text-Egyp-Web-Med.eot");
+  src: url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Text-Egyp-Web-Med.eot?#iefix") format("embedded-opentype"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Text-Egyp-Web-Med.woff") format("woff"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Text-Egyp-Web-Med.ttf") format("truetype"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Text-Egyp-Web-Med.svg#Guardian-Text-Egyp-Web-Medium") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "EgyptianHeadline";
+  src: url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Light.eot");
+  src: url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Light.eot?#iefix") format("embedded-opentype"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Light.woff") format("woff"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Light.ttf") format("truetype"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Light.svg#Guardian-Egyp-Web-Light") format("svg");
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "EgyptianHeadline";
+  src: url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Regular.eot");
+  src: url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Regular.eot?#iefix") format("embedded-opentype"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Regular.woff") format("woff"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Regular.ttf") format("truetype"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Regular.svg#Guardian-Egyp-Web-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "EgyptianHeadline";
+  src: url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Semibold.eot");
+  src: url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Semibold.eot?#iefix") format("embedded-opentype"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Semibold.woff") format("woff"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Semibold.ttf") format("truetype"), url("http://pasteup.guim.co.uk/fonts/latin1/Guardian-Egyp-Web-Semibold.svg#Guardian-Egyp-Web-Semibold") format("svg");
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+}
+/* ==========================================================================
+   Guss: row
+   ========================================================================== */
+/**
+ * A row is an ensemble of 2, 3 or 4 items that are originally stacked
+ * vertically on mobile and flow horizontally on higher breakpoints.
+ * Examples: http://sassmeister.com/gist/7986076
+ *
+ * Usage 1: Sass mixin
+ * @include guss-row('.classname');
+ *
+ * Usage 2: utility class set as `$guss-row-utility-class`
+ * @include guss-row-utility;
+ *
+ * <div class="l-row l-row--items-<number of items contained>">
+ *     <div class="l-row__item [l-row__item--boost-2]"></div>
+ *     <div class="l-row__item"></div>
+ *     <div class="l-row__item"></div>
+ *     <div class="l-row__item [l-row__item--boost-1]"></div>
+ * </div>
+ *
+ * --boost-n modifiers are used to add visual importance to an item.
+ * Note that this applies only to browsers that support flexbox.
+ */
+/* ==========================================================================
+   Guss: columns
+   ========================================================================== */
+/**
+ * A "columns pattern" will fit as many "$guss-column-min-width"-wide columns
+ * in any type of context: full-width container, sidebar…
+ *
+ * Usage 1: Sass mixin
+ * @include guss-columns('.classname');
+ * Examples: http://sassmeister.com/gist/7987988
+ *
+ * Usage 2: utility class set as `$guss-columns-utility-class`
+ * @include guss-columns-utility;
+ *
+ * <div class="l-columns">
+ *     <div class="l-columns__item"></div>
+ *     <div class="l-columns__item"></div>
+ *     <div class="l-columns__item"></div>
+ *     <div class="l-columns__item"></div>
+ *     <div class="l-columns__item"></div>
+ *     <div class="l-columns__item"></div>
+ *     <div class="l-columns__item"></div>
+ * </div>
+ *
+ */
+/* ==========================================================================
+   Global resets
+   ========================================================================== */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media print {
+  @page {
+    margin: 2cm;
+  }
+  * {
+    background-color: transparent !important;
+    color: #000 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+/* ==========================================================================
+   Grouping content
+   http://developers.whatwg.org/sections.html
+   ========================================================================== */
+html {
+  font-family: "EgyptianText", georgia, serif;
+  font-size: 62.5%;
+  text-rendering: optimizeLegibility;
+  /*  Prevent iOS text size adjust after orientation change, without disabling user zoom. */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+  position: relative;
+}
+
+body {
+  color: #333;
+  font-weight: 400;
+  font-size: 1.6em;
+  line-height: 1.5;
+  background-color: #fff;
+  margin: 0;
+  height: 100%;
+}
+
+h1 {
+  -webkit-font-smoothing: antialiased;
+  font-family: "EgyptianHeadline", georgia, serif;
+  font-weight: 200;
+  font-size: 28px;
+  font-size: 2.8rem;
+  line-height: 32px;
+  line-height: 3.2rem;
+  text-rendering: optimizeLegibility;
+  margin: 0 0 36px 0;
+}
+@media all and (min-width: 37.5em) {
+  h1 {
+    font-size: 36px;
+    font-size: 3.6rem;
+    line-height: 40px;
+    line-height: 4rem;
+  }
+}
+@media all and (min-width: 56.25em) {
+  h1 {
+    font-size: 44px;
+    font-size: 4.4rem;
+    line-height: 48px;
+    line-height: 4.8rem;
+  }
+}
+
+h2, .section__title {
+  -webkit-font-smoothing: antialiased;
+  font-family: "EgyptianHeadline", georgia, serif;
+  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 24px;
+  line-height: 2.4rem;
+  font-weight: 900;
+  text-rendering: optimizeLegibility;
+  margin: 24px 0 0 0;
+  margin: 2.4rem 0 0 0;
+}
+@media all and (min-width: 37.5em) {
+  h2, .section__title {
+    font-size: 20px;
+    font-size: 2rem;
+    line-height: 28px;
+    line-height: 2.8rem;
+    margin: 28px 0 0 0;
+    margin: 2.8rem 0 0 0;
+  }
+}
+
+h3 {
+  -webkit-font-smoothing: antialiased;
+  font-family: "EgyptianHeadline", georgia, serif;
+  font-size: 1em;
+  /* 16px */
+  font-weight: 700;
+  line-height: 1.25;
+  /* 20px */
+  text-rendering: optimizeLegibility;
+  margin: 2em 0 0;
+  /* 32px 0 0 */
+}
+
+h4 {
+  -webkit-font-smoothing: antialiased;
+  font-family: "EgyptianHeadline", georgia, serif;
+  font-size: 1em;
+  /* 16px */
+  font-weight: 400;
+  line-height: 1.25;
+  /* 20px */
+  text-rendering: optimizeLegibility;
+  margin: 2rem 0 0.5em;
+  /* 32px 0 8px */
+}
+
+hr {
+  line-height: 0;
+  text-align: center;
+  margin: 2em 0;
+  /* 32px 0 */
+  border: 0;
+  height: 0;
+}
+
+hr::after {
+  color: gainsboro;
+  content: "• • •";
+  letter-spacing: 0.75rem;
+  /* 12px */
+  height: 0;
+}
+
+@media print {
+  h1, h2, .section__title, h3, h4 {
+    page-break-after: avoid;
+  }
+}
+/* ==========================================================================
+   Grouping content
+   http://developers.whatwg.org/grouping-content.html
+   ========================================================================== */
+p, pre, blockquote, ul, ol, dl, figure, table, fieldset {
+  orphans: 3;
+  widows: 3;
+  margin: 0.75em 0;
+}
+
+pre {
+  font-size: 0.875em;
+  line-height: 1.4286;
+  white-space: pre;
+  tab-size: 4;
+  hyphens: none;
+  margin: 1em -0.5em;
+  padding: 0 0.5em;
+  overflow: auto;
+}
+
+@media print {
+  blockquote {
+    page-break-inside: avoid;
+  }
+}
+blockquote p {
+  color: #767676;
+}
+
+ol {
+  list-style-position: inside;
+  list-style-type: decimal;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+ul {
+  list-style-position: inside;
+  list-style-type: circle;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 50em) {
+  ol,
+  ul {
+    list-style-position: outside;
+  }
+}
+ul li li {
+  list-style-type: circle;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+dt {
+  font-weight: 700;
+}
+
+li li,
+dd {
+  margin-left: 2rem;
+}
+
+li > *,
+dd > * {
+  margin-top: 0;
+}
+
+figure {
+  margin: 1.5em 0;
+}
+
+figure img {
+  max-width: 100%;
+}
+
+figcaption {
+  color: #767676;
+  font-size: 0.875rem;
+  line-height: 1.1429;
+  border-bottom: 1px solid gainsboro;
+  padding: 0.5714em 0;
+  display: block;
+}
+
+/* ==========================================================================
+   Text-level semantics
+   http://developers.whatwg.org/text-level-semantics.html
+   ========================================================================== */
+strong {
+  /*  Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome */
+  font-weight: 700;
+}
+
+small {
+  /*  Address inconsistent and variable font size in all browsers */
+  font-size: 80%;
+}
+
+:lang(en-gb) > q {
+  /*  Set consistent quote types */
+  quotes: "\2018" "\2019" "\201c" "\201d";
+}
+
+dfn {
+  /*  Address styling not present in Safari 5 and Chrome */
+  font-style: italic;
+}
+
+abbr {
+  font-feature-settings: "c2sc" 1;
+}
+
+abbr[title] {
+  /*  Address styling not present in IE 8/9, Safari 5, and Chrome */
+  border-bottom: 1px dotted #767676;
+  cursor: help;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+code,
+kbd,
+samp {
+  padding: 0.125rem 0.25rem;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+kbd {
+  font-family: inherit;
+  font-size: 0.875em;
+  /* 14px */
+  line-height: 1.1429;
+  /* 16px */
+  background-color: #fff;
+  margin: 0 0.25rem;
+  /* 0 4px */
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.25rem;
+  /* 4px */
+  padding: 0.125rem 0.5rem;
+  /* 4px 8px */
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+}
+
+sub,
+sup {
+  /*  Prevent `sub` and `sup` affecting `line-height` in all browsers */
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+mark {
+  /*  Address styling not present in IE 8/9 */
+  background: #ffc;
+}
+
+/* ==========================================================================
+   Edits
+   http://developers.whatwg.org/edits.html
+   ========================================================================== */
+mark, ins {
+  background-color: #f4f4ee;
+  padding: 0 0.125rem;
+}
+
+ins {
+  text-decoration: none;
+  background-color: gainsboro;
+}
+
+/* ==========================================================================
+   Links
+   http://developers.whatwg.org/links.html
+   ========================================================================== */
+a {
+  color: #214583;
+  text-decoration: none;
+}
+a:focus {
+  /*  Address `outline` inconsistency between Chrome and other browsers */
+  outline: thin dotted;
+}
+a:active, a:hover {
+  color: #4bc6df;
+  /*  Improve readability when focused and also mouse hovered in all browsers */
+  outline: 0;
+}
+a:active {
+  color: #4bc6df;
+}
+
+@media print {
+  a, a:visited {
+    color: #000 !important;
+  }
+}
+/* ==========================================================================
+   Embedded content
+   http://developers.whatwg.org/embedded-content-1
+   ========================================================================== */
+img {
+  /*  Remove border when inside `a` element in IE 8/9 */
+  border: 0;
+  display: block;
+}
+
+svg:not(:root) {
+  /*  Correct overflow displayed oddly in IE 9 */
+  overflow: hidden;
+}
+
+audio,
+canvas,
+video {
+  /*  Correct `inline-block` display not defined in IE 8/9 */
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  /*  Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices */
+  display: none;
+  height: 0;
+}
+
+video {
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   Tablular data
+   http://developers.whatwg.org/tabular-data.html
+   ========================================================================== */
+table {
+  font-size: 1rem;
+  margin: 1.5em 0 1.5em -0.5em;
+  /* 24px 0 24px -8px */
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table ol,
+table ul {
+  margin-left: 1.5em;
+}
+
+caption {
+  color: #767676;
+  caption-side: bottom;
+  font-size: 0.875rem;
+  /* 14px */
+  line-height: 1.1429;
+  /* 16px */
+  text-align: left;
+  margin: 1rem 0;
+  /* 16px 0 */
+}
+
+td,
+th {
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.25rem 2rem 0.25rem 0.5rem;
+  /* 4px 32px 4px 4px */
+}
+
+th {
+  line-height: 1.25;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+@media print {
+  thead {
+    display: table-header-group;
+  }
+
+  tr, img {
+    page-break-inside: avoid;
+  }
+}
+/* ==========================================================================
+   Forms
+   http://developers.whatwg.org/forms.html
+   ========================================================================== */
+abbr[title="Required"] {
+  color: #c33;
+  border: 0;
+}
+
+fieldset {
+  /*  Define consistent border, margin, and padding */
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+@media print {
+  fieldset {
+    display: none;
+  }
+}
+
+legend {
+  /*  Correct `color` not being inherited in IE 8/9 */
+  border: 0;
+  /*  Remove padding so people aren't caught out if they zero out fieldsets */
+  padding: 0;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+}
+
+button,
+input,
+select,
+textarea {
+  /*  Correct font family not being inherited in all browsers */
+  font-family: inherit;
+  /*  Correct font size not being inherited in all browsers */
+  font-size: 100%;
+  /*  Address margins set differently in Firefox 4+, Safari 5, and Chrome */
+  margin: 0;
+}
+
+button,
+input {
+  /*  Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet */
+  line-height: normal;
+}
+
+button,
+select {
+  /*  Address inconsistent `text-transform` inheritance for `button` and `select` */
+  text-transform: none;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border-radius: 0;
+  /*  Correct inability to style clickable `input` types in iOS. */
+  -webkit-appearance: button;
+  /*  Improve usability and consistency of cursor style between image-type `input` and others */
+  cursor: pointer;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  /*  Address box sizing set to `content-box` in IE 8/9 */
+  box-sizing: border-box;
+  /*  Remove excess padding in IE 8/9 */
+  padding: 0;
+}
+
+input[type="search"] {
+  /*  Address `appearance` set to `searchfield` in Safari 5 and Chrome */
+  -webkit-appearance: none;
+  /*  Address `box-sizing` set to `border-box` in Safari 5 and Chrome (include `-moz` to future-proof) */
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  /*      Remove inner padding and search cancel button in Safari 5 and Chrome on OS X */
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  /*  Remove inner padding and border in Firefox 4+ */
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  /*  Remove default vertical scrollbar in IE 8/9 */
+  overflow: auto;
+  /*  Improve readability and alignment in all browsers */
+  vertical-align: top;
+}
+
+/* Placeholder */
+::-webkit-input-placeholder {
+  color: #bdbdbd;
+}
+
+:focus::-webkit-input-placeholder {
+  color: gainsboro;
+}
+
+:-moz-placeholder {
+  color: #bdbdbd;
+}
+
+:focus:-moz-placeholder {
+  color: gainsboro;
+}
+
+:-ms-input-placeholder {
+  color: #bdbdbd;
+}
+
+:focus:-ms-input-placeholder {
+  color: gainsboro;
+}
+
+/* Accessible hidden content.
+   ========================================================================== */
+.u-h {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+.is-hidden,
+[hidden] {
+  display: none !important;
+}
+
+@media all and (min-width: 37.5em) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+.hide-on-mobile {
+  display: none !important;
+}
+@media all and (min-width: 37.5em) {
+  .hide-on-mobile {
+    display: block !important;
+  }
+}
+
+.is-invisible {
+  visibility: hidden;
+}
+
+/* Micro clearfix (http://nicolasgallagher.com/micro-clearfix-hack/)
+   ========================================================================== */
+.u-cf:after, .u-cf:before {
+  content: "";
+  display: table;
+}
+.u-cf:after {
+  clear: both;
+}
+
+/**
+ * Text hyphenation
+ *
+ * Break strings when their length exceeds the width of their container
+ * and hyphenate words at the end of lines using the `hyphens` property.
+ * Browser support for hyphenation: http://caniuse.com/#search=hyphenation
+ */
+.u-text-hyphenate {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+/**
+ * Fake table
+ */
+.u-table {
+  display: table;
+}
+
+.u-table__row {
+  display: table-row;
+}
+
+.u-table__cell {
+  display: table-cell;
+  width: 10000px;
+  max-width: 100%;
+}
+
+.u-table__cell--top {
+  vertical-align: top;
+}
+
+.u-table__cell--bottom {
+  vertical-align: bottom;
+}
+
+.u-table__cell--collapse {
+  height: 1px;
+}
+
+/**
+ * Reset button styles
+ */
+.u-button-reset {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  background: transparent;
+}
+.u-button-reset:focus {
+  outline: 0;
+}
+
+/**
+ * underlines text 
+ */
+.u-underline {
+  text-decoration: underline;
+}
+
+/* ============================================================
+    Navigation Patterns
+============================================================ */
+/* Common */
+.nav__item {
+  list-style: none;
+}
+
+/* Pagination */
+.nav--pagination {
+  padding-bottom: 36px;
+}
+@media all and (min-width: 37.5em) {
+  .nav--pagination {
+    margin-left: 178px;
+  }
+}
+.nav--pagination .nav__item {
+  font-size: 0;
+  font-size: 0;
+  line-height: 0;
+  line-height: 0;
+  text-indent: 100%;
+  background-repeat: no-repeat;
+  display: block;
+  width: 44px;
+  width: 4.4rem;
+  height: 44px;
+  height: 4.4rem;
+}
+.nav--pagination .nav__item::after {
+  font-family: "AgateSans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 44px;
+  line-height: 4.4rem;
+  display: none;
+  margin-left: 10px;
+}
+.nav--pagination .nav__item--next {
+  background-image: url(/assets/images/i-pagination-next.svg);
+  opacity: 0.9;
+}
+.nav--pagination .nav__item--next:hover {
+  opacity: 1;
+}
+.nav--pagination .nav__item--next:hover::after {
+  content: "newer";
+  display: block;
+}
+.nav--pagination .nav__item--prev {
+  background-image: url(/assets/images/i-pagination-prev.svg);
+  opacity: 0.9;
+}
+.nav--pagination .nav__item--prev:hover {
+  opacity: 1;
+}
+.nav--pagination .nav__item--prev:hover::after {
+  content: "older";
+  display: block;
+}
+
+/* ============================================================
+    Article patterns
+============================================================ */
+.article {
+  margin-left: 20px;
+  border-left: 1px dotted #4bc6df;
+  padding: 36px 0 36px 40px;
+  position: relative;
+}
+@media all and (min-width: 37.5em) {
+  .article {
+    margin-left: 200px;
+  }
+}
+
+.article__title a {
+  color: #333333;
+}
+.article__title a:hover {
+  text-decoration: underline;
+}
+.article--summary .article__title {
+  font-size: 20px;
+  font-size: 2rem;
+  line-height: 24px;
+  line-height: 2.4rem;
+  margin-bottom: 12px;
+}
+@media all and (min-width: 37.5em) {
+  .article--summary .article__title {
+    font-size: 28px;
+    font-size: 2.8rem;
+    line-height: 32px;
+    line-height: 3.2rem;
+  }
+}
+@media all and (min-width: 56.25em) {
+  .article--summary .article__title {
+    font-size: 36px;
+    font-size: 3.6rem;
+    line-height: 40px;
+    line-height: 4rem;
+  }
+}
+
+.article__main {
+  -webkit-font-smoothing: antialiased;
+}
+@media all and (min-width: 56.25em) {
+  .article__main {
+    padding-right: 60px;
+  }
+}
+@media all and (min-width: 78.75em) {
+  .article__main {
+    padding-right: 220px;
+  }
+}
+.article__main a {
+  text-decoration: underline;
+}
+@media all and (min-width: 56.25em) {
+  .article__main p {
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 28px;
+    line-height: 2.8rem;
+  }
+}
+.article__main blockquote {
+  margin: 24px 0;
+  color: #767676;
+}
+.article__main blockquote p {
+  text-indent: 4rem;
+  margin: 0;
+}
+.article__main blockquote::before {
+  background: url(/assets/images/i-quote-marks.svg) no-repeat 0 0;
+  width: 39px;
+  height: 24px;
+  content: "";
+  position: absolute;
+  margin-top: -3px;
+}
+
+.article__footer {
+  color: #767676;
+  font-family: "AgateSans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 24px;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  border-bottom: 1px dotted #4bc6df;
+  padding-left: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.article__footer .u-photo {
+  background-color: #fff;
+  border: 1px solid rgba(75, 198, 223, 0.34);
+  border-radius: 100%;
+  padding: 1px;
+  position: absolute;
+  left: -30px;
+  left: -3rem;
+  top: -4px;
+  top: -0.4rem;
+}
+.article__footer .p-name {
+  float: left;
+}
+.article__footer .dt-published {
+  float: right;
+}
+.article__footer a {
+  color: #767676;
+}
+
+.section--related {
+  border-top: 1px dotted gainsboro;
+  overflow: hidden;
+}
+.section--related .article {
+  margin: 36px 0 0 0;
+  border: 0;
+  padding: 0;
+}
+@media all and (min-width: 56.25em) {
+  .section--related .article {
+    padding: 0 20px 0 0;
+    width: 33%;
+    min-height: 132px;
+    float: left;
+  }
+}
+.section--related .article__title {
+  font-size: 20px;
+  font-size: 2rem;
+  line-height: 24px;
+  line-height: 2.4rem;
+  margin: 0;
+  border-top: 2px solid #4bc6df;
+  padding-top: 4px;
+}
+.section--related .article__footer {
+  border: 0;
+  padding: 0;
+  position: static;
+}
+@media all and (min-width: 56.25em) {
+  .section--related .article__footer {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+  }
+}
+.section--related .article__footer .dt-published {
+  float: none;
+}
+
+/* ============================================================
+    Section patterns
+============================================================ */
+.section {
+  margin-top: 36px;
+}
+
+.section__title {
+  margin-top: 6px;
+}
+
+/* ============================================================
+    Syntax highlighting
+============================================================ */
+.hll {
+  background-color: #ffffcc;
+}
+
+.c {
+  color: #999;
+}
+
+/* Comment */
+.err {
+  color: #AA0000;
+  background-color: #ffaaaa;
+}
+
+/* Error */
+.k {
+  color: #006699;
+}
+
+/* Keyword */
+.o {
+  color: #555555;
+}
+
+/* Operator */
+.cm {
+  color: #0099FF;
+  font-style: italic;
+}
+
+/* Comment.Multiline */
+.cp {
+  color: #009999;
+}
+
+/* Comment.Preproc */
+.c1 {
+  color: #999;
+}
+
+/* Comment.Single */
+.cs {
+  color: #999;
+}
+
+/* Comment.Special */
+.gd {
+  background-color: #FFCCCC;
+  border: 1px solid #cc0000;
+}
+
+/* Generic.Deleted */
+.ge {
+  font-style: italic;
+}
+
+/* Generic.Emph */
+.gr {
+  color: red;
+}
+
+/* Generic.Error */
+.gh {
+  color: #003300;
+}
+
+/* Generic.Heading */
+.gi {
+  background-color: #CCFFCC;
+  border: 1px solid #00cc00;
+}
+
+/* Generic.Inserted */
+.go {
+  color: #aaaaaa;
+}
+
+/* Generic.Output */
+.gp {
+  color: #000099;
+}
+
+/* Generic.Prompt */
+/* Generic.Strong */
+.gu {
+  color: #003300;
+}
+
+/* Generic.Subheading */
+.gt {
+  color: #99cc66;
+}
+
+/* Generic.Traceback */
+.kc {
+  color: #006699;
+}
+
+/* Keyword.Constant */
+.kd {
+  color: #006699;
+}
+
+/* Keyword.Declaration */
+.kn {
+  color: #006699;
+}
+
+/* Keyword.Namespace */
+.kp {
+  color: #006699;
+}
+
+/* Keyword.Pseudo */
+.kr {
+  color: #006699;
+}
+
+/* Keyword.Reserved */
+.kt {
+  color: #007788;
+}
+
+/* Keyword.Type */
+.m {
+  color: #ff6600;
+}
+
+/* Literal.Number */
+.s {
+  color: #d44950;
+}
+
+/* Literal.String */
+.na {
+  color: #4f9fcf;
+}
+
+/* Name.Attribute */
+.nb {
+  color: #336666;
+}
+
+/* Name.Builtin */
+.nc {
+  color: #00AA88;
+}
+
+/* Name.Class */
+.no {
+  color: #336600;
+}
+
+/* Name.Constant */
+.nd {
+  color: #9999ff;
+}
+
+/* Name.Decorator */
+.ni {
+  color: #999999;
+}
+
+/* Name.Entity */
+.ne {
+  color: #CC0000;
+}
+
+/* Name.Exception */
+.nf {
+  color: #cc00ff;
+}
+
+/* Name.Function */
+.nl {
+  color: #9999ff;
+}
+
+/* Name.Label */
+.nn {
+  color: #00CCFF;
+}
+
+/* Name.Namespace */
+.nt {
+  color: #2f6f9f;
+}
+
+/* Name.Tag */
+.nv {
+  color: #003333;
+}
+
+/* Name.Variable */
+.ow {
+  color: #000000;
+}
+
+/* Operator.Word */
+.w {
+  color: #bbbbbb;
+}
+
+/* Text.Whitespace */
+.mf {
+  color: #ff6600;
+}
+
+/* Literal.Number.Float */
+.mh {
+  color: #ff6600;
+}
+
+/* Literal.Number.Hex */
+.mi {
+  color: #ff6600;
+}
+
+/* Literal.Number.Integer */
+.mo {
+  color: #ff6600;
+}
+
+/* Literal.Number.Oct */
+.sb {
+  color: #cc3300;
+}
+
+/* Literal.String.Backtick */
+.sc {
+  color: #cc3300;
+}
+
+/* Literal.String.Char */
+.sd {
+  color: #CC3300;
+  font-style: italic;
+}
+
+/* Literal.String.Doc */
+.s2 {
+  color: #cc3300;
+}
+
+/* Literal.String.Double */
+.se {
+  color: #CC3300;
+}
+
+/* Literal.String.Escape */
+.sh {
+  color: #cc3300;
+}
+
+/* Literal.String.Heredoc */
+.si {
+  color: #aa0000;
+}
+
+/* Literal.String.Interpol */
+.sx {
+  color: #cc3300;
+}
+
+/* Literal.String.Other */
+.sr {
+  color: #33aaaa;
+}
+
+/* Literal.String.Regex */
+.s1 {
+  color: #cc3300;
+}
+
+/* Literal.String.Single */
+.ss {
+  color: #ffcc33;
+}
+
+/* Literal.String.Symbol */
+.bp {
+  color: #336666;
+}
+
+/* Name.Builtin.Pseudo */
+.vc {
+  color: #003333;
+}
+
+/* Name.Variable.Class */
+.vg {
+  color: #003333;
+}
+
+/* Name.Variable.Global */
+.vi {
+  color: #003333;
+}
+
+/* Name.Variable.Instance */
+.il {
+  color: #ff6600;
+}
+
+/* Literal.Number.Integer.Long */
+.css .o,
+.css .o + .nt,
+.css .nt + .nt {
+  color: #999;
+}
+
+/* ============================================================
+    Icons
+============================================================ */
+.i {
+  line-height: 1;
+  text-indent: 100%;
+  white-space: nowrap;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.i-twitter {
+  background-image: url(/assets/images/i-twitter.png);
+  width: 36px;
+  width: 3.6rem;
+  height: 36px;
+  height: 3.6rem;
+}
+.svg .i-twitter {
+  background-image: url(/assets/images/i-twitter.svg);
+}
+
+.i-github {
+  background-image: url(/assets/images/i-github.png);
+  width: 36px;
+  width: 3.6rem;
+  height: 36px;
+  height: 3.6rem;
+}
+.svg .i-github {
+  background-image: url(/assets/images/i-github.svg);
+}
+
+.i-rss {
+  background-image: url(/assets/images/i-rss.png);
+  width: 36px;
+  width: 3.6rem;
+  height: 36px;
+  height: 3.6rem;
+}
+.svg .i-rss {
+  background-image: url(/assets/images/i-rss.svg);
+}
+
+.i-arrow-small-up {
+  background-image: url(/assets/images/i-arrow-small-up.png);
+  width: 14px;
+  width: 1.4rem;
+  height: 8px;
+  height: 0.8rem;
+}
+.svg .i-arrow-small-up {
+  background-image: url(/assets/images/i-arrow-small-up.svg);
+}
+
+.i-guardian-logo {
+  background-image: url(/assets/images/i-guardian-logo.png);
+  width: 108px;
+  width: 10.8rem;
+  height: 20px;
+  height: 2rem;
+  display: block;
+}
+.svg .i-guardian-logo {
+  background-image: url(/assets/images/i-guardian-logo.svg);
+}
+
+/* ============================================================
+    Layout
+============================================================ */
+body {
+  margin: 0 auto;
+  border-top: 4px solid #4bc6df;
+}
+
+/* Containers */
+.container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1140px;
+  padding: 0 20px;
+}
+@media all and (min-width: 78.75em) {
+  .container {
+    max-width: 1300px;
+  }
+}
+
+/* Banner */
+.banner {
+  padding: 18px 0;
+  padding: 1.8rem 0;
+}
+@media all and (min-width: 37.5em) {
+  .banner {
+    padding: 36px 0;
+    padding: 3.6rem 0;
+  }
+}
+
+.banner__title {
+  margin: 0;
+}
+.banner__title a {
+  text-indent: 100%;
+  white-space: nowrap;
+  background: url(/assets/images/logo.png) no-repeat 0 0;
+  background-size: 180px 24px;
+  background-size: 18rem 2.4rem;
+  width: 180px;
+  width: 18rem;
+  height: 24px;
+  height: 2.4rem;
+  display: block;
+  overflow: hidden;
+}
+@media all and (min-width: 37.5em) {
+  .banner__title a {
+    background-size: 280px 36px;
+    background-size: 28rem 3.6rem;
+    width: 280px;
+    width: 28rem;
+    height: 36px;
+    height: 3.6rem;
+  }
+}
+.svg .banner__title a {
+  background-image: url(/assets/images/logo.svg);
+}
+@media all and (min-width: 37.5em) {
+  .banner__title:before {
+    content: "";
+    display: block;
+    height: 171px;
+    border-right: 1px dotted #4bc6df;
+    float: right;
+    position: absolute;
+    left: 220px;
+    top: 28px;
+  }
+}
+
+/* Navigation */
+.navigation {
+  position: absolute;
+  top: 64px;
+  top: 6.4rem;
+  right: 0;
+  right: 0;
+  left: 0;
+  left: 0;
+}
+@media all and (min-width: 37.5em) {
+  .navigation {
+    top: 112px;
+    top: 11.2rem;
+  }
+}
+
+.navigation__site {
+  border-top: 1px dotted #4bc6df;
+  padding-bottom: 20px;
+}
+.navigation__site .nav__item {
+  display: block;
+}
+@media all and (min-width: 18.75em) {
+  .navigation__site .nav__item {
+    float: left;
+    width: 25%;
+  }
+}
+.navigation__site .nav__item a {
+  color: #333333;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 16px;
+  line-height: 1.6rem;
+  padding-top: 6px;
+  padding-right: 12px;
+  display: inline-block;
+}
+@media all and (min-width: 37.5em) {
+  .navigation__site .nav__item a {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 20px;
+    line-height: 2rem;
+  }
+}
+.navigation__site .nav__item--active a {
+  margin-top: -1px;
+  border-top: 2px solid #4bc6df;
+  padding-top: 5px;
+}
+
+.navigation__social {
+  margin-right: 20px;
+  overflow: hidden;
+  position: absolute;
+  top: -48px;
+  top: -4.8rem;
+  right: 0;
+}
+@media all and (min-width: 37.5em) {
+  .navigation__social {
+    top: -72px;
+    top: -7.2rem;
+  }
+}
+.navigation__social .nav__item {
+  float: left;
+  margin-left: 10px;
+}
+@media all and (min-width: 37.5em) {
+  .navigation__social .nav__item {
+    margin-left: 20px;
+    margin-left: 2rem;
+  }
+}
+
+/* Main */
+.main {
+  padding-top: 72px;
+}
+
+/* Content info */
+/* Elements modifiers specific to the footer
+   ========================================================================== */
+.guardian-logo-wrapper--footer {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 19px 0;
+}
+
+.svg .guardian-logo-wrapper--footer i {
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  transform: scale(1.3);
+  -webkit-transform-origin: 0 50%;
+  -moz-transform-origin: 0 50%;
+  -ms-transform-origin: 0 50%;
+  -o-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+}
+
+@media all and (min-width: 37.5em) {
+  .top--footer {
+    float: right;
+    width: 140px;
+    padding-top: 18px;
+    padding-left: 0;
+  }
+}
+
+/**
+ * Nav links:
+ * Need to be styled alongside .footer__primary
+ * Fixes: white links on white background if global CSS fails to load
+ */
+.nav--footer .nav__link {
+  color: #ffffff;
+  border-top-color: #2854a0;
+}
+
+/* Footer
+   ========================================================================== */
+.footer {
+  padding: 0 0 16px;
+  background: #f4f4ee;
+}
+
+.footer__primary {
+  background: #214583;
+}
+
+.footer__banner {
+  margin-bottom: 8px;
+}
+@media all and (min-width: 37.5em) {
+  .footer__banner {
+    background-color: #214583;
+  }
+}
+
+.footer__secondary {
+  font-family: "AgateSans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
+  font-size: 13px;
+  font-size: 1.3rem;
+  line-height: 19px;
+  line-height: 1.9rem;
+  padding-top: 20px;
+  color: #9c9c9c;
+}
+@media all and (min-width: 37.5em) {
+  .footer__secondary {
+    padding-top: 8px;
+  }
+}
+.footer__secondary a {
+  color: #6e6e6e;
+}
+
+.colophon {
+  list-style: none;
+  margin: 0 0 12px;
+}
+@media all and (min-width: 37.5em) {
+  .colophon {
+    float: right;
+    width: 300px;
+    margin-left: 60px;
+  }
+}
+@media all and (min-width: 56.25em) {
+  .colophon {
+    width: 460px;
+  }
+}
+@media all and (min-width: 78.75em) {
+  .colophon {
+    width: 620px;
+  }
+}
+.colophon a {
+  margin-bottom: .6em;
+  display: block;
+}
+
+.colophon__item {
+  float: left;
+  width: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 10px;
+}
+@media all and (max-width: 56.24em) {
+  .colophon__item:nth-child(even) {
+    padding-right: 0;
+    padding-left: 10px;
+  }
+}
+@media all and (min-width: 56.25em) {
+  .colophon__item {
+    width: 140px;
+    padding-left: 0;
+    margin-right: 20px;
+  }
+}
+@media all and (min-width: 56.25em) and (max-width: 78.74em) {
+  .colophon__item:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+@media all and (min-width: 78.75em) {
+  .colophon__item:nth-child(4n) {
+    margin-right: 0;
+  }
+}
+
+.footer__misc {
+  border-top: 1px solid gainsboro;
+  padding-top: 3px;
+}
+@media all and (min-width: 37.5em) {
+  .footer__misc {
+    padding-top: 0;
+    border-top: 0;
+  }
+}
+
+.really-serious-copyright {
+  margin-bottom: 4px;
+}
+
+.guardian-logo-wrapper {
+  float: left;
+  line-height: 1;
+}
+
+.top {
+  color: #fff;
+  font-family: "AgateSans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 20px;
+  line-height: 2rem;
+  display: block;
+  padding: 10px 0;
+}
+.top:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+@media all and (min-width: 37.5em) {
+  .top {
+    padding-top: 18px;
+  }
+}
+
+.top .i-arrow-small-up {
+  margin-left: 8px;
+  position: relative;
+  top: -1px;
+}

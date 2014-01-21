@@ -1,0 +1,58 @@
+port:             80
+url:              http://next.theguardian.com/
+
+# Meta
+title:            Guardian Next
+tagline:          'Join us on our journey to the next generation of digital journalism'
+url:              http://next.theguardian.com
+author:
+  name:           'The Guardian'
+  url:            https://twitter.com/guardian
+
+# Dependencies
+markdown:         redcarpet
+redcarpet:
+  extensions:     [smart]
+pygments:         true
+
+# Setup
+permalink:        /updates/:title/
+paginate:         10
+paginate_path:    "/updates/page:num"
+exclude:          [bower.json, gruntfile.js, package.json, bower_components]
+
+# Navigation
+navigation:
+- text: About the project
+  url: /about/
+- text: Project updates
+  url: /updates/
+- text: Your feedback
+  url: /feedback/
+
+# Authors
+authors:
+  paulrobertlloyd:
+    display_name: Paul Lloyd
+    gravatar: 0bce06bd06ee7a2c4f5500f25dcf7f18
+    email: me+github@paulrobertlloyd.com
+    twitter: paulrobertlloyd
+    github: paulrobertlloyd
+  kaelig:
+    display_name: Kaelig Deloumeau-Prigent
+    gravatar: f7e7b837bd06d6193f4ac70f17e6f44b
+    email: kaelig@deloumeau.fr
+    twitter: kaelig
+    github: kaelig
+  kungpochicken:
+    display_name: Chris Mulholland
+    gravatar: 
+    email: 
+    twitter: kungpochicken
+    github: kungpochicken
+  jfitzell:
+    display_name: Julian Fitzell
+    gravatar: 
+    email: 
+    twitter: jfitzell
+    github: 

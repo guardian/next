@@ -1,0 +1,67 @@
+/* ============================================================
+    Icons
+============================================================ */
+.i {
+    line-height: 1;
+    text-indent: 100%;
+    white-space: nowrap;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.i-twitter {
+    background-image: url(/assets/images/i-twitter.png);
+    @include rem ((
+        width: 36px,
+        height: 36px
+    ));
+    .svg & {
+        background-image: url(/assets/images/i-twitter.svg);
+    }
+}
+
+.i-github {
+    background-image: url(/assets/images/i-github.png);
+    @include rem ((
+        width: 36px,
+        height: 36px
+    ));
+    .svg & {
+        background-image: url(/assets/images/i-github.svg);
+    }
+}
+
+.i-rss {
+    background-image: url(/assets/images/i-rss.png);
+    @include rem ((
+        width: 36px,
+        height: 36px
+    ));
+    .svg & {
+        background-image: url(/assets/images/i-rss.svg);
+    }
+}
+
+.i-arrow-small-up {
+    background-image: url(/assets/images/i-arrow-small-up.png);
+    @include rem ((
+        width: 14px,
+        height: 8px
+    ));
+    .svg & {
+        background-image: url(/assets/images/i-arrow-small-up.svg);
+    }
+}
+
+.i-guardian-logo {
+    background-image: url(/assets/images/i-guardian-logo.png);
+    @include rem ((
+        width: 108px,
+        height: 20px
+    ));
+    display: block;
+    .svg & {
+        background-image: url(/assets/images/i-guardian-logo.svg);
+    }
+}

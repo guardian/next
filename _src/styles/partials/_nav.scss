@@ -1,0 +1,57 @@
+/* ============================================================
+    Navigation Patterns
+============================================================ */
+
+/* Common */
+.nav__item {
+    list-style: none;
+}
+
+/* Pagination */
+.nav--pagination {
+    padding-bottom: $gs-row-height;
+    @include mq($from: tablet) {
+        margin-left: 178px;
+    }
+
+    .nav__item {
+        @include font-size(0, 0);
+        text-indent: 100%;
+        background-repeat: no-repeat;
+        display: block;
+        @include rem ((
+            width: 44px,
+            height: 44px
+        ));
+        &::after {
+            font-family: $sans-serif;
+            @include font-size(14, 44);
+            display: none;
+            margin-left: $gs-gutter/2;
+        }
+    }
+
+    .nav__item--next {
+        background-image: url(/assets/images/i-pagination-next.svg);
+        opacity: 0.9;
+        &:hover {
+            opacity: 1;
+            &::after {
+                content: "newer";
+                display: block;
+            }
+        }
+    }
+
+    .nav__item--prev {
+        background-image: url(/assets/images/i-pagination-prev.svg);
+        opacity: 0.9;
+        &:hover {
+            opacity: 1;
+            &::after {
+                content: "older";
+                display: block;
+            }
+        }
+    }
+}
