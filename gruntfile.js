@@ -54,6 +54,18 @@ module.exports = function(grunt) {
             }
         },
         
+        dataUri: {
+            build: {
+                src: ['assets/styles/*.css'],
+                dest: 'assets/styles',
+                options: {
+                    target: ['assets/images/embed/*.*'],
+                    fixDirLevel: true,
+                    baseDir: './'
+                }
+            }
+        },
+        
         cssmin: {
             build: {
                 options: {
@@ -66,13 +78,13 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            scripts: {
-                files: ['_src/scripts/*.js'],
-                tasks: ['concat', 'uglify'],
-                options: {
-                    spawn: false,
-                },
-            },
+            // scripts: {
+            //     files: ['_src/scripts/*.js'],
+            //     tasks: ['concat', 'uglify'],
+            //     options: {
+            //         spawn: false,
+            //     },
+            // },
             images: {
                 files: ['_src/images/**/*.{png,jpg}'],
                 tasks: ['imagemin'],
@@ -87,13 +99,13 @@ module.exports = function(grunt) {
                     spawn: false,
                 },
             },
-            // styles: {
-            //     files: ['_src/styles/**/*.scss'],
-            //     tasks: ['sass'],
-            //     options: {
-            //         spawn: false,
-            //     },
-            // },
+            styles: {
+                files: ['_src/styles/**/*.scss'],
+                tasks: ['sass, dataUri'],
+                options: {
+                    spawn: false,
+                },
+            },
         }
     });
 
@@ -104,6 +116,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-svgmin');
+    grunt.loadNpmTasks("grunt-data-uri");
 
-    grunt.registerTask('default', ['imagemin', 'svgmin', 'sass', 'cssmin']);
+    grunt.registerTask('default', ['imagemin', 'svgmin', 'sass', 'dataUri', 'cssmin']);
 };

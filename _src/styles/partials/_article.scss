@@ -58,14 +58,14 @@
             margin: 0;
         }
         &::before {
-            background: url(../assets/images/i-quote-marks.png) no-repeat 0 0;
+            background: url(/assets/images/i-quote-marks.png) no-repeat 0 0;
             width: 39px;
             height: 24px;
             content: "";
             position: absolute;
             margin-top: -3px;
             .svg & {
-                background-image: url(../assets/images/i-quote-marks.svg);
+                background-image: url(/assets/images/embed/i-quote-marks.svg);
             }
         }
     }

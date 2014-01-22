@@ -32,10 +32,10 @@
     }
 
     .nav__item--next {
-        background-image: url(../images/i-pagination-next.png);
+        background-image: url(/assets/images/i-pagination-next.png);
         opacity: 0.9;
         .svg & {
-            background-image: url(../images/i-pagination-next.svg);
+            background-image: url(/assets/images/embed/i-pagination-next.svg);
         }
         &:hover {
             opacity: 1;
@@ -47,10 +47,10 @@
     }
 
     .nav__item--prev {
-        background-image: url(../images/i-pagination-prev.png);
+        background-image: url(/assets/images/i-pagination-prev.png);
         opacity: 0.9;
         .svg & {
-            background-image: url(../images/i-pagination-prev.svg);
+            background-image: url(/assets/images/embed/i-pagination-prev.svg);
         }
         &:hover {
             opacity: 1;

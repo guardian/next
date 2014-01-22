@@ -11,57 +11,57 @@
 }
 
 .i-twitter {
-    background-image: url(../images/i-twitter.png);
+    background-image: url(/assets/images/i-twitter.png);
     @include rem ((
         width: 36px,
         height: 36px
     ));
     .svg & {
-        background-image: url(../images/i-twitter.svg);
+        background-image: url(/assets/images/embed/i-twitter.svg);
     }
 }
 
 .i-github {
-    background-image: url(../images/i-github.png);
+    background-image: url(/assets/images/i-github.png);
     @include rem ((
         width: 36px,
         height: 36px
     ));
     .svg & {
-        background-image: url(../images/i-github.svg);
+        background-image: url(/assets/images/embed/i-github.svg);
     }
 }
 
 .i-rss {
-    background-image: url(../images/i-rss.png);
+    background-image: url(/assets/images/i-rss.png);
     @include rem ((
         width: 36px,
         height: 36px
     ));
     .svg & {
-        background-image: url(../images/i-rss.svg);
+        background-image: url(/assets/images/embed/i-rss.svg);
     }
 }
 
 .i-arrow-small-up {
-    background-image: url(../images/i-arrow-small-up.png);
+    background-image: url(/assets/images/i-arrow-small-up.png);
     @include rem ((
         width: 14px,
         height: 8px
     ));
     .svg & {
-        background-image: url(../images/i-arrow-small-up.svg);
+        background-image: url(/assets/images/embed/i-arrow-small-up.svg);
     }
 }
 
 .i-guardian-logo {
-    background-image: url(../images/i-guardian-logo.png);
+    background-image: url(/assets/images/i-guardian-logo.png);
     @include rem ((
         width: 108px,
         height: 20px
     ));
     display: block;
     .svg & {
-        background-image: url(../images/i-guardian-logo.svg);
+        background-image: url(/assets/images/embed/i-guardian-logo.svg);
     }
 }
