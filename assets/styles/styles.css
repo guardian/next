@@ -1502,8 +1502,8 @@ body {
 /* Navigation */
 .navigation {
   position: absolute;
-  top: 64px;
-  top: 6.4rem;
+  top: 112px;
+  top: 11.2rem;
   right: 0;
   right: 0;
   left: 0;
@@ -1557,30 +1557,35 @@ body {
   margin-right: 20px;
   overflow: hidden;
   position: absolute;
-  top: -48px;
-  top: -4.8rem;
-  right: 0;
+  top: -56px;
+  top: -5.6rem;
 }
 @media all and (min-width: 37.5em) {
   .navigation__social {
     top: -72px;
     top: -7.2rem;
+    right: 0;
   }
 }
 .navigation__social .nav__item {
   float: left;
-  margin-left: 10px;
+  margin: 0 10px 0 0;
 }
 @media all and (min-width: 37.5em) {
   .navigation__social .nav__item {
-    margin-left: 20px;
-    margin-left: 2rem;
+    margin: 0 0 0 20px;
+    margin: 0 0 0 2rem;
   }
 }
 
 /* Main */
 .main {
-  padding-top: 72px;
+  padding-top: 144px;
+}
+@media all and (min-width: 37.5em) {
+  .main {
+    padding-top: 108px;
+  }
 }
 
 /* Content info */

@@ -67,7 +67,7 @@ body {
 .navigation {
     position: absolute;
     @include rem ((
-        top: 64px,
+        top: 112px,
         right: 0,
         left: 0
     ));
@@ -113,21 +113,22 @@ body {
     overflow: hidden;
     position: absolute;
     @include rem ((
-        top: -48px,
+        top: -56px,
     ));
-    right: 0;
+    
     @include mq($from: tablet) {
         @include rem ((
             top: -72px,
         ));
+        right: 0;
     }
     
     .nav__item {
         float: left;
-        margin-left: $gs-gutter/2;
+        margin: 0 $gs-gutter/2 0 0;
         @include mq($from: tablet) {
             @include rem ((
-                margin-left: $gs-gutter,
+                margin: 0 0 0 $gs-gutter,
             ));
         }
     }
@@ -135,7 +136,10 @@ body {
 
 /* Main */
 .main {
-    padding-top: $gs-row-height*2;
+    padding-top: $gs-row-height*4;
+    @include mq($from: tablet) {
+        padding-top: $gs-row-height*3;
+    }
 }
 
 /* Content info */
