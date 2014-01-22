@@ -21,7 +21,7 @@
             <ul class="navigation__site nav">
                 {% assign url = page.url|remove:'index.html' %}
                 {% for link in site.navigation %}
-                <li class="nav__item {% if url == link.url %} nav__item--active{% endif %}"><a href="{{link.url}}" title="{{link.title}}">{{link.text}}</a></li>
+                <li class="nav__item {% if url == link.url %} nav__item--active{% endif %}"><a href="{{ site.url }}{{link.url}}">{{link.text}}</a></li>
                 {% endfor %}
                 <li class="nav__item"><strong><a href="http://theguardian.com/uk?view=mobile">Preview website</a></strong></li>
             </ul>
