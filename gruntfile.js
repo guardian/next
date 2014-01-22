@@ -101,7 +101,7 @@ module.exports = function(grunt) {
             },
             styles: {
                 files: ['_src/styles/**/*.scss'],
-                tasks: ['sass, dataUri'],
+                tasks: ['sass', 'dataUri', 'cssmin'],
                 options: {
                     spawn: false,
                 },
