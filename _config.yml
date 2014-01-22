@@ -1,10 +1,8 @@
-port:             80
-url:              http://next.theguardian.com/
-
 # Meta
 title:            Guardian Next
 tagline:          'Join us on our journey to the next generation of digital journalism'
-url:              http://next.theguardian.com
+# url:            http://next.theguardian.com/
+url:              http://guardian.github.io/next/
 author:
   name:           'The Guardian'
   url:            https://twitter.com/guardian
@@ -35,24 +33,30 @@ authors:
   paulrobertlloyd:
     display_name: Paul Lloyd
     gravatar: 0bce06bd06ee7a2c4f5500f25dcf7f18
-    email: me+github@paulrobertlloyd.com
     twitter: paulrobertlloyd
     github: paulrobertlloyd
-  kaelig:
-    display_name: Kaelig Deloumeau-Prigent
-    gravatar: f7e7b837bd06d6193f4ac70f17e6f44b
-    email: kaelig@deloumeau.fr
-    twitter: kaelig
-    github: kaelig
+  cantlin:
+    display_name: Cantlin Ashrowan
+    gravatar: aff34dfa0f47d7072108a836a06bb5fd
+    twitter: cantlin
+    github: cantlin
   kungpochicken:
     display_name: Chris Mulholland
     gravatar: 
-    email: 
     twitter: kungpochicken
     github: kungpochicken
   jfitzell:
     display_name: Julian Fitzell
     gravatar: 
-    email: 
     twitter: jfitzell
     github: 
+  kaelig:
+    display_name: Kaelig Deloumeau-Prigent
+    gravatar: f7e7b837bd06d6193f4ac70f17e6f44b
+    twitter: kaelig
+    github: kaelig
+  phamann:
+    display_name: Patrick Hamann
+    gravatar: 276c149f793de9af4e98991ed52ff874
+    twitter: phamann
+    github: phamann
