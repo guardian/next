@@ -1,8 +1,8 @@
 # Meta
 title:            Guardian Next
 tagline:          'Join us on our journey to the next generation of digital journalism'
-# url:            http://next.theguardian.com/
-url:              http://guardian.github.io/next/
+# url:            http://next.theguardian.com
+url:              http://guardian.github.io/next
 author:
   name:           'The Guardian'
   url:            https://twitter.com/guardian
