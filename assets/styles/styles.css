@@ -509,7 +509,6 @@ video {
    http://developers.whatwg.org/tabular-data.html
    ========================================================================== */
 table {
-  font-size: 1rem;
   margin: 1.5em 0 1.5em -0.5em;
   /* 24px 0 24px -8px */
   border-collapse: collapse;
@@ -536,14 +535,13 @@ td,
 th {
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid gainsboro;
   padding: 0.25rem 2rem 0.25rem 0.5rem;
   /* 4px 32px 4px 4px */
 }
 
 th {
   line-height: 1.25;
-  background-color: rgba(0, 0, 0, 0.05);
 }
 
 @media print {
@@ -838,8 +836,11 @@ textarea {
   margin-left: 10px;
 }
 .nav--pagination .nav__item--next {
-  background-image: url(/assets/images/i-pagination-next.svg);
+  background-image: url(../assets/images/i-pagination-next.png);
   opacity: 0.9;
+}
+.svg .nav--pagination .nav__item--next {
+  background-image: url(../assets/images/i-pagination-next.svg);
 }
 .nav--pagination .nav__item--next:hover {
   opacity: 1;
@@ -849,8 +850,11 @@ textarea {
   display: block;
 }
 .nav--pagination .nav__item--prev {
-  background-image: url(/assets/images/i-pagination-prev.svg);
+  background-image: url(../assets/images/i-pagination-prev.png);
   opacity: 0.9;
+}
+.svg .nav--pagination .nav__item--prev {
+  background-image: url(../assets/images/i-pagination-prev.svg);
 }
 .nav--pagination .nav__item--prev:hover {
   opacity: 1;
@@ -938,12 +942,15 @@ textarea {
   margin: 0;
 }
 .article__main blockquote::before {
-  background: url(/assets/images/i-quote-marks.svg) no-repeat 0 0;
+  background: url(../assets/images/i-quote-marks.png) no-repeat 0 0;
   width: 39px;
   height: 24px;
   content: "";
   position: absolute;
   margin-top: -3px;
+}
+.svg .article__main blockquote::before {
+  background-image: url(../assets/images/i-quote-marks.svg);
 }
 
 .article__footer {
@@ -1362,51 +1369,51 @@ textarea {
 }
 
 .i-twitter {
-  background-image: url(/assets/images/i-twitter.png);
+  background-image: url(..../assets/images/i-twitter.png);
   width: 36px;
   width: 3.6rem;
   height: 36px;
   height: 3.6rem;
 }
 .svg .i-twitter {
-  background-image: url(/assets/images/i-twitter.svg);
+  background-image: url(../assets/images/i-twitter.svg);
 }
 
 .i-github {
-  background-image: url(/assets/images/i-github.png);
+  background-image: url(../assets/images/i-github.png);
   width: 36px;
   width: 3.6rem;
   height: 36px;
   height: 3.6rem;
 }
 .svg .i-github {
-  background-image: url(/assets/images/i-github.svg);
+  background-image: url(../assets/images/i-github.svg);
 }
 
 .i-rss {
-  background-image: url(/assets/images/i-rss.png);
+  background-image: url(../assets/images/i-rss.png);
   width: 36px;
   width: 3.6rem;
   height: 36px;
   height: 3.6rem;
 }
 .svg .i-rss {
-  background-image: url(/assets/images/i-rss.svg);
+  background-image: url(../assets/images/i-rss.svg);
 }
 
 .i-arrow-small-up {
-  background-image: url(/assets/images/i-arrow-small-up.png);
+  background-image: url(../assets/images/i-arrow-small-up.png);
   width: 14px;
   width: 1.4rem;
   height: 8px;
   height: 0.8rem;
 }
 .svg .i-arrow-small-up {
-  background-image: url(/assets/images/i-arrow-small-up.svg);
+  background-image: url(../assets/images/i-arrow-small-up.svg);
 }
 
 .i-guardian-logo {
-  background-image: url(/assets/images/i-guardian-logo.png);
+  background-image: url(../assets/images/i-guardian-logo.png);
   width: 108px;
   width: 10.8rem;
   height: 20px;
@@ -1414,7 +1421,7 @@ textarea {
   display: block;
 }
 .svg .i-guardian-logo {
-  background-image: url(/assets/images/i-guardian-logo.svg);
+  background-image: url(../assets/images/i-guardian-logo.svg);
 }
 
 /* ============================================================
@@ -1456,7 +1463,7 @@ body {
 .banner__title a {
   text-indent: 100%;
   white-space: nowrap;
-  background: url(/assets/images/logo.png) no-repeat 0 0;
+  background: url(../assets/images/logo.png) no-repeat 0 0;
   background-size: 180px 24px;
   background-size: 18rem 2.4rem;
   width: 180px;
@@ -1477,7 +1484,7 @@ body {
   }
 }
 .svg .banner__title a {
-  background-image: url(/assets/images/logo.svg);
+  background-image: url(../assets/images/logo.svg);
 }
 @media all and (min-width: 37.5em) {
   .banner__title:before {

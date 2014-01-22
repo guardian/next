@@ -3,22 +3,22 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        concat: {
-            build: {
-                src: [
-                    '_src/scripts/libs/*.js',
-                    '_src/scripts/scripts.js'
-                ],
-                dest: 'assets/scripts/scripts.js',
-            }
-        },
-
-        uglify: {
-            build: {
-                src: 'assets/scripts/scripts.js',
-                dest: 'assets/scripts/scripts.min.js'
-            }
-        },
+        // concat: {
+        //     build: {
+        //         src: [
+        //             '_src/scripts/libs/*.js',
+        //             '_src/scripts/scripts.js'
+        //         ],
+        //         dest: 'assets/scripts/scripts.js',
+        //     }
+        // },
+        // 
+        // uglify: {
+        //     build: {
+        //         src: 'assets/scripts/scripts.js',
+        //         dest: 'assets/scripts/scripts.min.js'
+        //     }
+        // },
 
         imagemin: {
             build: {
@@ -87,23 +87,23 @@ module.exports = function(grunt) {
                     spawn: false,
                 },
             },
-            styles: {
-                files: ['_src/styles/**/*.scss'],
-                tasks: ['sass'],
-                options: {
-                    spawn: false,
-                },
-            },
+            // styles: {
+            //     files: ['_src/styles/**/*.scss'],
+            //     tasks: ['sass'],
+            //     options: {
+            //         spawn: false,
+            //     },
+            // },
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    // grunt.loadNpmTasks('grunt-contrib-concat');
+    // grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-svgmin');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'imagemin', 'svgmin', 'sass', 'cssmin']);
+    grunt.registerTask('default', ['imagemin', 'svgmin', 'sass', 'cssmin']);
 };
