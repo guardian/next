@@ -82,6 +82,14 @@ module.exports = function(grunt) {
                     config: 'jekyll/_config.yml'
                 }
             }
+        },
+
+        bower: {
+            install: {
+                options: {
+                    targetDir: "./bower_lib"
+                }
+            }
         }
     });
 
@@ -91,6 +99,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-jekyll');
+    grunt.loadNpmTasks('grunt-bower-task');
 
-    grunt.registerTask('default', ['imagemin', 'svgmin', 'sass', 'cssmin', 'jekyll']);
+    grunt.registerTask('default', ['bower', 'imagemin', 'svgmin', 'sass', 'cssmin', 'jekyll']);
 };

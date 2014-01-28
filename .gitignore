@@ -28,5 +28,6 @@ Thumbs.db
 # Folders to ignore
 node_modules
 bower_components
+bower_lib
 dev/gems
 target

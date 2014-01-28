@@ -8,6 +8,7 @@
     "grunt-contrib-cssmin": "~0.7.0",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-svgmin": "~0.3.0",
-    "grunt-jekyll": "~0.4.1"
+    "grunt-jekyll": "~0.4.1",
+    "grunt-bower-task": "~0.3.4"
   }
 }
