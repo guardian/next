@@ -1,0 +1,20 @@
+{
+    "packages":{
+        "frontend-next-alpha":{
+            "type":"aws-s3",
+            "apps":[ "aws-s3" ],
+            "data":{
+                "bucket":"aws-frontend-next-alpha",
+                "cacheControl":"public, max-age=10800"
+            }
+        }
+    },
+    "recipes":{
+        "default":{
+            "depends" : ["staticFilesUpload"]
+        },
+        "staticFilesUpload":{
+            "actionsBeforeApp": ["frontend-next-alpha.uploadStaticFiles"]
+        }
+    }
+}
