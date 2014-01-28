@@ -80,6 +80,10 @@
             top: 112px,
         ));
     }
+    margin-top: 50px;
+    @include mq(tablet) {
+        margin-top: 0;
+    }
 }
 
 .navigation__site {

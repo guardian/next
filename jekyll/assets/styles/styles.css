@@ -879,10 +879,18 @@ textarea {
   }
 }
 
+.navigation {
+  margin-top: 50px;
+}
 @media all and (min-width: 37.5em) {
   .navigation {
     top: 112px;
     top: 11.2rem;
+  }
+}
+@media all and (min-width: 37.5em) {
+  .navigation {
+    margin-top: 0;
   }
 }
 
@@ -1246,19 +1254,6 @@ textarea {
   line-height: 18px;
   line-height: 1.8rem;
 }
-#homepage__text1:before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  background-color: #fff;
-  border: 1px solid #86DAEB;
-  border-radius: 5px;
-  position: absolute;
-  top: -3px;
-  left: 197px;
-}
 #homepage__text1 #homepage__text1-whitelink {
   color: white;
   display: none;
@@ -1365,6 +1360,19 @@ textarea {
     line-height: 18px;
     line-height: 1.8rem;
   }
+  #homepage__text1:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background-color: #fff;
+    border: 1px solid #86DAEB;
+    border-radius: 5px;
+    position: absolute;
+    top: -3px;
+    left: 197px;
+  }
 }
 @media all and (min-width: 56.25em) {
   #homepage__text1 {
@@ -1408,8 +1416,13 @@ textarea {
   }
 }
 
+#homepage__text2 {
+  border-top: 1px dotted #86DAEB;
+  margin-top: 20px;
+}
 @media all and (min-width: 37.5em) {
   #homepage__text2 {
+    border-top: 0;
     width: 50%;
     float: right;
     position: relative;
@@ -1501,6 +1514,7 @@ textarea {
 
 #homepage__text3 {
   border-top: 1px dotted #86DAEB;
+  margin-top: 20px;
 }
 @media all and (min-width: 37.5em) {
   #homepage__text3 {
