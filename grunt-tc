@@ -12,4 +12,4 @@ bundle install --gemfile $BASE/Gemfile-sass --binstubs dev/gems/bin --path dev/g
 bundle install --gemfile $BASE/Gemfile-jekyll --binstubs dev/gems/bin --path dev/gems
 npm install
 
-grunt "$@"
+grunt
