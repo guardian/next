@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-contrib-imagemin": "~0.4.1",
+    "grunt-contrib-imagemin": "guardian/grunt-contrib-imagemin",
     "grunt-contrib-sass": "~0.6.0",
     "grunt-contrib-cssmin": "~0.7.0",
     "grunt-contrib-watch": "~0.5.3",
