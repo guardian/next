@@ -1,0 +1,367 @@
+.homepage__container {
+	padding-top: 30px;
+
+	@include mq(tablet) {
+		padding-top: 100px;
+	}
+}
+.homepage__section {
+	display: block;
+	clear: both;
+	position: relative;
+
+	@include font-size(16, 20);	
+
+	h2 {
+		font-weight: normal;
+		@include font-size(26, 30);
+		@include mq(tablet) {
+    		@include font-size(28, 32);
+		}
+		@include mq(desktop) {
+    		@include font-size(34, 38);
+		}
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		margin-bottom: 10px;
+		@include mq(tablet){
+			margin-bottom: 30px;
+
+		}
+		clear: both;
+	}
+
+	&.homepage__section--one {
+		margin-bottom: 0;
+		@include mq(430px) {
+			min-height: 220px;
+			margin-bottom: 40px;
+		}
+		@include mq(desktop){
+			min-height: 290px;
+		}
+	}
+}
+
+
+
+.homepage__gradient-container {
+	position: relative;
+}
+.homepage__gradient {
+	position: absolute;
+	z-index: 0;
+	width: 100%;
+	height: 100px;
+	bottom: 0;
+
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(237,237,237,1.0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(237,237,237,1.0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#59000000',GradientType=0 ); /* IE6-9 */
+
+	@include mq(desktop) {
+		margin-top: 150px;
+	}
+
+	@include mq(wide) {
+		margin-top: 150px;
+	}
+}
+
+#homepage__content {
+	position: relative;
+	z-index: 1;
+}
+
+@mixin homepage__circle {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 7px;
+	height: 7px;
+	background-color: #fff;
+	border: 1px solid #86DAEB;
+	border-radius: 5px;
+}
+
+#homepage__text1 {
+	position: relative;
+	@include font-size(14, 18);
+
+	&:before {
+		@include homepage__circle;
+		position: absolute;
+		top: -3px;
+		left: 197px;
+	}
+
+	#homepage__text1-whitelink {
+		color: white;
+		display: none;
+		@include mq(tablet) {
+			display: block;
+		}
+	}
+	#homepage__text1-bluelink {
+		color: #335494;
+		@include mq(tablet) {
+			display: none;
+		}
+	}
+
+	
+	h2 {
+    	margin-top: 0;
+		padding: 5px 8px 0.6em 0px;
+		margin-left: 8px;
+		position: relative;
+		@include mq(430px){
+			width: 80%;
+		}
+		color: #4BC6DF;
+		@include mq(tablet) {
+			width: auto;
+			border-bottom: 1px dotted #86DAEB;
+			color: white;
+		}
+		span.dottedline {
+			display: none;
+			@include mq(tablet) {
+				display: block;
+				position: absolute;
+				content: "";
+				border-bottom: 1px dotted #86DAEB;
+				width: 22%;
+				bottom: -1px;
+				right: -22%;
+				z-index: 2;	
+				&:after {
+					right: 0;
+					bottom: -4px;
+					@include homepage__circle;
+				}
+			}
+		}
+	}
+	p {
+		-webkit-font-smoothing: antialiased;
+		padding: 0 8px;
+		margin-top: 4px;
+		@include mq(430px){
+			width: 65%;
+		}
+		@include mq(tablet) {
+			width: auto;
+		}
+	}
+
+	a {
+		color: white;
+		display: inline-block;
+		margin: 0 0 16px 10px;
+		@include f-data;
+		font-weight: bold;
+		@include font-size(14px, 18px);
+
+	}
+
+	.i-arrow-right-white, .i-arrow-right-blue {
+		margin-bottom: -5px;
+		margin-right: 5px;
+	}
+
+	@include mq(tablet) {
+		margin-top: -30px;
+		background-color: #4bc6df;
+		color: white;
+		width: 50%;
+		float: left;
+		@include font-size(14, 18);
+	}
+	@include mq(desktop) {
+		margin-top: 0;
+	}
+
+}
+#homepage__img1 {
+
+	display: none;
+
+	@include mq(430px){
+		display: block;
+		width: 40%;
+		z-index: 1;
+		position: absolute;
+		right: -8%;
+		bottom: -20px;
+		min-width: 170px;
+
+	}
+
+	@include mq(tablet) {
+		float: right;
+		right: 0;
+		position: absolute;
+		bottom: -30px;
+		margin-top: -130px;
+	}
+	@include mq(1000px) {
+		width: 35%;
+		margin-right: 5%;
+	}
+	@include mq(wide) {
+		width: 30%;
+		margin-right: 10%;
+	}
+}
+
+#homepage__text2 {
+	@include mq(tablet) {
+		width: 50%;
+		float:right;
+		position: relative;
+		&:before {
+			border-bottom: 1px dotted #86DAEB;
+			content: "";
+			position: absolute;
+			z-index: 0;
+			top: 15px;
+			right: 0;
+			width: 130%;
+		}
+		&:after {
+			@include homepage__circle;
+			z-index: 2;
+			left: -8%;
+			margin-left: -3px;
+			top: 12px;
+			@include mq(desktop) {
+				left: -12%;
+			}
+			@include mq(wide) {
+				left: -20%;
+			}
+		}
+	}
+
+	h4 {
+		color: #777;
+		text-transform: uppercase;
+		@include f-data;
+		@include font-size(12, 14);
+	}
+	a {
+		display: block;
+		color: #0F7AA3;
+		@include font-size(14, 20);
+		&:hover {
+			color: #4bc6df;
+		}
+	}
+
+	.i-arrow-right-blue {
+		margin-bottom: -4px;
+		margin-right: 4px;
+	}
+}
+
+#homepage__img2 {
+	z-index: 1;
+	width: 100%;	
+	max-width: 400px;
+	margin: 10px auto;
+
+	@include mq(tablet) {
+		margin: 0;
+		max-width: none;
+		width: 46%;
+		position: relative;
+	}
+	@include mq(desktop) {
+		width: 44%;
+	}
+	@include mq(wide) {
+		width: 40%;
+	}
+
+
+}
+
+#homepage__text3 {
+
+	border-top: 1px dotted #86DAEB;	
+	@include mq(tablet) {
+		width: 50%;
+		float: left;
+		margin-top: 40px;
+		position: relative;
+		border-top: 0;
+		&:before {
+			border-bottom: 1px dotted #86DAEB;
+			content: "";
+			margin-right: 20%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 135%;
+			z-index: 0;
+		}
+		&:after {
+			@include homepage__circle;
+			z-index: 2;
+			right: -34.5%;
+			top: 0;
+			margin-top: -3px;
+			margin-left: 3px;
+			@include mq(desktop) {
+				right: -32%;
+			}
+			@include mq(1075px) {
+				right: -30%;
+			}
+			@include mq(wide) {
+				right: -29%;
+			}
+		}
+
+	}
+	@include mq(desktop) {
+		margin-top: 60px;
+	}
+	@include mq(wide) {
+		margin-top: 80px;
+	}
+
+}
+
+#homepage__img3 {
+	width: 80%;
+	margin: auto;
+	max-width: 300px;
+	@include mq(tablet) {
+		float: right;
+		width: 40%;
+		position: relative;
+		z-index: 1;
+		max-width: none;
+	}
+	@include mq(desktop) {
+		width: 35%;
+		margin-right: 5%;
+	}
+	@include mq(1075px) {
+		width: 30%;
+		margin-right: 10%;
+	}
+	@include mq(wide) {
+		width: 28%;
+		margin-right: 12%;
+	}
+}

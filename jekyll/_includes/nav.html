@@ -1,0 +1,23 @@
+<nav class="navigation" role="navigation">
+    <div class="container">
+        <ul class="navigation__site nav">
+            {% assign url = page.url|remove:'index.html' %}
+            {% for link in site.navigation %}
+            <li class="nav__item {% if url == link.url %} nav__item--active{% endif %}">
+                <a class="nav__text" href="{{ site.url }}{{link.url}}">{{link.text}}</a>
+                <a class="nav__text--mobile" href="{{ site.url }}{{link.url}}">{{link.mobiletext}}</a>
+            </li>
+            {% endfor %}
+            <li class="nav__item"><strong>
+                <a class="nav__text" href="http://www.theguardian.com/preference/platform/mobile?page=http%3A%2F%2Fwww.theguardian.com%2Fuk%3Fview%3Dmobile">Preview website</a>
+                <a class="nav__text--mobile" href="http://www.theguardian.com/preference/platform/mobile?page=http%3A%2F%2Fwww.theguardian.com%2Fuk%3Fview%3Dmobile">preview</a>
+            </strong></li>
+        </ul>
+
+        <ul class="navigation__social nav">
+            <li class="nav__item"><a class="i i-twitter" href="https://twitter.com/gdndevelopers">Twitter</a></li>
+            <li class="nav__item"><a class="i i-github" href="http://github.com/guardian/frontend">GitHub</a></li>
+            <li class="nav__item"><a class="i i-rss" href="{{ site.url }}/atom.xml">RSS</a></li>
+        </ul>
+    </div>
+</nav>
