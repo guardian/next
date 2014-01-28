@@ -18,6 +18,18 @@
         }
       }
     },
+    "grunt-jekyll": {
+      "version": "0.4.1",
+      "from": "grunt-jekyll@",
+      "resolved": "https://registry.npmjs.org/grunt-jekyll/-/grunt-jekyll-0.4.1.tgz",
+      "dependencies": {
+        "tmp": {
+          "version": "0.0.21",
+          "from": "tmp@0.0.21",
+          "resolved": "https://registry.npmjs.org/tmp/-/tmp-0.0.21.tgz"
+        }
+      }
+    },
     "grunt-contrib-cssmin": {
       "version": "0.7.0",
       "from": "grunt-contrib-cssmin@~0.7.0",

@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         cssmin: {
             build: {
                 options: {
-                    report: 'gzip',
+                    report: 'gzip'
                 },
                 files: {
                     'jekyll/assets/styles/styles.min.css': 'jekyll/assets/styles/styles.css'
@@ -53,23 +53,35 @@ module.exports = function(grunt) {
                 files: ['jekyll/_src/images/**/*.{png,jpg}'],
                 tasks: ['imagemin'],
                 options: {
-                    spawn: false,
-                },
+                    spawn: false
+                }
             },
             vectors: {
                 files: ['jekyll/_src/images/**/*.svg'],
                 tasks: ['svgmin'],
                 options: {
-                    spawn: false,
-                },
+                    spawn: false
+                }
             },
             styles: {
                 files: ['jekyll/_src/styles/**/*.scss'],
                 tasks: ['sass', 'dataUri', 'cssmin'],
                 options: {
-                    spawn: false,
-                },
+                    spawn: false
+                }
+            }
+        },
+
+        jekyll: {
+            options: {
+                src: 'jekyll'
             },
+            dist: {
+                options: {
+                    dest: 'jekyll/_site',
+                    config: 'jekyll/_config.yml'
+                }
+            }
         }
     });
 
@@ -78,6 +90,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-svgmin');
+    grunt.loadNpmTasks('grunt-jekyll');
 
-    grunt.registerTask('default', ['imagemin', 'svgmin', 'sass', 'cssmin']);
+    grunt.registerTask('default', ['imagemin', 'svgmin', 'sass', 'cssmin', 'jekyll']);
 };
