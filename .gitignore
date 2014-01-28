@@ -21,6 +21,8 @@ _site
 ._*
 Thumbs.db
 .cache
+.idea
+*.iml
 
 # Folders to ignore
 node_modules
