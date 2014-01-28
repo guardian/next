@@ -4,7 +4,7 @@
             "type":"aws-s3",
             "apps":[ "aws-s3" ],
             "data":{
-                "bucket":"aws-frontend-artifacts",
+                "bucket":"aws-frontend-next-alpha",
                 "cacheControl":"public, max-age=10800"
             }
         }
