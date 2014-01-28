@@ -1,6 +1,4 @@
 ---
-layout: page
-title: Home
+layout: homepage
 ---
 
-(A page that details the features of the new website)
