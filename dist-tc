@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -o xtrace
+set -o nounset
+set -o errexit
+
+
+################################################################################
+#
+# Build jekyll assets.
+#
+################################################################################
+
+./grunt-tc
+
+
+################################################################################
+#
+# Build the Magenta deployable.
+#
+################################################################################
+
+echo "Disting Jekyll target/artifacts.zip"
+
+
+# Clean old dist files
+rm -f "target/artifacts.zip"
+rm -fr "target/dist"
+mkdir -p "target/dist/packages/frontend-$1"
+
+
+# Copy packages to dist directory
+cp "deploy.json" "target/dist"
+cp -r "jekyll/_site/." "target/dist/packages/frontend-$1"
+
+# And zip up the packet
+cd "target/dist"
+zip -r "../artifacts.zip" .
+
+echo "##teamcity[publishArtifacts 'target/artifacts.zip => .']"
+echo "Done disting."

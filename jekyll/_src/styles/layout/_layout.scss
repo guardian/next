@@ -1,0 +1,171 @@
+/* ============================================================
+    Layout
+============================================================ */
+body {
+    margin: 0 auto;
+    border-top: $gs-baseline/3 solid $c-nextBlue;
+}
+
+/* Containers */
+.container {
+    @include gs-container();
+    padding: 0 $gs-gutter;
+}
+
+/* Banner */
+.banner {
+    @include rem ((
+        padding: $gs-row-height/2 0,
+    ));
+    @include mq($from: tablet) {
+        @include rem ((
+            padding: $gs-row-height 0,
+        ));
+    }
+}
+.banner__title {
+    margin: 0;
+
+    a {
+        text-indent: 100%;
+        white-space: nowrap;
+        background: url(/assets/images/logo.png) no-repeat 0 0;
+        @include rem ((
+            background-size: 180px 24px,
+            width: 180px,
+            height: 24px
+        ));
+        display: block;
+        overflow: hidden;
+        @include mq($from: tablet) {
+            @include rem ((
+                background-size: 280px 36px,
+                width: 280px,
+                height: 36px
+            ));
+        }
+        .svg & {
+            background-image: url(/assets/images/embed/logo.svg);
+        }
+    }
+
+    @include mq($from: tablet) {
+        &:before {
+            content: "";
+            display: block;
+            height: 171px;
+            border-right: 1px dotted $c-nextBlue;
+            float: right;
+            position: absolute;
+            left: gs-span(3);
+            top: 28px;
+        }
+    }
+}
+
+/* Navigation */
+.navigation {
+    position: absolute;
+    @include rem ((
+        top: 112px,
+        right: 0,
+        left: 0
+    ));
+    @include mq($from: tablet) {
+        @include rem ((
+            top: 112px,
+        ));
+    }
+}
+.navigation__site {
+    border-top: 1px dotted $c-nextBlue;
+    padding-bottom: $gs-gutter;
+
+    .nav__item {
+        display: block;
+        @include mq($from: mobile) {
+            float: left;
+            width: 25%;
+        }
+        
+        a {
+            color: $c-neutral1;
+            @include font-size(14, 16);
+            padding-top: $gs-baseline/2;
+            padding-right: $gs-baseline;
+            display: inline-block;
+            @include mq($from: tablet) {
+                @include font-size(16, 20);
+            }
+        }
+    }
+
+    .nav__item--active {
+        a {
+            margin-top: -1px;
+            border-top: 2px solid $c-nextBlue;
+            padding-top: 5px;
+        }
+    }
+}
+.navigation__social {
+    margin-right: $gs-gutter;
+    overflow: hidden;
+    position: absolute;
+    @include rem ((
+        top: -56px,
+    ));
+    
+    @include mq($from: tablet) {
+        @include rem ((
+            top: -72px,
+        ));
+        right: 0;
+    }
+    
+    .nav__item {
+        float: left;
+        margin: 0 $gs-gutter/2 0 0;
+        @include mq($from: tablet) {
+            @include rem ((
+                margin: 0 0 0 $gs-gutter,
+            ));
+        }
+    }
+}
+
+/* Main */
+.main {
+    padding-top: $gs-row-height*4;
+    @include mq($from: tablet) {
+        padding-top: $gs-row-height*3;
+    }
+}
+
+/* Content info */
+@import "layout/_footer.scss";
+
+.guardian-logo-wrapper {
+    float: left;
+    line-height: 1;
+}
+
+.top {
+    color: #fff;
+    font-family: $sans-serif;
+    @include font-size(14, 20);
+    display: block;
+    padding: 10px 0;
+    &:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+    @include mq($from: tablet) {
+        padding-top: 18px;
+    }
+}
+.top .i-arrow-small-up {
+    margin-left: $baseline*2;
+    position: relative;
+    top: -1px;
+}

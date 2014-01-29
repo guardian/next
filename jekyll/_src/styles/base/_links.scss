@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Links
+   http://developers.whatwg.org/links.html
+   ========================================================================== */
+a {
+    color: $c-brandBlue;
+    text-decoration: none;
+    &:focus {
+    /*  Address `outline` inconsistency between Chrome and other browsers */
+        outline: thin dotted;
+    }
+    &:active,
+    &:hover {
+        color: $c-nextBlue;
+    /*  Improve readability when focused and also mouse hovered in all browsers */
+        outline: 0;
+    }
+    &:active {
+        color: $c-nextBlue;
+    }
+}
+
+@media print {
+    a, a:visited {
+        color: #000 !important;
+    }
+}

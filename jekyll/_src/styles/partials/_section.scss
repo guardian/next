@@ -1,0 +1,10 @@
+/* ============================================================
+    Section patterns
+============================================================ */
+.section {
+    margin-top: $gs-row-height;
+}
+.section__title {
+    @extend h2;
+    margin-top: $gs-baseline/2;
+}

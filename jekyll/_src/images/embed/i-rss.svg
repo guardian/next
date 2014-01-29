@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>i-rss</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <circle id="Oval" stroke-opacity="0.658691406" stroke="#4BC6DF" sketch:type="MSShapeGroup" cx="18" cy="18" r="17"></circle>
+        <path d="M14.1612581,25.5807419 C14.1612581,27.0060323 13.0055806,28.1614839 11.5807419,28.1614839 C10.1559032,28.1614839 9,27.0060323 9,25.5807419 C9,24.1554516 10.1559032,23 11.5807419,23 C13.0055806,23 14.1612581,24.1554516 14.1612581,25.5807419 Z M9.00316129,19.0748065 C11.4213226,19.0748065 13.6940645,20.0200323 15.4022903,21.7366129 C17.1132258,23.4554516 18.0552903,25.7435484 18.0552903,28.1795484 L21.7810968,28.1795484 C21.7810968,21.1048065 16.049,15.349 9.00316129,15.349 L9.00316129,19.0748065 Z M9.00858065,12.4697419 C17.6260323,12.4697419 24.6370968,19.5189677 24.6370968,28.1833871 L28.3629032,28.1833871 C28.3629032,17.4645806 19.6806452,8.74393548 9.00858065,8.74393548 L9.00858065,12.4697419 Z" id="Shape" fill="#4BC6DF" sketch:type="MSShapeGroup"></path>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Edits
+   http://developers.whatwg.org/edits.html
+   ========================================================================== */
+mark, ins {
+    background-color: $c-neutral7;
+    padding: 0 0.125rem; // 0 2px
+    }
+    ins {
+        text-decoration: none;
+        background-color: $c-neutral4;
+    }
