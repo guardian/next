@@ -1,6 +1,6 @@
 # Meta
 title:            Guardian Next
-tagline:          'Join us on our journey to the next generation of digital journalism'
+tagline:          ''
 baseurl:          http://next.theguardian.com
 author:
   name:           'The Guardian'
@@ -19,14 +19,14 @@ paginate_path:    "/updates/page:num"
 
 # Navigation
 navigation:
-- text: About the project
-  mobiletext: about
+- text: Home
+  mobiletext: Home
   url: /about/
-- text: Project updates
-  mobiletext: updates
+- text: Blog
+  mobiletext: Blog
   url: /updates/
-- text: Your feedback
-  mobiletext: feedback
+- text: Feedback
+  mobiletext: Feedback
   url: /feedback/
 
 # Authors
