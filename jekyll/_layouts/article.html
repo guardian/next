@@ -1,38 +1,36 @@
 ---
 layout: main
 ---
-<div class="container">
-    <div class="article">
-        <header class="article__header">
-            <h1 class="article__title">{{ page.title }}</h1>
-        </header>
+<div class="article">
+    <header class="article__header">
+        <h1 class="article__title">{{ page.title }}</h1>
+    </header>
 
-        <div class="article__main">
-            {{ content }}
-        </div>
-
-        <footer class="article__footer h-card">
-            {% assign author = site.authors[page.author] %}
-            <a class="u-url" href="https://twitter.com/{{ author.twitter }}">
-                <img class="u-photo" src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=120&#38;d=http%3A%2F%2Fnext.theguardian.com%2Fassets%2Fimages%2Fgravatar.png" width="60" height="60" alt=""/>
-                <span class="p-name">{{ author.display_name }}</span>
-            </a>
-            <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
-        </footer>
-
-        <section class="section section--related">
-            <h1 class="section__title">Related Posts</h1>
-
-            {% for post in site.related_posts limit:3 %}
-            <article class="article">
-                <header class="article__header">
-                    <h1 class="article__title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
-                </header>
-                <footer class="article__footer">
-                    <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
-                </footer>
-            </article>
-            {% endfor %}
-        </section>
+    <div class="article__main">
+        {{ content }}
     </div>
+
+    <footer class="article__footer h-card">
+        {% assign author = site.authors[page.author] %}
+        <a class="u-url" href="https://twitter.com/{{ author.twitter }}">
+            <img class="u-photo" src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=120&#38;d=http%3A%2F%2Fnext.theguardian.com%2Fassets%2Fimages%2Fgravatar.png" width="60" height="60" alt=""/>
+            <span class="p-name">{{ author.display_name }}</span>
+        </a>
+        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
+    </footer>
+
+    <section class="section section--related">
+        <h1 class="section__title">Related Posts</h1>
+
+        {% for post in site.related_posts limit:3 %}
+        <article class="article">
+            <header class="article__header">
+                <h1 class="article__title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+            </header>
+            <footer class="article__footer">
+                <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
+            </footer>
+        </article>
+        {% endfor %}
+    </section>
 </div>
