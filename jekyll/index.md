@@ -30,5 +30,11 @@ sections:
 
 - title: Developed in the open.
   description: Our code is publically available and updated multiple times a day. The new site is out there for our audience to use and feedback on.
+  linkheading: See what we're up to
+  links:
+  - label: Project on GitHub
+    href: http://github.com/guardian/frontend
+  - label: Product blog
+    href: /updates
 
 ---
