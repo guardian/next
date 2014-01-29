@@ -21,7 +21,7 @@ paginate_path:    "/updates/page:num"
 navigation:
 - text: Home
   mobiletext: Home
-  url: /about/
+  url: /
 - text: Blog
   mobiletext: Blog
   url: /updates/
