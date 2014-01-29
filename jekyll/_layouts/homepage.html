@@ -25,25 +25,18 @@ layout: base
 	</div>
 
 	<div class="container">
-
-			<div class="homepage__section">
-				<div id="homepage__text2">
-					<h2>A better reading experience</h2>
-					<p>The site is designed to provide a better reading experience, with a focus on simplicity. On any mobile device, you will be presented wth a clear view of the news with minimal distraction.</p>
-					<h4>See the new design in action</h4>
-					<a href="#"><i class="i i-arrow-right-blue"></i>Northern lights could be visible across the UK</a>
-					<a href="#"><i class="i i-arrow-right-blue"></i>Mo Farah braces himself for baptism of fire in London Marathon</a>
+		{% for section in page.sections %}
+            <div class="homepage__section">
+				<div id="homepage__text{{ forloop.index + 1 }}">
+					<h2>{{ section.title }}</h2>
+					<p>{{ section.description }}</p>
+					<h4>{{ section.linkheading }}</h4>
+					{% for link in section.links %}
+						<a href="{{ link.href }}"><i class="i i-arrow-right-blue"></i>{{ link.label }}</a>
+					{% endfor %}
 				</div>
-				<img id="homepage__img2" alt="" src="/assets/images/browser.png">
-			</div>	
-
-			<div class="homepage__section">
-				<div id="homepage__text3">
-					<h2>Works across devices</h2>
-					<p>Rather than designing one size for all mobile devices, you'll find our new site is responsive and will scale all the way up from mobile phone to desktop browsers.</p>
-				</div>
-				<img id="homepage__img3" alt="" src="/assets/images/tablet.png">
-			</div>	
-		</div>	
+				<img id="homepage__img{{ forloop.index + 1 }}" alt="" src="/assets/images/browser.png">
+			</div>
+        {% endfor %}	
 	</div>
 </div>
