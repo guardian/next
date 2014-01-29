@@ -27,7 +27,7 @@ layout: base
 	<div class="container">
 		{% for section in page.sections %}
             <div class="homepage__section">
-				<div id="homepage__text{{ forloop.index + 1 }}">
+				<div id="homepage__text{{ forloop.index }}">
 					<h2>{{ section.title }}</h2>
 					<p>{{ section.description }}</p>
 					<h4>{{ section.linkheading }}</h4>
@@ -35,7 +35,7 @@ layout: base
 						<a href="{{ link.href }}"><i class="i i-arrow-right-blue"></i>{{ link.label }}</a>
 					{% endfor %}
 				</div>
-				<img id="homepage__img{{ forloop.index + 1 }}" alt="" src="/assets/images/browser.png">
+				<img id="homepage__img{{ forloop.index }}" alt="" src="{{ section.image }}">
 			</div>
         {% endfor %}	
 	</div>
