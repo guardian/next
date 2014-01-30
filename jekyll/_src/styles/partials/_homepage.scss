@@ -1,390 +1,390 @@
 .homepage__container {
-	padding-top: 30px;
+    padding-top: 30px;
 
-	@include mq(tablet) {
-		padding-top: 100px;
-	}
+    @include mq(tablet) {
+        padding-top: 100px;
+    }
 }
 
 .homepage__section {
-	display: block;
-	clear: both;
-	position: relative;
+    display: block;
+    clear: both;
+    position: relative;
 
-	@include font-size(16, 20);	
+    @include font-size(16, 20);
 
-	h2 {
-		font-weight: normal;
-		@include font-size(26, 30);
-		@include mq(tablet) {
-    		@include font-size(28, 32);
-		}
-		@include mq(desktop) {
-    		@include font-size(34, 38);
-		}
-	}
+    h2 {
+        font-weight: normal;
+        @include font-size(26, 30);
+        @include mq(tablet) {
+            @include font-size(28, 32);
+        }
+        @include mq(desktop) {
+            @include font-size(34, 38);
+        }
+    }
 
-	&:after {
-		content: "";
-		display: block;
-		clear: both;
-	}
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 }
 
 .homepage__section--head {
-	margin-bottom: 0;
-	@include mq(430px) {
-		min-height: 220px;
-		margin-bottom: 40px;
-	}
-	@include mq(desktop){
-		min-height: none;
-	}
+    margin-bottom: 0;
+    @include mq(430px) {
+        min-height: 220px;
+        margin-bottom: 40px;
+    }
+    @include mq(desktop){
+        min-height: none;
+    }
 }
 .homepage__section--main{
-	&:nth-child(n+1) {
-		margin-top: 20px;
-	}
+    &:nth-child(n+1) {
+        margin-top: 20px;
+    }
 
-	@include mq(tablet) {
-		.homepage__section-image-container, .homepage__section-copy {
-			width: 50%;	
-			position: relative;
-		}
+    @include mq(tablet) {
+        .homepage__section-image-container, .homepage__section-copy {
+            width: 50%; 
+            position: relative;
+        }
 
-		&:nth-child(2n+1) {
-			.homepage__section-image-container {
-				float: left;
-			}
-			.homepage__section-copy {
-				float: right;
-			}
-		}		
-		&:nth-child(2n) {
-			.homepage__section-image-container {
-				float: right;
-			}
-			.homepage__section-copy {
-				float: left;
-			}
-		}		
-	}
+        &:nth-child(2n+1) {
+            .homepage__section-image-container {
+                float: left;
+            }
+            .homepage__section-copy {
+                float: right;
+            }
+        }       
+        &:nth-child(2n) {
+            .homepage__section-image-container {
+                float: right;
+            }
+            .homepage__section-copy {
+                float: left;
+            }
+        }       
+    }
 }
 
 .homepage__gradient-container {
-	position: relative;
+    position: relative;
 }
 
 .homepage__gradient {
-	position: absolute;
-	z-index: 0;
-	width: 100%;
-	height: 100px;
-	bottom: 0;
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
 
-	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(237,237,237,1.0) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(237,237,237,1.0))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#59000000',GradientType=0 ); /* IE6-9 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(237,237,237,1.0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(237,237,237,1.0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(237,237,237,1.0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#59000000',GradientType=0 ); /* IE6-9 */
 
-	@include mq(desktop) {
-		margin-top: 150px;
-	}
+    @include mq(desktop) {
+        margin-top: 150px;
+    }
 
-	@include mq(wide) {
-		margin-top: 150px;
-	}
+    @include mq(wide) {
+        margin-top: 150px;
+    }
 }
 
 #homepage__content {
-	position: relative;
-	z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 @mixin homepage__circle {
-	content: "";
-	display: block;
-	position: absolute;
-	width: 7px;
-	height: 7px;
-	background-color: #fff;
-	border: 1px solid #86DAEB;
-	border-radius: 5px;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background-color: #fff;
+    border: 1px solid #86DAEB;
+    border-radius: 5px;
 }
 
 .homepage__linkcontainer{
-	h4 {
-		color: #777;
-		text-transform: uppercase;
-		@include f-data;
-		@include font-size(12, 14);
-	}
-	a {
-		display: block;
-		@include f-data;
-		@include font-size(14, 20);
-	}
+    h4 {
+        color: #777;
+        text-transform: uppercase;
+        @include f-data;
+        @include font-size(12, 14);
+    }
+    a {
+        display: block;
+        @include f-data;
+        @include font-size(14, 20);
+    }
 
-	.i-arrow-right-blue {
-		margin-bottom: -4px;
-		margin-right: 4px;
-	}
+    .i-arrow-right-blue {
+        margin-bottom: -4px;
+        margin-right: 4px;
+    }
 }
 
 #homepage__text0 {
-	position: relative;
-	@include font-size(14, 18);
-	
-	h2 {
-    	margin-top: 0;
-		padding-bottom: 0.6em;
-		position: relative;
-		@include mq(430px){
-			width: 80%;
-		}
-		color: #4BC6DF;
-		@include mq(tablet) {
-			width: auto;
-			color: white;
-		}
-	}
-	span.dottedline {
-		display: none;
-		@include mq(tablet) {
-			display: block;
-			position: absolute;
-			content: "";
-			border-bottom: 1px dotted #86DAEB;
-			width: 121.5%;
-			left: 0;
-			z-index: 2;	
-			margin-left: 8px;
-			&:after {
-				right: 0;
-				bottom: -4px;
-				@include homepage__circle;
-			}
-		}
-	}
-	p {
-		-webkit-font-smoothing: antialiased;
-		margin-top: 4px;
-		@include mq(430px){
-			width: 65%;
-		}
-		@include mq(tablet) {
-			width: auto;
-		}
-	}
+    position: relative;
+    @include font-size(14, 18);
+    
+    h2 {
+        margin-top: 0;
+        padding-bottom: 0.6em;
+        position: relative;
+        @include mq(430px){
+            width: 80%;
+        }
+        color: #4BC6DF;
+        @include mq(tablet) {
+            width: auto;
+            color: white;
+        }
+    }
+    span.dottedline {
+        display: none;
+        @include mq(tablet) {
+            display: block;
+            position: absolute;
+            content: "";
+            border-bottom: 1px dotted #86DAEB;
+            width: 121.5%;
+            left: 0;
+            z-index: 2; 
+            margin-left: 8px;
+            &:after {
+                right: 0;
+                bottom: -4px;
+                @include homepage__circle;
+            }
+        }
+    }
+    p {
+        -webkit-font-smoothing: antialiased;
+        margin-top: 4px;
+        @include mq(430px){
+            width: 65%;
+        }
+        @include mq(tablet) {
+            width: auto;
+        }
+    }
 
-	@include mq(tablet) {
-		padding: 5px 8px;
-		margin-left: -8px;
-		margin-top: -30px;
-		background-color: #4bc6df;
-		color: white;
-		width: 50%;
-		float: left;
-		@include font-size(14, 18);
-		&:before {
-			@include homepage__circle;
-			position: absolute;
-			top: -3px;
-			left: 197px + 8px;
-		}
-	}
-	@include mq(desktop) {
-		margin-top: 0;
-	}
+    @include mq(tablet) {
+        padding: 5px 8px;
+        margin-left: -8px;
+        margin-top: -30px;
+        background-color: #4bc6df;
+        color: white;
+        width: 50%;
+        float: left;
+        @include font-size(14, 18);
+        &:before {
+            @include homepage__circle;
+            position: absolute;
+            top: -3px;
+            left: 197px + 8px;
+        }
+    }
+    @include mq(desktop) {
+        margin-top: 0;
+    }
 
 }
 
 #homepage__try-ngw-link {
-	display: inline-block;
-	margin-bottom: 16px;
-	@include f-data;
-	font-weight: bold;
-	@include font-size(14px, 18px);
+    display: inline-block;
+    margin-bottom: 16px;
+    @include f-data;
+    font-weight: bold;
+    @include font-size(14px, 18px);
 
-	.i-arrow-right-white, .i-arrow-right-blue {
-		margin-bottom: -5px;
-		display: none;
-	}
-	@include mq($to:tablet) {
-		.i-arrow-right-blue {
-			display: inline-block;
-		}
-	}
-	@include mq($from:tablet){
-		color: white;
-		&:hover {
-			color: #f3f3f3;
-		}
-		.i-arrow-right-white { 
-			display: inline-block; 
-		}
-	}
+    .i-arrow-right-white, .i-arrow-right-blue {
+        margin-bottom: -5px;
+        display: none;
+    }
+    @include mq($to:tablet) {
+        .i-arrow-right-blue {
+            display: inline-block;
+        }
+    }
+    @include mq($from:tablet){
+        color: white;
+        &:hover {
+            color: #f3f3f3;
+        }
+        .i-arrow-right-white { 
+            display: inline-block; 
+        }
+    }
 }
 
 #homepage__img0 {
 
-	display: none;
+    display: none;
 
-	@include mq(430px){
-		display: block;
-		width: 40%;
-		z-index: 1;
-		position: absolute;
-		right: -8%;
-		bottom: -20px;
-		min-width: 170px;
+    @include mq(430px){
+        display: block;
+        width: 40%;
+        z-index: 1;
+        position: absolute;
+        right: -8%;
+        bottom: -20px;
+        min-width: 170px;
 
-	}
+    }
 
-	@include mq(tablet) {
-		float: right;
-		right: 0;
-		position: relative;
-		bottom: -50px;
-		margin-top: -130px;
-	}
-	@include mq(1000px) {
-		width: 35%;
-		margin-right: 5%;
-	}
-	@include mq(wide) {
-		width: 30%;
-		margin-right: 10%;
-	}
+    @include mq(tablet) {
+        float: right;
+        right: 0;
+        position: relative;
+        bottom: -50px;
+        margin-top: -130px;
+    }
+    @include mq(1000px) {
+        width: 35%;
+        margin-right: 5%;
+    }
+    @include mq(wide) {
+        width: 30%;
+        margin-right: 10%;
+    }
 }
 
 .homepage__section-body {
-	margin-top: 20px;
-	@include mq(desktop) {
-		margin-top: 40px;
-	}
-	&:nth-child(n+1) {
-		border-top: 1px dotted #86DAEB;	
-		@include mq(tablet) {
-			border-top: 0;
-		}
-	}
+    margin-top: 20px;
+    @include mq(desktop) {
+        margin-top: 40px;
+    }
+    &:nth-child(n+1) {
+        border-top: 1px dotted #86DAEB; 
+        @include mq(tablet) {
+            border-top: 0;
+        }
+    }
 }
 
 @function calcDistance($width, $center, $offset) {
-	$centerMult: 1;
-	@if $center { $centerMult: 0.5; }
-	@return ((100% - $width)*$centerMult) + ($offset*($width/100%));
+    $centerMult: 1;
+    @if $center { $centerMult: 0.5; }
+    @return ((100% - $width)*$centerMult) + ($offset*($width/100%));
 }
 @mixin circlemagic($tablet, $desktop, $wide, $offset: 0%, $center: false) {
-	// some unnecessarily over complicated scss for the 
-	// dottedline and circle style at various breakpoints
-	// $tablet/$desktop/$wide = image widths at respective breakpoints
-	// $offset: the % offset into the image that the circle should sit
-	// $center: whether the image should be centered within its half of the screen
+    // some unnecessarily over complicated scss for the 
+    // dottedline and circle style at various breakpoints
+    // $tablet/$desktop/$wide = image widths at respective breakpoints
+    // $offset: the % offset into the image that the circle should sit
+    // $center: whether the image should be centered within its half of the screen
 
-	$tabletDistance: calcDistance($tablet, $center, $offset);
-	$desktopDistance: calcDistance($desktop, $center, $offset);
-	$wideDistance: calcDistance($wide, $center, $offset);
+    $tabletDistance: calcDistance($tablet, $center, $offset);
+    $desktopDistance: calcDistance($desktop, $center, $offset);
+    $wideDistance: calcDistance($wide, $center, $offset);
 
-	&:nth-child(2n+1) {
-		.homepage__section-copy {
-			@include mq(tablet) {
-				&:before {
-					right: 0;
-				}
-				&:after {
-					left: - $tabletDistance;	
-					@include mq(desktop) {
-						left: -$desktopDistance;
-					}
-					@include mq(wide) {
-						left: -$wideDistance;
-					}
-				}
-			}
-		}
-		@if not $center {
-			.homepage__section-image {
-				margin: 0;
-			}
-		}
-	}
-	&:nth-child(2n) {
-		.homepage__section-copy {
-			@include mq(tablet) {
-				&:before {
-					left: 0;
-				}
-				&:after {
-					right: - $tabletDistance;	
-					@include mq(desktop) {
-						right: -$desktopDistance;
-					}
-					@include mq(wide) {
-						right: -$wideDistance;
-					}
-				}
-			}
-		}
-		@if not $center {
-			.homepage__section-image {
-				float: right;
-			}
-		}
-	}
+    &:nth-child(2n+1) {
+        .homepage__section-copy {
+            @include mq(tablet) {
+                &:before {
+                    right: 0;
+                }
+                &:after {
+                    left: - $tabletDistance;    
+                    @include mq(desktop) {
+                        left: -$desktopDistance;
+                    }
+                    @include mq(wide) {
+                        left: -$wideDistance;
+                    }
+                }
+            }
+        }
+        @if not $center {
+            .homepage__section-image {
+                margin: 0;
+            }
+        }
+    }
+    &:nth-child(2n) {
+        .homepage__section-copy {
+            @include mq(tablet) {
+                &:before {
+                    left: 0;
+                }
+                &:after {
+                    right: - $tabletDistance;   
+                    @include mq(desktop) {
+                        right: -$desktopDistance;
+                    }
+                    @include mq(wide) {
+                        right: -$wideDistance;
+                    }
+                }
+            }
+        }
+        @if not $center {
+            .homepage__section-image {
+                float: right;
+            }
+        }
+    }
 
-	.homepage__section-copy {
-		@include mq(tablet) {
-			&:before {
-				border-bottom: 1px dotted #86DAEB;
-				content: "";
-				position: absolute;
-				z-index: 0;
-				top: 15px;
-				width: 100% + $tabletDistance;
-				@include mq(desktop) {
-					width: 100% + $desktopDistance;
-				}
-				@include mq(wide) {
-					width: 100% + $wideDistance;
-				}
-			}
-			&:after {
-				@include homepage__circle;
-				z-index: 2;
-				margin-left: -3px;
-				top: 12px;
-			}
-		}
-	}
-	.homepage__section-image {
-		z-index: 1;
-		width: 100%;
-		@if $center {
-			margin: auto;
-		}
-		@include mq(tablet) {
-			max-width: none;
-			width: $tablet;
-			position: relative;
-		}
-		@include mq(desktop) {
-			width: $desktop;
-		}
-		@include mq(wide) {
-			width: $wide;
-		}
-	}
+    .homepage__section-copy {
+        @include mq(tablet) {
+            &:before {
+                border-bottom: 1px dotted #86DAEB;
+                content: "";
+                position: absolute;
+                z-index: 0;
+                top: 15px;
+                width: 100% + $tabletDistance;
+                @include mq(desktop) {
+                    width: 100% + $desktopDistance;
+                }
+                @include mq(wide) {
+                    width: 100% + $wideDistance;
+                }
+            }
+            &:after {
+                @include homepage__circle;
+                z-index: 2;
+                margin-left: -3px;
+                top: 12px;
+            }
+        }
+    }
+    .homepage__section-image {
+        z-index: 1;
+        width: 100%;
+        @if $center {
+            margin: auto;
+        }
+        @include mq(tablet) {
+            max-width: none;
+            width: $tablet;
+            position: relative;
+        }
+        @include mq(desktop) {
+            width: $desktop;
+        }
+        @include mq(wide) {
+            width: $wide;
+        }
+    }
 }
 
 #homepage__section1 {
-	@include circlemagic(92%, 88%, 80%);
+    @include circlemagic(92%, 88%, 80%);
 }
 
 #homepage__section2 {
-	@include circlemagic(80%, 70%, 60%, 17%, true);
+    @include circlemagic(80%, 70%, 60%, 17%, true);
 }
