@@ -279,12 +279,63 @@
 	@if $center { $centerMult: 0.5; }
 	@return ((100% - $width)*$centerMult) + ($offset*($width/100%));
 }
-@mixin magicc($tablet, $desktop, $wide, $leftright, $offset: 0%, $center: false) {
-	// some unnecessarily over complicated scss
+@mixin circlemagic($tablet, $desktop, $wide, $offset: 0%, $center: false) {
+	// some unnecessarily over complicated scss for the 
+	// dottedline and circle style at various breakpoints
+	// $tablet/$desktop/$wide = image widths at respective breakpoints
+	// $offset: the % offset into the image that the circle should sit
+	// $center: whether the image should be centered within its half of the screen
 
 	$tabletDistance: calcDistance($tablet, $center, $offset);
 	$desktopDistance: calcDistance($desktop, $center, $offset);
 	$wideDistance: calcDistance($wide, $center, $offset);
+
+	&:nth-child(2n+1) {
+		.homepage__section-copy {
+			@include mq(tablet) {
+				&:before {
+					right: 0;
+				}
+				&:after {
+					left: - $tabletDistance;	
+					@include mq(desktop) {
+						left: -$desktopDistance;
+					}
+					@include mq(wide) {
+						left: -$wideDistance;
+					}
+				}
+			}
+		}
+		@if not $center {
+			.homepage__section-image {
+				margin: 0;
+			}
+		}
+	}
+	&:nth-child(2n) {
+		.homepage__section-copy {
+			@include mq(tablet) {
+				&:before {
+					left: 0;
+				}
+				&:after {
+					right: - $tabletDistance;	
+					@include mq(desktop) {
+						right: -$desktopDistance;
+					}
+					@include mq(wide) {
+						right: -$wideDistance;
+					}
+				}
+			}
+		}
+		@if not $center {
+			.homepage__section-image {
+				float: right;
+			}
+		}
+	}
 
 	.homepage__section-copy {
 		@include mq(tablet) {
@@ -294,8 +345,6 @@
 				position: absolute;
 				z-index: 0;
 				top: 15px;
-				@if $leftright == left { right: 0; } 
-				@else { left: 0; }
 				width: 100% + $tabletDistance;
 				@include mq(desktop) {
 					width: 100% + $desktopDistance;
@@ -309,14 +358,6 @@
 				z-index: 2;
 				margin-left: -3px;
 				top: 12px;
-
-				#{$leftright}: - $tabletDistance;	
-				@include mq(desktop) {
-					#{$leftright}: -$desktopDistance;
-				}
-				@include mq(wide) {
-					#{$leftright}: -$wideDistance;
-				}
 			}
 		}
 	}
@@ -325,10 +366,6 @@
 		width: 100%;
 		@if $center {
 			margin: auto;
-		} @elseif $leftright == left {
-			margin: 0;
-		} @else {
-			float: right;
 		}
 		@include mq(tablet) {
 			max-width: none;
@@ -344,11 +381,10 @@
 	}
 }
 
-
 #homepage__section1 {
-	@include magicc(92%, 88%, 80%, left);
+	@include circlemagic(92%, 88%, 80%);
 }
 
 #homepage__section2 {
-	@include magicc(80%, 70%, 60%, right, 17%, true);
+	@include circlemagic(80%, 70%, 60%, 17%, true);
 }

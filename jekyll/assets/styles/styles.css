@@ -1473,13 +1473,54 @@ textarea {
 }
 
 @media all and (min-width: 37.5em) {
+  #homepage__section1:nth-child(2n+1) .homepage__section-copy:before {
+    right: 0;
+  }
+  #homepage__section1:nth-child(2n+1) .homepage__section-copy:after {
+    left: -8%;
+  }
+}
+@media all and (min-width: 37.5em) and (min-width: 56.25em) {
+  #homepage__section1:nth-child(2n+1) .homepage__section-copy:after {
+    left: -12%;
+  }
+}
+@media all and (min-width: 37.5em) and (min-width: 78.75em) {
+  #homepage__section1:nth-child(2n+1) .homepage__section-copy:after {
+    left: -20%;
+  }
+}
+#homepage__section1:nth-child(2n+1) .homepage__section-image {
+  margin: 0;
+}
+@media all and (min-width: 37.5em) {
+  #homepage__section1:nth-child(2n) .homepage__section-copy:before {
+    left: 0;
+  }
+  #homepage__section1:nth-child(2n) .homepage__section-copy:after {
+    right: -8%;
+  }
+}
+@media all and (min-width: 37.5em) and (min-width: 56.25em) {
+  #homepage__section1:nth-child(2n) .homepage__section-copy:after {
+    right: -12%;
+  }
+}
+@media all and (min-width: 37.5em) and (min-width: 78.75em) {
+  #homepage__section1:nth-child(2n) .homepage__section-copy:after {
+    right: -20%;
+  }
+}
+#homepage__section1:nth-child(2n) .homepage__section-image {
+  float: right;
+}
+@media all and (min-width: 37.5em) {
   #homepage__section1 .homepage__section-copy:before {
     border-bottom: 1px dotted #86DAEB;
     content: "";
     position: absolute;
     z-index: 0;
     top: 15px;
-    right: 0;
     width: 108%;
   }
   #homepage__section1 .homepage__section-copy:after {
@@ -1494,7 +1535,6 @@ textarea {
     z-index: 2;
     margin-left: -3px;
     top: 12px;
-    left: -8%;
   }
 }
 @media all and (min-width: 37.5em) and (min-width: 56.25em) {
@@ -1507,20 +1547,9 @@ textarea {
     width: 120%;
   }
 }
-@media all and (min-width: 37.5em) and (min-width: 56.25em) {
-  #homepage__section1 .homepage__section-copy:after {
-    left: -12%;
-  }
-}
-@media all and (min-width: 37.5em) and (min-width: 78.75em) {
-  #homepage__section1 .homepage__section-copy:after {
-    left: -20%;
-  }
-}
 #homepage__section1 .homepage__section-image {
   z-index: 1;
   width: 100%;
-  margin: 0;
 }
 @media all and (min-width: 37.5em) {
   #homepage__section1 .homepage__section-image {
@@ -1541,13 +1570,48 @@ textarea {
 }
 
 @media all and (min-width: 37.5em) {
+  #homepage__section2:nth-child(2n+1) .homepage__section-copy:before {
+    right: 0;
+  }
+  #homepage__section2:nth-child(2n+1) .homepage__section-copy:after {
+    left: -23.6%;
+  }
+}
+@media all and (min-width: 37.5em) and (min-width: 56.25em) {
+  #homepage__section2:nth-child(2n+1) .homepage__section-copy:after {
+    left: -26.9%;
+  }
+}
+@media all and (min-width: 37.5em) and (min-width: 78.75em) {
+  #homepage__section2:nth-child(2n+1) .homepage__section-copy:after {
+    left: -30.2%;
+  }
+}
+@media all and (min-width: 37.5em) {
+  #homepage__section2:nth-child(2n) .homepage__section-copy:before {
+    left: 0;
+  }
+  #homepage__section2:nth-child(2n) .homepage__section-copy:after {
+    right: -23.6%;
+  }
+}
+@media all and (min-width: 37.5em) and (min-width: 56.25em) {
+  #homepage__section2:nth-child(2n) .homepage__section-copy:after {
+    right: -26.9%;
+  }
+}
+@media all and (min-width: 37.5em) and (min-width: 78.75em) {
+  #homepage__section2:nth-child(2n) .homepage__section-copy:after {
+    right: -30.2%;
+  }
+}
+@media all and (min-width: 37.5em) {
   #homepage__section2 .homepage__section-copy:before {
     border-bottom: 1px dotted #86DAEB;
     content: "";
     position: absolute;
     z-index: 0;
     top: 15px;
-    left: 0;
     width: 123.6%;
   }
   #homepage__section2 .homepage__section-copy:after {
@@ -1562,7 +1626,6 @@ textarea {
     z-index: 2;
     margin-left: -3px;
     top: 12px;
-    right: -23.6%;
   }
 }
 @media all and (min-width: 37.5em) and (min-width: 56.25em) {
@@ -1573,16 +1636,6 @@ textarea {
 @media all and (min-width: 37.5em) and (min-width: 78.75em) {
   #homepage__section2 .homepage__section-copy:before {
     width: 130.2%;
-  }
-}
-@media all and (min-width: 37.5em) and (min-width: 56.25em) {
-  #homepage__section2 .homepage__section-copy:after {
-    right: -26.9%;
-  }
-}
-@media all and (min-width: 37.5em) and (min-width: 78.75em) {
-  #homepage__section2 .homepage__section-copy:after {
-    right: -30.2%;
   }
 }
 #homepage__section2 .homepage__section-image {
