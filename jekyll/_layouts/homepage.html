@@ -1,10 +1,20 @@
 ---
 layout: base
 ---
+<script type="text/javascript">
+	(function(){ 
+		addEventListener('scroll', function(e) {
+			var scrollTop = document.documentElement.scrollTop;
+			var gradientEl = document.getElementById('homepage__gradient');
+			gradientEl.style.bottom = 0 - scrollTop/15 + "px";
+			gradientEl.style.opacity = 1.0 - scrollTop/750;
+		});
+	})();
+</script>
 <div class="homepage__container">
 
 	<div class="homepage__gradient-container">
-		<div class="homepage__gradient"></div>
+		<div id="homepage__gradient" class="homepage__gradient"></div>
 
 		<div class="container">
 			<div class="homepage__section homepage__section--head">

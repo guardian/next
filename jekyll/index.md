@@ -11,9 +11,9 @@ sections:
   linkheading: See the new design in action
   links:
   - label: Northern lights could be visible across the UK
-    href: #
+    href: http://www.theguardian.com/preference/platform/mobile?page=http://www.theguardian.com/travel/2014/jan/09/northern-lights-visible-across-uk-englandhttp://www.theguardian.com/travel/2014/jan/09/northern-lights-visible-across-uk-england
   - label: Mo Farah braces himself for baptism of fire in London Marathon
-    href: #
+    href: http://www.theguardian.com/preference/platform/mobile?page=http://www.theguardian.com/sport/2014/jan/14/mo-farah-london-marathon-athletics
 
 - title: Twice as fast as our current site.
   description: Some more techy stats here.
