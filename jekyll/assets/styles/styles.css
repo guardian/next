@@ -1152,6 +1152,7 @@ textarea {
   display: block;
   clear: both;
   position: relative;
+  margin-bottom: 30px;
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 20px;
@@ -1192,7 +1193,7 @@ textarea {
 @media all and (min-width: 26.875em) {
   .homepage__section--head {
     min-height: 220px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
 }
 @media all and (min-width: 56.25em) {
@@ -1455,23 +1456,6 @@ textarea {
   }
 }
 
-.homepage__section-body {
-  margin-top: 20px;
-}
-@media all and (min-width: 56.25em) {
-  .homepage__section-body {
-    margin-top: 40px;
-  }
-}
-.homepage__section-body:nth-child(n+1) {
-  border-top: 1px dotted #86DAEB;
-}
-@media all and (min-width: 37.5em) {
-  .homepage__section-body:nth-child(n+1) {
-    border-top: 0;
-  }
-}
-
 @media all and (min-width: 37.5em) {
   #homepage__section1:nth-child(2n+1) .homepage__section-copy:before {
     right: 0;
@@ -1490,8 +1474,10 @@ textarea {
     left: -20%;
   }
 }
-#homepage__section1:nth-child(2n+1) .homepage__section-image {
-  margin: 0;
+@media all and (min-width: 37.5em) {
+  #homepage__section1:nth-child(2n+1) .homepage__section-image {
+    margin: 0;
+  }
 }
 @media all and (min-width: 37.5em) {
   #homepage__section1:nth-child(2n) .homepage__section-copy:before {
@@ -1511,8 +1497,10 @@ textarea {
     right: -20%;
   }
 }
-#homepage__section1:nth-child(2n) .homepage__section-image {
-  float: right;
+@media all and (min-width: 37.5em) {
+  #homepage__section1:nth-child(2n) .homepage__section-image {
+    float: right;
+  }
 }
 @media all and (min-width: 37.5em) {
   #homepage__section1 .homepage__section-copy:before {
@@ -1547,9 +1535,19 @@ textarea {
     width: 120%;
   }
 }
+#homepage__section1 .homepage__section-image-container {
+  margin-top: 20px;
+}
+@media all and (min-width: 37.5em) {
+  #homepage__section1 .homepage__section-image-container {
+    margin-top: 0;
+  }
+}
 #homepage__section1 .homepage__section-image {
   z-index: 1;
   width: 100%;
+  max-width: 400px;
+  margin: auto;
 }
 @media all and (min-width: 37.5em) {
   #homepage__section1 .homepage__section-image {
@@ -1638,9 +1636,18 @@ textarea {
     width: 130.2%;
   }
 }
+#homepage__section2 .homepage__section-image-container {
+  margin-top: 20px;
+}
+@media all and (min-width: 37.5em) {
+  #homepage__section2 .homepage__section-image-container {
+    margin-top: 0;
+  }
+}
 #homepage__section2 .homepage__section-image {
   z-index: 1;
   width: 100%;
+  max-width: 300px;
   margin: auto;
 }
 @media all and (min-width: 37.5em) {
