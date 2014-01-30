@@ -1,6 +1,35 @@
 ---
-layout: page
-title: Home
----
+layout: homepage
 
-(A page that details the features of the new website)
+strapline: Faster, smarter, cleaner.<br />Introducing our prototype for the next generation of the Guardian.
+
+sections:
+
+- title: Beautiful everywhere.
+  description: Every day we see over 6,000 devices visiting the Guardian. We believe our content should shine on every one.
+  image: /assets/images/browser.png
+  linkheading: See the new design in action
+  links:
+  - label: Northern lights could be visible across the UK
+    href: #
+  - label: Mo Farah braces himself for baptism of fire in London Marathon
+    href: #
+
+- title: Twice as fast as our current site.
+  description: Some more techy stats here.
+  image: /assets/images/tablet.png
+
+- title: Fewer things, working harder.
+  description: We believe in doing a few things well. You'll find the new site radically simpler and clearer than the old one.
+  image: /assets/images/tablet.png
+
+- title: Developed in the open.
+  description: Our code is publically available and updated hundreds of times a week. The new site is out there for our audience to use and feedback on.
+  linkheading: See what we're up to
+  links:
+  - label: Project on GitHub
+    href: http://github.com/guardian/frontend
+  - label: Product blog
+    href: /updates
+
+---

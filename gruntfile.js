@@ -65,7 +65,7 @@ module.exports = function(grunt) {
             },
             styles: {
                 files: ['jekyll/_src/styles/**/*.scss'],
-                tasks: ['sass', 'dataUri', 'cssmin'],
+                tasks: ['sass', 'cssmin'],
                 options: {
                     spawn: false
                 }
