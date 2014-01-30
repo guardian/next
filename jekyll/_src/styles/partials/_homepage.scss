@@ -27,23 +27,47 @@
 	&:after {
 		content: "";
 		display: block;
-		margin-bottom: 10px;
-		@include mq(tablet){
-			margin-bottom: 30px;
-
-		}
 		clear: both;
 	}
+}
 
-	&.homepage__section--one {
-		margin-bottom: 0;
-		@include mq(430px) {
-			min-height: 220px;
-			margin-bottom: 40px;
+.homepage__section--head {
+	margin-bottom: 0;
+	@include mq(430px) {
+		min-height: 220px;
+		margin-bottom: 40px;
+	}
+	@include mq(desktop){
+		min-height: none;
+	}
+}
+.homepage__section--main{
+	&:nth-child(n+1) {
+		margin-top: 20px;
+	}
+
+	@include mq(tablet) {
+		.homepage__section-image-container, .homepage__section-copy {
+			width: 50%;	
+			position: relative;
 		}
-		@include mq(desktop){
-			min-height: none;
-		}
+
+		&:nth-child(2n+1) {
+			.homepage__section-image-container {
+				float: left;
+			}
+			.homepage__section-copy {
+				float: right;
+			}
+		}		
+		&:nth-child(2n) {
+			.homepage__section-image-container {
+				float: right;
+			}
+			.homepage__section-copy {
+				float: left;
+			}
+		}		
 	}
 }
 
@@ -91,7 +115,26 @@
 	border-radius: 5px;
 }
 
-#homepage__text1 {
+.homepage__linkcontainer{
+	h4 {
+		color: #777;
+		text-transform: uppercase;
+		@include f-data;
+		@include font-size(12, 14);
+	}
+	a {
+		display: block;
+		@include f-data;
+		@include font-size(14, 20);
+	}
+
+	.i-arrow-right-blue {
+		margin-bottom: -4px;
+		margin-right: 4px;
+	}
+}
+
+#homepage__text0 {
 	position: relative;
 	@include font-size(14, 18);
 	
@@ -186,7 +229,7 @@
 	}
 }
 
-#homepage__img1 {
+#homepage__img0 {
 
 	display: none;
 
@@ -218,146 +261,94 @@
 	}
 }
 
-#homepage__text2 {
-
+.homepage__section-body {
 	margin-top: 20px;
-
-	@include mq(tablet) {
-		width: 50%;
-		float:right;
-		position: relative;
-		&:before {
-			border-bottom: 1px dotted #86DAEB;
-			content: "";
-			position: absolute;
-			z-index: 0;
-			top: 15px;
-			right: 0;
-			width: 130%;
-		}
-		&:after {
-			@include homepage__circle;
-			z-index: 2;
-			left: -8%;
-			margin-left: -3px;
-			top: 12px;
-			@include mq(desktop) {
-				left: -12%;
-			}
-			@include mq(wide) {
-				left: -20%;
-			}
-		}
-	}
-
-	h4 {
-		color: #777;
-		text-transform: uppercase;
-		@include f-data;
-		@include font-size(12, 14);
-	}
-	a {
-		display: block;
-		@include f-data;
-		@include font-size(14, 20);
-	}
-
-	.i-arrow-right-blue {
-		margin-bottom: -4px;
-		margin-right: 4px;
-	}
-}
-
-#homepage__img2 {
-	z-index: 1;
-	width: 100%;	
-	max-width: 400px;
-	margin: 10px auto;
-
-	@include mq(tablet) {
-		margin: 0;
-		max-width: none;
-		width: 46%;
-		position: relative;
-	}
 	@include mq(desktop) {
-		width: 44%;
-	}
-	@include mq(wide) {
-		width: 40%;
-	}
-}
-
-#homepage__text3 {
-
-	border-top: 1px dotted #86DAEB;	
-
-	margin-top: 20px;
-	@include mq(tablet) {
-		width: 50%;
-		float: left;
 		margin-top: 40px;
-		position: relative;
-		border-top: 0;
-		&:before {
-			border-bottom: 1px dotted #86DAEB;
-			content: "";
-			margin-right: 20%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 135%;
-			z-index: 0;
+	}
+	&:nth-child(n+1) {
+		border-top: 1px dotted #86DAEB;	
+		@include mq(tablet) {
+			border-top: 0;
 		}
-		&:after {
-			@include homepage__circle;
-			z-index: 2;
-			right: -32.5%;
-			top: 0;
-			margin-top: -3px;
-			margin-left: 3px;
-			@include mq(desktop) {
-				right: -30%;
-			}
-			@include mq(1075px) {
-				right: -29%;
-			}
-			@include mq(wide) {
-				right: -28%;
-			}
-		}
-
 	}
-	@include mq(desktop) {
-		margin-top: 60px;
-	}
-	@include mq(wide) {
-		margin-top: 80px;
-	}
-
 }
 
-#homepage__img3 {
-	width: 80%;
-	margin: auto;
-	max-width: 300px;
-	@include mq(tablet) {
-		float: right;
-		width: 40%;
-		position: relative;
+@function calcDistance($width, $center, $offset) {
+	$centerMult: 1;
+	@if $center { $centerMult: 0.5; }
+	@return ((100% - $width)*$centerMult) + ($offset*($width/100%));
+}
+@mixin magicc($tablet, $desktop, $wide, $leftright, $offset: 0%, $center: false) {
+	// some unnecessarily over complicated scss
+
+	$tabletDistance: calcDistance($tablet, $center, $offset);
+	$desktopDistance: calcDistance($desktop, $center, $offset);
+	$wideDistance: calcDistance($wide, $center, $offset);
+
+	.homepage__section-copy {
+		@include mq(tablet) {
+			&:before {
+				border-bottom: 1px dotted #86DAEB;
+				content: "";
+				position: absolute;
+				z-index: 0;
+				top: 15px;
+				@if $leftright == left { right: 0; } 
+				@else { left: 0; }
+				width: 100% + $tabletDistance;
+				@include mq(desktop) {
+					width: 100% + $desktopDistance;
+				}
+				@include mq(wide) {
+					width: 100% + $wideDistance;
+				}
+			}
+			&:after {
+				@include homepage__circle;
+				z-index: 2;
+				margin-left: -3px;
+				top: 12px;
+
+				#{$leftright}: - $tabletDistance;	
+				@include mq(desktop) {
+					#{$leftright}: -$desktopDistance;
+				}
+				@include mq(wide) {
+					#{$leftright}: -$wideDistance;
+				}
+			}
+		}
+	}
+	.homepage__section-image {
 		z-index: 1;
-		max-width: none;
+		width: 100%;
+		@if $center {
+			margin: auto;
+		} @elseif $leftright == left {
+			margin: 0;
+		} @else {
+			float: right;
+		}
+		@include mq(tablet) {
+			max-width: none;
+			width: $tablet;
+			position: relative;
+		}
+		@include mq(desktop) {
+			width: $desktop;
+		}
+		@include mq(wide) {
+			width: $wide;
+		}
 	}
-	@include mq(desktop) {
-		width: 35%;
-		margin-right: 5%;
-	}
-	@include mq(1075px) {
-		width: 30%;
-		margin-right: 10%;
-	}
-	@include mq(wide) {
-		width: 28%;
-		margin-right: 12%;
-	}
+}
+
+
+#homepage__section1 {
+	@include magicc(92%, 88%, 80%, left);
+}
+
+#homepage__section2 {
+	@include magicc(80%, 70%, 60%, right, 17%, true);
 }

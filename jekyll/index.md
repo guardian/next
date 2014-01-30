@@ -5,15 +5,6 @@ strapline: The Guardian just got fast. <br />Twice as fast.
 
 sections:
 
-- title: foo
-  description: bar
-  linkheading: baz
-  links:
-  - label: foo
-    href: bar
-  - label: baz
-    href: foo
-
 - title: Beautiful everywhere.
   description: Every day we see over 6,000 devices accessing Guardian content. We believe our content should shine on every one.
   image: /assets/images/browser.png

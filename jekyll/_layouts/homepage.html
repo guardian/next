@@ -7,9 +7,9 @@ layout: base
 		<div class="homepage__gradient"></div>
 
 		<div class="container">
-			<div class="homepage__section homepage__section--one">
-				<img id="homepage__img1" alt="" src="/assets/images/devices.png">
-				<div id="homepage__text1">
+			<div class="homepage__section homepage__section--head">
+				<img id="homepage__img0" alt="" src="/assets/images/devices.png">
+				<div id="homepage__text0">
 					<h2>{{ page.strapline }}</h2>
 					<span class="dottedline"></span>
 					<p>Quicker than the BBC. Quicker than the NYT. A step shift in news performance.</p>
@@ -21,21 +21,26 @@ layout: base
 				</div>
 			</div>			
 		</div>
-
 	</div>
 
 	<div class="container">
 		{% for section in page.sections %}
-            <div class="homepage__section">
-				<div id="homepage__text{{ forloop.index }}">
+            <div id="homepage__section{{ forloop.index }}" class="homepage__section homepage__section--main">
+				<div class="homepage__section-copy">
 					<h2>{{ section.title }}</h2>
 					<p>{{ section.description }}</p>
-					<h4>{{ section.linkheading }}</h4>
-					{% for link in section.links %}
-						<a href="{{ link.href }}"><i class="i i-arrow-right-blue"></i>{{ link.label }}</a>
-					{% endfor %}
+					{% if section.linkheading %}
+						<div class="homepage__linkcontainer">
+							<h4>{{ section.linkheading }}</h4>
+							{% for link in section.links %}
+								<a href="{{ link.href }}"><i class="i i-arrow-right-blue"></i>{{ link.label }}</a>
+							{% endfor %}
+						</div>	
+					{% endif %}
 				</div>
-				<img id="homepage__img{{ forloop.index }}" alt="" src="{{ section.image }}">
+				<div class="homepage__section-image-container"> 
+					<img class="homepage__section-image" alt="" src="{{ section.image }}">
+				</div>
 			</div>
         {% endfor %}	
 	</div>
