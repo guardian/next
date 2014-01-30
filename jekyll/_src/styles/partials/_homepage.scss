@@ -335,7 +335,7 @@
                 border-bottom: 1px dotted #86DAEB;
                 content: "";
                 position: absolute;
-                z-index: 0;
+                z-index: 2;
                 top: 15px;
                 width: 100% + $tabletDistance;
                 @include mq(desktop) {
@@ -384,4 +384,7 @@
 
 #homepage__section2 {
     @include circlemagic(80%, 70%, 60%, 17%, true, $mobileMaxWidth: 300px);
+}
+#homepage__section3 {
+    @include circlemagic(80%, 70%, 60%, 45%, $mobileMaxWidth: 300px);
 }
