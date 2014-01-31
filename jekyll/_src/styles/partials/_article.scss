@@ -7,7 +7,7 @@
     padding: $gs-row-height 0 $gs-row-height $gs-gutter*2;
     position: relative;
     
-    @include mq($from: tablet) {
+    @include mq($from: desktop) {
         margin-left: $gs-column-width*3+$gs-gutter;
     }
 }

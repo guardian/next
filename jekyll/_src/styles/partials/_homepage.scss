@@ -1,55 +1,30 @@
-.homepage__container {
-    padding-top: 30px;
-
-    @include mq(tablet) {
-        padding-top: 100px;
-    }
-}
-
 .homepage__section {
+    @include font-size(16, 20);
+    @include clearfix();
     display: block;
     clear: both;
     position: relative;
-    margin-bottom: 30px;
-
-    @include font-size(16, 20);
+    margin: 1em 0;
+    padding-bottom: $gs-row-height;
 
     h2 {
+        @include font-size(24, 28);
         font-weight: normal;
-        @include font-size(26, 30);
         @include mq(tablet) {
             @include font-size(28, 32);
         }
         @include mq(desktop) {
-            @include font-size(34, 38);
+            @include font-size(36, 40);
+        }
+        @include mq(wide) {
+            @include font-size(40, 44);
         }
     }
 
-    &:after {
-        content: "";
-        display: block;
-        clear: both;
-    }
-}
-
-.homepage__section--head {
-    margin-bottom: 0;
-    @include mq(430px) {
-        min-height: 220px;
-        margin-bottom: 50px;
-    }
-    @include mq(desktop){
-        min-height: none;
-    }
-}
-.homepage__section--main{
-    &:nth-child(n+1) {
-        margin-top: 20px;
-    }
-
     @include mq(tablet) {
-        .homepage__section-image-container, .homepage__section-copy {
-            width: 50%; 
+        .homepage__section-image-container,
+        .homepage__section-copy {
+            width: 50%;
             position: relative;
         }
 
@@ -60,7 +35,7 @@
             .homepage__section-copy {
                 float: right;
             }
-        }       
+        }
         &:nth-child(2n) {
             .homepage__section-image-container {
                 float: right;
@@ -68,40 +43,29 @@
             .homepage__section-copy {
                 float: left;
             }
-        }       
+        }
     }
 }
 
-.homepage__gradient-container {
-    position: relative;
-}
-
 .homepage__gradient {
-    position: absolute;
-    z-index: 0;
-    width: 100%;
-    height: 100px;
-    bottom: 0;
-
     background-image: -webkit-gradient(
         linear,
         left top,
         left bottom,
-        color-stop(0, #FFFFFF),
-        color-stop(1, #EDEDED)
+        color-stop(0, #FFF),
+        color-stop(0.925, #EDEDED),
+        color-stop(0.925, #FFF)
     );
-    background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #EDEDED 100%);
-    background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #EDEDED 100%);
-    background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #EDEDED 100%);
-    background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #EDEDED 100%);
-    background-image: linear-gradient(to bottom, #FFFFFF 0%, #EDEDED 100%);
-
-    @include mq(desktop) {
-        margin-top: 150px;
-    }
-
-    @include mq(wide) {
-        margin-top: 150px;
+    background-image: -webkit-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    background-image: -moz-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    background-image: -ms-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    background-image: -o-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    background-image: linear-gradient(to bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    @include clearfix();
+    overflow: hidden;
+    
+    @include mq(tablet) {
+        margin-top: -$gs-row-height;
     }
 }
 
@@ -121,7 +85,7 @@
     border-radius: 5px;
 }
 
-.homepage__linkcontainer{
+.homepage__linkcontainer {
     h4 {
         color: #777;
         text-transform: uppercase;
@@ -133,7 +97,6 @@
         @include f-data;
         @include font-size(14, 20);
     }
-
     .i-arrow-right-blue {
         margin-bottom: -4px;
         margin-right: 4px;
@@ -142,31 +105,39 @@
 
 #homepage__text0 {
     position: relative;
-    @include font-size(14, 18);
-    
+
     h2 {
+        color: $c-nextBlue;
+        @include font-size(28, 32);
+        font-weight: normal;
         margin-top: 0;
-        padding-bottom: 0.6em;
-        position: relative;
-        @include mq(430px){
-            width: 80%;
+        width: 100%;
+        
+        @include mq(40em) {
+            @include font-size(32, 36);
+            width: 60%;
         }
-        color: #4BC6DF;
-        @include mq(tablet) {
+        @include mq(desktop) {
+            color: #fff;
+            @include font-size(40, 44);
+            padding-bottom: 0.6em;
             width: auto;
-            color: white;
+        }
+        @include mq(wide) {
+            @include font-size(44, 48);
         }
     }
+
     span.dottedline {
         display: none;
-        @include mq(tablet) {
+        @include mq(desktop) {
             display: block;
             position: absolute;
             content: "";
             border-bottom: 1px dotted #86DAEB;
             width: 121.5%;
             left: 0;
-            z-index: 2; 
+            z-index: 2;
             margin-left: 8px;
             &:after {
                 right: 0;
@@ -176,25 +147,24 @@
         }
     }
     p {
-        -webkit-font-smoothing: antialiased;
-        margin-top: 4px;
         @include mq(430px){
             width: 65%;
         }
         @include mq(tablet) {
+            width: 50%;
+        }
+        @include mq(desktop) {
             width: auto;
         }
     }
 
-    @include mq(tablet) {
+    @include mq(desktop) {
         padding: 5px 8px;
         margin-left: -8px;
-        margin-top: -30px;
         background-color: #4bc6df;
         color: white;
         width: 50%;
         float: left;
-        @include font-size(14, 18);
         &:before {
             @include homepage__circle;
             position: absolute;
@@ -202,10 +172,6 @@
             left: 197px + 8px;
         }
     }
-    @include mq(desktop) {
-        margin-top: 0;
-    }
-
 }
 
 #homepage__try-ngw-link {
@@ -219,51 +185,49 @@
         margin-bottom: -5px;
         display: none;
     }
-    @include mq($to:tablet) {
+    @include mq($to:desktop) {
         .i-arrow-right-blue {
             display: inline-block;
         }
     }
-    @include mq($from:tablet){
-        color: white;
+    @include mq($from:desktop) {
+        color: #fff;
         &:hover {
             color: #f3f3f3;
         }
-        .i-arrow-right-white { 
-            display: inline-block; 
+        .i-arrow-right-white {
+            display: inline-block;
         }
     }
 }
 
 #homepage__img0 {
-
     display: none;
 
-    @include mq(430px){
+    @include mq(430px) {
         display: block;
-        width: 40%;
-        z-index: 1;
+        max-width: 100%;
+        width: 50%;
+        margin-right: -15%;
+
         position: absolute;
-        right: -8%;
-        bottom: -20px;
-        min-width: 170px;
-
-    }
-
-    @include mq(tablet) {
-        float: right;
         right: 0;
-        position: relative;
-        bottom: -50px;
-        margin-top: -130px;
+        bottom: 0;
+        z-index: 0;
     }
-    @include mq(1000px) {
-        width: 35%;
-        margin-right: 5%;
+    @include mq(tablet) {
+        margin-right: 0;
+    }
+    @include mq(desktop) {
+        max-height: 100%;
+        width: auto;
+        margin-right: -20%;
+    }
+    @include mq(62.5em) {
+        margin-right: -10%;
     }
     @include mq(wide) {
-        width: 30%;
-        margin-right: 10%;
+        margin-right: 0;
     }
 }
 
@@ -290,7 +254,7 @@
                     right: 0;
                 }
                 &:after {
-                    left: - $tabletDistance;    
+                    left: - $tabletDistance;
                     @include mq(desktop) {
                         left: -$desktopDistance;
                     }
@@ -315,7 +279,7 @@
                     left: 0;
                 }
                 &:after {
-                    right: - $tabletDistance;   
+                    right: - $tabletDistance;
                     @include mq(desktop) {
                         right: -$desktopDistance;
                     }
@@ -329,7 +293,7 @@
             @include mq(tablet) {
                 .homepage__section-image {
                     float: right;
-                }                
+                }
             }
         }
     }
@@ -384,12 +348,19 @@
 }
 
 #homepage__section1 {
-    @include circlemagic(92%, 88%, 80%, $mobileMaxWidth: 400px);
+    @include circlemagic(70%, 80%, 90%, 0, true, $mobileMaxWidth: 80%);
 }
-
 #homepage__section2 {
-    @include circlemagic(80%, 70%, 60%, 17%, true, $mobileMaxWidth: 300px);
+    @include circlemagic(70%, 80%, 90%, -5%, true, $mobileMaxWidth: 80%);
 }
 #homepage__section3 {
-    @include circlemagic(80%, 70%, 60%, 45%, $mobileMaxWidth: 300px);
+    @include circlemagic(90%, 90%, 90%, 2%, false, $mobileMaxWidth: 80%);
+}
+#homepage__section4 {
+    @include circlemagic(90%, 100%, 100%, 14%, false, $mobileMaxWidth: 100%);
+    @include mq(tablet) {
+        .homepage__section-image {
+            margin-top: -10%;
+        }
+    }
 }

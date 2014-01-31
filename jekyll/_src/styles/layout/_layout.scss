@@ -49,7 +49,7 @@ body {
         }
     }
 
-    @include mq($from: tablet) {
+    @include mq($from: desktop) {
         &:before {
             content: "";
             display: block;
@@ -65,9 +65,9 @@ body {
 
 /* Main */
 .main {
-    padding-top: $gs-row-height*4;
+    padding-top: $gs-row-height;
     @include mq($from: tablet) {
-        padding-top: $gs-row-height*3;
+        padding-top: $gs-row-height*2;
     }
 }
 

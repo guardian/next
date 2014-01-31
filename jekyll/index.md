@@ -29,7 +29,7 @@ sections:
 
 - title: Created in the open.
   description: Our code is publicly available and updated hundreds of times a week. The new site is out there for our audience to use and feedback on.
-  # image: /assets/images/github.png
+  image: /assets/images/github.png
   linkheading: See what we’re up to
   links:
   - label: Project on GitHub
