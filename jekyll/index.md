@@ -10,7 +10,7 @@ proposition: Quicker than BBC News and the New York Times. As good on your phone
 sections:
 
 - title: Beautiful everywhere.
-  description: Every day we see over 6,000 types of devices visiting the Guardian. We believe our content should shine on every one.
+  description: Every day we see over 6,000 types of device visiting the Guardian. We believe our content should shine on every one.
   image: /assets/images/responsive.png
   linkheading: See the new design in action
   links:
