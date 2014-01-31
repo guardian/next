@@ -13,9 +13,9 @@ redcarpet:
 pygments:         true
 
 # Setup
-permalink:        /updates/:title/
+permalink:        /blog/:title/
 paginate:         10
-paginate_path:    "/updates/page:num"
+paginate_path:    "/blog/page/:num/"
 
 # Navigation
 navigation:
@@ -24,7 +24,7 @@ navigation:
   url: /
 - text: Blog
   mobiletext: Blog
-  url: /updates/
+  url: /blog/
 - text: Feedback
   mobiletext: Feedback
   url: /feedback/

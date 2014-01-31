@@ -1,270 +1,14 @@
-.homepage__container {
-    padding-top: 30px;
-
-    @include mq(tablet) {
-        padding-top: 100px;
-    }
-}
-
-.homepage__section {
-    display: block;
-    clear: both;
-    position: relative;
-    margin-bottom: 30px;
-
-    @include font-size(16, 20);
-
-    h2 {
-        font-weight: normal;
-        @include font-size(26, 30);
-        @include mq(tablet) {
-            @include font-size(28, 32);
-        }
-        @include mq(desktop) {
-            @include font-size(34, 38);
-        }
-    }
-
-    &:after {
-        content: "";
-        display: block;
-        clear: both;
-    }
-}
-
-.homepage__section--head {
-    margin-bottom: 0;
-    @include mq(430px) {
-        min-height: 220px;
-        margin-bottom: 50px;
-    }
-    @include mq(desktop){
-        min-height: none;
-    }
-}
-.homepage__section--main{
-    &:nth-child(n+1) {
-        margin-top: 20px;
-    }
-
-    @include mq(tablet) {
-        .homepage__section-image-container, .homepage__section-copy {
-            width: 50%; 
-            position: relative;
-        }
-
-        &:nth-child(2n+1) {
-            .homepage__section-image-container {
-                float: left;
-            }
-            .homepage__section-copy {
-                float: right;
-            }
-        }       
-        &:nth-child(2n) {
-            .homepage__section-image-container {
-                float: right;
-            }
-            .homepage__section-copy {
-                float: left;
-            }
-        }       
-    }
-}
-
-.homepage__gradient-container {
-    position: relative;
-}
-
-.homepage__gradient {
-    position: absolute;
-    z-index: 0;
-    width: 100%;
-    height: 100px;
-    bottom: 0;
-
-    background-image: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #FFFFFF),
-        color-stop(1, #EDEDED)
-    );
-    background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #EDEDED 100%);
-    background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #EDEDED 100%);
-    background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #EDEDED 100%);
-    background-image: -ms-linear-gradient(bottom, #FFFFFF 0%, #EDEDED 100%);
-    background-image: linear-gradient(to bottom, #FFFFFF 0%, #EDEDED 100%);
-
-    @include mq(desktop) {
-        margin-top: 150px;
-    }
-
-    @include mq(wide) {
-        margin-top: 150px;
-    }
-}
-
-#homepage__content {
-    position: relative;
-    z-index: 1;
-}
-
+//  Homepage mixins
+//  ==========================================================================
 @mixin homepage__circle {
     content: "";
-    display: block;
-    position: absolute;
+    background-color: #fff;
+    border: 1px solid $c-nextBlue;
+    border-radius: 100%;
     width: 7px;
     height: 7px;
-    background-color: #fff;
-    border: 1px solid #86DAEB;
-    border-radius: 5px;
-}
-
-.homepage__linkcontainer{
-    h4 {
-        color: #777;
-        text-transform: uppercase;
-        @include f-data;
-        @include font-size(12, 14);
-    }
-    a {
-        display: block;
-        @include f-data;
-        @include font-size(14, 20);
-    }
-
-    .i-arrow-right-blue {
-        margin-bottom: -4px;
-        margin-right: 4px;
-    }
-}
-
-#homepage__text0 {
-    position: relative;
-    @include font-size(14, 18);
-    
-    h2 {
-        margin-top: 0;
-        padding-bottom: 0.6em;
-        position: relative;
-        @include mq(430px){
-            width: 80%;
-        }
-        color: #4BC6DF;
-        @include mq(tablet) {
-            width: auto;
-            color: white;
-        }
-    }
-    span.dottedline {
-        display: none;
-        @include mq(tablet) {
-            display: block;
-            position: absolute;
-            content: "";
-            border-bottom: 1px dotted #86DAEB;
-            width: 121.5%;
-            left: 0;
-            z-index: 2; 
-            margin-left: 8px;
-            &:after {
-                right: 0;
-                bottom: -4px;
-                @include homepage__circle;
-            }
-        }
-    }
-    p {
-        -webkit-font-smoothing: antialiased;
-        margin-top: 4px;
-        @include mq(430px){
-            width: 65%;
-        }
-        @include mq(tablet) {
-            width: auto;
-        }
-    }
-
-    @include mq(tablet) {
-        padding: 5px 8px;
-        margin-left: -8px;
-        margin-top: -30px;
-        background-color: #4bc6df;
-        color: white;
-        width: 50%;
-        float: left;
-        @include font-size(14, 18);
-        &:before {
-            @include homepage__circle;
-            position: absolute;
-            top: -3px;
-            left: 197px + 8px;
-        }
-    }
-    @include mq(desktop) {
-        margin-top: 0;
-    }
-
-}
-
-#homepage__try-ngw-link {
-    display: inline-block;
-    margin-bottom: 16px;
-    @include f-data;
-    font-weight: bold;
-    @include font-size(14px, 18px);
-
-    .i-arrow-right-white, .i-arrow-right-blue {
-        margin-bottom: -5px;
-        display: none;
-    }
-    @include mq($to:tablet) {
-        .i-arrow-right-blue {
-            display: inline-block;
-        }
-    }
-    @include mq($from:tablet){
-        color: white;
-        &:hover {
-            color: #f3f3f3;
-        }
-        .i-arrow-right-white { 
-            display: inline-block; 
-        }
-    }
-}
-
-#homepage__img0 {
-
-    display: none;
-
-    @include mq(430px){
-        display: block;
-        width: 40%;
-        z-index: 1;
-        position: absolute;
-        right: -8%;
-        bottom: -20px;
-        min-width: 170px;
-
-    }
-
-    @include mq(tablet) {
-        float: right;
-        right: 0;
-        position: relative;
-        bottom: -50px;
-        margin-top: -130px;
-    }
-    @include mq(1000px) {
-        width: 35%;
-        margin-right: 5%;
-    }
-    @include mq(wide) {
-        width: 30%;
-        margin-right: 10%;
-    }
+    display: block;
+    position: absolute;
 }
 
 @function calcDistance($width, $center, $offset) {
@@ -272,7 +16,8 @@
     @if $center { $centerMult: 0.5; }
     @return ((100% - $width)*$centerMult) + ($offset*($width/100%));
 }
-@mixin circlemagic($tablet, $desktop, $wide, $offset: 0%, $center: false, $mobileMaxWidth: none) {
+
+@mixin magic-cirlce($tablet, $desktop, $wide, $offset: 0%, $center: false, $mobileMaxWidth: none) {
     // some unnecessarily over complicated scss for the 
     // dottedline and circle style at various breakpoints
     // $tablet/$desktop/$wide = image widths at respective breakpoints
@@ -290,7 +35,7 @@
                     right: 0;
                 }
                 &:after {
-                    left: - $tabletDistance;    
+                    left: - $tabletDistance;
                     @include mq(desktop) {
                         left: -$desktopDistance;
                     }
@@ -308,6 +53,7 @@
             }
         }
     }
+
     &:nth-child(2n) {
         .homepage__section-copy {
             @include mq(tablet) {
@@ -315,7 +61,7 @@
                     left: 0;
                 }
                 &:after {
-                    right: - $tabletDistance;   
+                    right: - $tabletDistance;
                     @include mq(desktop) {
                         right: -$desktopDistance;
                     }
@@ -329,7 +75,7 @@
             @include mq(tablet) {
                 .homepage__section-image {
                     float: right;
-                }                
+                }
             }
         }
     }
@@ -358,12 +104,7 @@
             }
         }
     }
-    .homepage__section-image-container {
-        margin-top: 20px;
-        @include mq(tablet) {
-            margin-top: 0;
-        }
-    }
+
     .homepage__section-image {
         z-index: 1;
         width: 100%;
@@ -383,13 +124,256 @@
     }
 }
 
-#homepage__section1 {
-    @include circlemagic(92%, 88%, 80%, $mobileMaxWidth: 400px);
+
+/* Homepage section styles
+   ========================================================================== */
+.homepage__section {
+    @include font-size(16, 20);
+    @include clearfix();
+    display: block;
+    clear: both;
+    position: relative;
+    margin: 1em 0;
+    padding-bottom: $gs-row-height;
+
+    .homepage__section-title {
+        @include font-size(24, 28);
+        font-weight: normal;
+        @include mq(tablet) {
+            @include font-size(28, 32);
+        }
+        @include mq(desktop) {
+            @include font-size(36, 40);
+        }
+        @include mq(wide) {
+            @include font-size(40, 44);
+        }
+    }
+
+    @include mq(tablet) {
+        .homepage__section-copy,
+        .homepage__section-image-container {
+            width: 50%;
+            position: relative;
+        }
+
+        &:nth-child(2n+1) {
+            .homepage__section-copy {
+                float: right;
+            }
+            .homepage__section-image-container {
+                float: left;
+            }
+        }
+        &:nth-child(2n) {
+            .homepage__section-copy {
+                float: left;
+            }
+            .homepage__section-image-container {
+                float: right;
+            }
+        }
+    }
 }
 
+.homepage__gradient {
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #FFF),
+        color-stop(0.925, #EDEDED),
+        color-stop(0.925, #FFF)
+    );
+    background-image: -webkit-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    background-image: -moz-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    background-image: -ms-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    background-image: -o-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    background-image: linear-gradient(to bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    @include clearfix();
+    overflow: hidden;
+    
+    @include mq(tablet) {
+        margin-top: -$gs-row-height;
+    }
+}
+
+.homepage__section-links {
+    @include font-size(14, 20);
+    margin: 1em 0;
+
+    h4 {
+        color: $c-neutral2;
+        @include f-data;
+        text-transform: uppercase;
+    }
+    a {
+        @include f-data;
+        display: block;
+    }
+    .i-arrow-right-blue {
+        margin-bottom: -4px;
+        margin-right: 4px;
+    }
+}
+
+#homepage__try-ngw-link {
+    @include f-data;
+    @include font-size(16px, 16px);
+    font-weight: bold;
+    margin: 0.5em 0;
+    display: inline-block;
+
+    .i-arrow-right-white,
+    .i-arrow-right-blue {
+        margin-bottom: -4px;
+        display: none;
+    }
+    @include mq($to:desktop) {
+        .i-arrow-right-blue {
+            display: inline-block;
+        }
+    }
+    @include mq($from:desktop) {
+        color: #F3F3F3;
+        @include font-size(18px, 20px);
+        &:hover {
+            color: #FFF;
+        }
+        .i-arrow-right-white {
+            display: inline-block;
+        }
+    }
+}
+
+
+/* Homepage feature sections
+   ========================================================================== */
+#homepage__section1 {
+    @include magic-cirlce(70%, 80%, 90%, 0, true, $mobileMaxWidth: 80%);
+}
 #homepage__section2 {
-    @include circlemagic(80%, 70%, 60%, 17%, true, $mobileMaxWidth: 300px);
+    @include magic-cirlce(70%, 80%, 90%, -5%, true, $mobileMaxWidth: 80%);
 }
 #homepage__section3 {
-    @include circlemagic(80%, 70%, 60%, 45%, $mobileMaxWidth: 300px);
+    @include magic-cirlce(90%, 90%, 90%, 2%, false, $mobileMaxWidth: 80%);
+}
+#homepage__section4 {
+    @include magic-cirlce(90%, 100%, 100%, 14%, false, $mobileMaxWidth: 100%);
+    @include mq(tablet) {
+        .homepage__section-image {
+            margin-top: -10%;
+        }
+    }
+}
+
+/* Homepage primary introduction section
+   ========================================================================== */
+#homepage__section0 {
+    .homepage__section-copy {
+        width: 100%;
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        @include mq(desktop) {
+            padding: 5px 8px;
+            margin-left: -8px;
+            background-color: #4bc6df;
+            color: white;
+            width: 50%;
+            float: left;
+            &:before {
+                @include homepage__circle;
+                position: absolute;
+                top: -3px;
+                left: 197px + 8px;
+            }
+        }
+
+        .homepage__section-title {
+            color: $c-nextBlue;
+            @include font-size(28, 32);
+            font-weight: normal;
+            margin-top: 0;
+            width: 100%;
+
+            @include mq(40em) {
+                @include font-size(32, 36);
+                width: 60%;
+            }
+            @include mq(desktop) {
+                color: #fff;
+                @include font-size(40, 44);
+                padding-bottom: 0.6em;
+                width: auto;
+            }
+            @include mq(wide) {
+                @include font-size(44, 48);
+            }
+        }
+
+        span.dottedline {
+            display: none;
+            @include mq(desktop) {
+                content: "";
+                margin-left: 8px;
+                border-bottom: 1px dotted #86DAEB;
+                width: 121.5%;
+                display: block;
+                left: 0;
+                position: absolute;
+                z-index: 2;
+                
+                &:after {
+                    right: 0;
+                    bottom: -4px;
+                    @include homepage__circle;
+                }
+            }
+        }
+
+        .homepage__section-description {
+            @include mq(430px){
+                width: 65%;
+            }
+            @include mq(tablet) {
+                width: 50%;
+            }
+            @include mq(desktop) {
+                width: auto;
+            }
+        }
+    }
+
+    .homepage__section-image-container {
+        img {
+            max-width: 100%;
+        }
+        display: none;
+
+        @include mq(430px) {
+            display: block;
+            width: 50%;
+            margin-right: -15%;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+        @include mq(tablet) {
+            margin-right: 0;
+        }
+        @include mq(desktop) {
+            max-height: 100%;
+            width: auto;
+            margin-right: -20%;
+        }
+        @include mq(62.5em) {
+            margin-right: -10%;
+        }
+        @include mq(wide) {
+            margin-right: 0;
+        }
+    }
 }

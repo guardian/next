@@ -1,13 +1,12 @@
-/* ============================================================
-    Article patterns
-============================================================ */
-.article {
+/* Article patterns
+   ========================================================================== */
+.article--post {
     margin-left: $gs-gutter;
     border-left: 1px dotted $c-nextBlue;
     padding: $gs-row-height 0 $gs-row-height $gs-gutter*2;
     position: relative;
     
-    @include mq($from: tablet) {
+    @include mq($from: desktop) {
         margin-left: $gs-column-width*3+$gs-gutter;
     }
 }
@@ -19,7 +18,7 @@
         }
     }
 
-    .article--summary & {
+    .article--post-summary & {
         @include font-size(20, 24);
         margin-bottom: $gs-baseline;
         @include mq($from: tablet) {
