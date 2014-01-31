@@ -4,13 +4,15 @@ layout: base
 <main class="main" role="main">
     <div class="homepage__gradient">
         <div class="container">
-            <div class="homepage__section homepage__section--head">
-                <img id="homepage__img0" alt="" src="/assets/images/laptop.png"/>
-                <div id="homepage__text0">
-                    <h2>{{ page.strapline }}</h2>
+            <div id="homepage__section0" class="homepage__section">
+                <div class="homepage__section-copy">
+                    <h2 class="homepage__section-title">{{ page.strapline }}</h2>
                     <span class="dottedline"></span>
-                    <p>{{ page.proposition }}</p>
+                    <p class="homepage__section-description">{{ page.proposition }}</p>
                     <a href="#" id="homepage__try-ngw-link"><i class="i i-arrow-right-blue"></i><i class="i i-arrow-right-white"></i> Take it for a spin</a>
+                </div>
+                <div class="homepage__section-image-container">
+                    <img class="homepage__section-image" alt="" src="/assets/images/laptop.png"/>
                 </div>
             </div>
         </div>
@@ -18,12 +20,12 @@ layout: base
 
     <div class="container">
         {% for section in page.sections %}
-        <div id="homepage__section{{ forloop.index }}" class="homepage__section homepage__section--main">
+        <div id="homepage__section{{ forloop.index }}" class="homepage__section">
             <div class="homepage__section-copy">
-                <h2>{{ section.title }}</h2>
-                <p>{{ section.description }}</p>
+                <h2 class="homepage__section-title">{{ section.title }}</h2>
+                <p class="homepage__section-description">{{ section.description }}</p>
                 {% if section.linkheading %}
-                <div class="homepage__linkcontainer">
+                <div class="homepage__section-links">
                     <h4>{{ section.linkheading }}</h4>
                     {% for link in section.links %}
                         <a href="{{ link.href }}"><i class="i i-arrow-right-blue"></i> {{ link.label }}</a>

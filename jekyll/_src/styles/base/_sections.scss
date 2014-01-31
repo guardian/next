@@ -57,34 +57,34 @@ h2 {
 h3 {
     -webkit-font-smoothing: antialiased;
     font-family: $serifheadline;
-    font-size: 1em; /* 16px */
+    font-size: 1em; // 16px
     font-weight: 700;
-    line-height: 1.25; /* 20px */
+    line-height: 1.25; // 20px
     text-rendering: optimizeLegibility;
-    margin: 2em 0 0; /* 32px 0 0 */
+    margin: 2em 0 0; // 32px
 }
 
 h4 {
     -webkit-font-smoothing: antialiased;
     font-family: $serifheadline;
-    font-size: 1em; /* 16px */
+    font-size: 1em; // 16px
     font-weight: 400;
-    line-height: 1.25; /* 20px */
+    line-height: 1.25; // 20px
     text-rendering: optimizeLegibility;
-    margin: 2rem 0 0.5em; /* 32px 0 8px */
+    margin: 2rem 0 0.5em; // 32px 0 8px
 }
 
 hr {
     line-height: 0;
     text-align: center;
-    margin: 2em 0; /* 32px 0 */
+    margin: 2em 0; // 32px 0
     border: 0;
     height: 0;
     }
     hr::after {
         color: $c-neutral4;
         content: "• • •";
-        letter-spacing: 0.75rem; /* 12px */
+        letter-spacing: 0.75rem; // 12px
         height: 0;
     }
 
