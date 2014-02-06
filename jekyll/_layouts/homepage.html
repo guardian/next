@@ -39,4 +39,9 @@ layout: base
         </div>
         {% endfor %}
     </div>
+
+{% for post in paginator.posts %}
+{% include article--summary.html %}
+{% endfor %}
+
 </main>
