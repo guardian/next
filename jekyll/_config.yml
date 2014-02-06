@@ -1,5 +1,5 @@
 # Meta
-title:            Guardian Next
+title:            Guardian Beta
 tagline:          ''
 baseurl:          http://next.theguardian.com
 author:
@@ -31,6 +31,11 @@ navigation:
 
 # Authors
 authors:
+  guardian:
+    display_name: The Guardian
+    gravatar: 2ddf2e74b78084fcf451b3cdeb075e73
+    twitter: guardian
+    twitter: guardian
   paulrobertlloyd:
     display_name: Paul Lloyd
     gravatar: 0bce06bd06ee7a2c4f5500f25dcf7f18

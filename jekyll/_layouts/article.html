@@ -19,7 +19,8 @@ layout: main
         <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>
     </footer>
 
-    <!-- <section class="section section--related">
+    {% comment %}
+    <section class="section section--related">
         <h1 class="section__title">Related Posts</h1>
 
         {% for post in site.related_posts limit:3 %}
@@ -32,5 +33,6 @@ layout: main
             </footer>
         </article>
         {% endfor %}
-    </section> -->
+    </section>
+    {% endcomment %}
 </div>

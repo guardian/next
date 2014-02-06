@@ -35,17 +35,17 @@ body {
         white-space: nowrap;
         background: url(/assets/images/logo.png) no-repeat 0 0;
         @include rem ((
-            background-size: 180px 24px,
-            width: 180px,
-            height: 24px
+            background-size: 186px 30px,
+            width: 186px,
+            height: 30px
         ));
         display: block;
         overflow: hidden;
         @include mq($from: tablet) {
             @include rem ((
-                background-size: 280px 36px,
-                width: 280px,
-                height: 36px
+                background-size: 248px 40px,
+                width: 248px,
+                height: 40px
             ));
         }
         .svg & {
@@ -57,12 +57,12 @@ body {
         &:before {
             content: "";
             display: block;
-            height: 135px;
+            height: 140px;
             border-right: 1px dotted $c-nextBlue;
             float: right;
             position: absolute;
             left: gs-span(3)+1px;
-            top: 28px;
+            top: 24px;
         }
     }
 }
@@ -71,9 +71,9 @@ body {
 /* Main body
    ========================================================================== */
 .main {
-    padding-top: $gs-row-height;
+    padding: $gs-row-height 0;
     @include mq($from: tablet) {
-        padding-top: $gs-row-height*2;
+        padding: $gs-row-height*2 0;
     }
 }
 

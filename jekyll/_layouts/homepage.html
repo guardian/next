@@ -8,11 +8,13 @@ layout: base
                 <div class="homepage__section-copy">
                     <h2 class="homepage__section-title">{{ page.strapline }}</h2>
                     <span class="dottedline"></span>
-                    <p class="homepage__section-description">{{ page.proposition }}</p>
-                    <a href="#" id="homepage__try-ngw-link"><i class="i i-arrow-right-blue"></i><i class="i i-arrow-right-white"></i> Try the alpha</a>
+                    <div class="homepage__section-description">
+                        {{ page.proposition | markdownify }}
+                    </div>
+                    <a href="#" id="homepage__try-ngw-link"><i class="i i-arrow-right-blue"></i><i class="i i-arrow-right-white"></i> Try the beta</a>
                 </div>
                 <div class="homepage__section-image-container">
-                    <img class="homepage__section-image" alt="" src="/assets/images/laptop.png"/>
+                    <img class="homepage__section-image" alt="" src="/assets/images/devices.png"/>
                 </div>
             </div>
         </div>
@@ -40,8 +42,7 @@ layout: base
         {% endfor %}
     </div>
 
-{% for post in paginator.posts %}
-{% include article--summary.html %}
-{% endfor %}
-
+    {% for post in paginator.posts %}
+        {% include article--summary.html %}
+    {% endfor %}
 </main>

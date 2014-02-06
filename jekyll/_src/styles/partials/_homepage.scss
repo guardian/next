@@ -182,19 +182,22 @@
         left top,
         left bottom,
         color-stop(0, #FFF),
-        color-stop(0.925, #EDEDED),
-        color-stop(0.925, #FFF)
+        color-stop(0.87.5, #EDEDED),
+        color-stop(0.87.5, #FFF)
     );
-    background-image: -webkit-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
-    background-image: -moz-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
-    background-image: -ms-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
-    background-image: -o-linear-gradient(bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
-    background-image: linear-gradient(to bottom, #FFF 0%, #EDEDED 92.5%, #FFF 92.5%);
+    background-image: -webkit-linear-gradient(bottom, #FFF 0, #EDEDED 87.5%, #FFF 87.5%);
+    background-image: -moz-linear-gradient(bottom, #FFF 0, #EDEDED 87.5%, #FFF 87.5%);
+    background-image: -ms-linear-gradient(bottom, #FFF 0, #EDEDED 87.5%, #FFF 87.5%);
+    background-image: -o-linear-gradient(bottom, #FFF 0, #EDEDED 87.5%, #FFF 87.5%);
+    background-image: linear-gradient(to bottom, #FFF 0, #EDEDED 87.5%, #FFF 87.5%);
     @include clearfix();
     overflow: hidden;
     
     @include mq(tablet) {
         margin-top: -$gs-row-height;
+    }
+    @include mq(tablet) {
+        padding-bottom: $gs-row-height;
     }
 }
 
@@ -218,7 +221,7 @@
 }
 
 #homepage__try-ngw-link {
-    @include f-data;
+    //@include f-data;
     @include font-size(16px, 16px);
     font-weight: bold;
     margin: 0.5em 0;
@@ -238,7 +241,7 @@
         color: #F3F3F3;
         @include font-size(18px, 20px);
         &:hover {
-            color: #FFF;
+            color: white;
         }
         .i-arrow-right-white {
             display: inline-block;
@@ -305,7 +308,7 @@
             @include mq(desktop) {
                 color: #fff;
                 @include font-size(40, 44);
-                padding-bottom: 0.6em;
+                padding-bottom: 1em;
                 width: auto;
             }
             @include mq(wide) {
@@ -319,7 +322,7 @@
                 content: "";
                 margin-left: 8px;
                 border-bottom: 1px dotted #86DAEB;
-                width: 121.5%;
+                width: 125%;
                 display: block;
                 left: 0;
                 position: absolute;
@@ -330,6 +333,12 @@
                     bottom: -4px;
                     @include homepage__circle;
                 }
+            }
+            @include mq(62.5em) {
+              width: 122.5%;
+            }
+            @include mq(wide) {
+              width: 120%;
             }
         }
 
@@ -342,6 +351,19 @@
             }
             @include mq(desktop) {
                 width: auto;
+            }
+            a {
+                border-bottom: 1px dotted;
+                @include mq(desktop) {
+                    color: white;
+                    border-bottom-color: rgba(255,255,255,0.75);
+                }
+                &:hover {
+                    border-bottom: 1px solid;
+                }
+            }
+            br {
+                line-height: 200%;
             }
         }
     }
@@ -367,13 +389,14 @@
         @include mq(desktop) {
             max-height: 100%;
             width: auto;
-            margin-right: -20%;
+            margin-right: -30%;
         }
         @include mq(62.5em) {
-            margin-right: -10%;
+            margin-right: -22%;
+            margin-top: -5%;
         }
         @include mq(wide) {
-            margin-right: 0;
+            margin-right: -8%;
         }
     }
 }

@@ -1,4 +1,4 @@
 next
 ====
 
-Landing page for Guardian alpha users
+Landing page for Guardian Beta users
