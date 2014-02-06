@@ -1,108 +1,18 @@
 ---
 layout: article
-title: Example content
-author: paulrobertlloyd
+title: Welcome to our Alpha site
+author: anthonysullivan
 ---
-Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
+You may be wondering why we are redesigning our site now, and the reason is simple. We have rapidly evolved from a UK newspaper to a global, cross-platform digital news brand (organisation?). With a global audience of over 40m readers, we are now the third most-read English-language newspaper website in the world. Our journalism is reaching more people than ever before, and the explosion in smartphones and tablets has fuelled this growth. The number of different devices (and models?) accessing theguardian.com in any one week exceeds 6,000.
 
-> Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
+We want you to have the best possible experience of our content, regardless of which device you choose to use to read it on - and this is possible by using what's known as responsive design. You can see it in action by clicking here [LINK TO PROTOTYPE SITE] and making your browser window bigger or smaller and watch how the pages reflow to fit the different screen sizes. 
 
-Etiam porta **sem malesuada magna** mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+The test prototype site is twice as fast as the existing site, and our new designs are simple and clean making it easier than ever for you to find the content you're looking for, to discover new writers and stories, and, crucially, to come back to read more.
 
-## Inline HTML elements
-HTML defines a long list of available inline tags, a complete list of which can be found on the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/HTML/Element).
+Our team of people from editorial, commercial, product and digital development are working together to create and test new ideas and designs that responds to these different needs and requirements.
 
-- **To bold text**, use `<strong>`.
-- *To italicize text*, use `<em>`.
-- Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use `<abbr>`, with an optional `title` attribute for the full phrase.
-- Citations, like <cite>&mdash; Mark otto</cite>, should use `<cite>`.
-- <del>Deleted</del> text should use `<del>` and <ins>inserted</ins> text should use `<ins>`.
-- Superscript <sup>text</sup> uses `<sup>` and subscript <sub>text</sub> uses `<sub>`.
+The new site is still being enhanced every day and we believe in testing as we develop, in an open, live environment. It’s very common for digital companies to build, test and launch products in this way and here at the Guardian we are no different. All our code is available online on GitHub [LINK] and our developers have their own developers blog [LINK].
 
-Most of these elements are styled by browsers with few modifications on our part.
+At the moment we are only testing the new front page and the article pages, but we will be enriching the site and designs day by day. We want to know what works and what doesn't work so the more feedback we have from you the better. We will also learn from the way you explore the site so please do spend some time having a good look round. 
 
-## Heading
-Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-### Code
-Cum sociis natoque penatibus et magnis dis `code element` montes, nascetur ridiculus mus.
-
-{% highlight js %}
-// Example can be run directly in your JavaScript console
-
-// Create a function that takes two arguments and returns the sum of those arguments
-var adder = new Function("a", "b", "return a + b");
-
-// Call the function
-adder(2, 6);
-// > 8
-{% endhighlight %}
-
-Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
-
-### Lists
-Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-
-* Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-* Donec id elit non mi porta gravida at eget metus.
-* Nulla vitae elit libero, a pharetra augue.
-
-Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-
-1. Vestibulum id ligula porta felis euismod semper.
-2. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-3. Maecenas sed diam eget risus varius blandit sit amet non magna.
-
-Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.
-
-<dl>
-    <dt>HyperText Markup Language (HTML)</dt>
-    <dd>The language used to describe and define the content of a Web page</dd>
-
-    <dt>Cascading Style Sheets (CSS)</dt>
-    <dd>Used to describe the appearance of Web content</dd>
-
-    <dt>JavaScript (JS)</dt>
-    <dd>The programming language used to build advanced Web sites and applications</dd>
-</dl>
-
-Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
-
-### Tables
-Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Upvotes</th>
-            <th>Downvotes</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <td>Totals</td>
-            <td>21</td>
-            <td>23</td>
-        </tr>
-    </tfoot>
-    <tbody>
-        <tr>
-            <td>Alice</td>
-            <td>10</td>
-            <td>11</td>
-        </tr>
-        <tr>
-            <td>Bob</td>
-            <td>4</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>Charlie</td>
-            <td>7</td>
-            <td>9</td>
-        </tr>
-    </tbody>
-</table>
-
-Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.
+Share your feedback with us here [LINK TO FORM].
