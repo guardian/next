@@ -1,7 +1,7 @@
 ---
 layout: homepage
 
-title: Faster, smarter, cleaner
+title: Welcome
 
 strapline: Join us in shaping the future of theguardian.com
 
