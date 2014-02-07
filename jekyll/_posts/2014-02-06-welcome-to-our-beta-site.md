@@ -4,16 +4,18 @@ title: Welcome to our Beta site
 author: guardian
 summary: You may be wondering why we are redesigning our site now, and the reason is simple.
 ---
-You may be wondering why we are redesigning our site now, and the reason is simple. We have rapidly evolved from a UK newspaper to a global, cross-platform digital news brand (organisation?). With a global audience of over 40m readers, we are now the third most-read English-language newspaper website in the world. Our journalism is reaching more people than ever before, and the explosion in smartphones and tablets has fuelled this growth. The number of different devices (and models?) accessing theguardian.com in any one week exceeds 6,000.
+Hello. This blog is where we'll share our latest thinking as we test ideas for our new beta site. We're also busily updating our core apps, which will be available from the Apple and Android stores this spring.
 
-We want you to have the best possible experience of our content, regardless of which device you choose to use to read it on - and this is possible by using what's known as responsive design. You can see it in action by clicking here [LINK TO PROTOTYPE SITE] and making your browser window bigger or smaller and watch how the pages reflow to fit the different screen sizes.
+The reason for this evolution of our apps and website is simple. We have rapidly evolved from a UK newspaper to a global, cross-platform digital news brand with a global audience of more than 40m readers. We're now the third most popular English-language newspaper website in the world and our journalism is reaching more people than ever before.
 
-The test prototype site is twice as fast as the existing site, and our new designs are simple and clean making it easier than ever for you to find the content you're looking for, to discover new writers and stories, and, crucially, to come back to read more.
+This growth has been fuelled by the explosion in smartphones and tablets, and we want you to have the best experience of our content, whatever device you're using. One way we'll ensure this is with responsive design. See it in action by clicking here and making your browser window bigger and smaller; you'll see the pages adapt to fit.
 
-Our team of people from editorial, commercial, product and digital development are working together to create and test new ideas and designs that responds to these different needs and requirements.
+The beta site is faster than the current site and our new designs are beautiful and simple, so you can find the content you're looking for, discover new writers and stories, and, crucially, come back to read more.
 
-The new site is still being enhanced every day and we believe in testing as we develop, in an open, live environment. It’s very common for digital companies to build, test and launch products in this way and here at the Guardian we are no different. All our code is available online on GitHub [LINK] and our developers have their own developers blog [LINK].
+We believe in testing as we develop, in an open, live environment – in the same way many digital companies build, test and launch their products. All our code is on [GitHub](http://github.com/guardian/frontend) and our engineering team have their own [developer blog](http://www.theguardian.com/info/developer-blog?view=responsive).
 
-At the moment we are only testing the new front page and the article pages, but we will be enriching the site and designs day by day. We want to know what works and what doesn't work so the more feedback we have from you the better. We will also learn from the way you explore the site so please do spend some time having a good look round. 
+At the moment we're only testing the beta front page and article pages, but we will be experimenting and enriching the beta site every day. We want to hear from you at every step of the way: what works and what doesn't? The more feedback the better.
 
-Share your feedback with us here [LINK TO FORM].
+We'll also learn from the way you explore the beta site, so please take your time and have a good look round. And when you're ready to share your thoughts, head [here](http://next.theguardian.com/feedback/).
+
+We hope you like it.
