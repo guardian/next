@@ -2,7 +2,7 @@ sub vcl_miss {
 
     set bereq.url = regsub(req.url, "^", "/aws-frontend-next-alpha/PROD/frontend-next-alpha");
 
-    if (req.url !~ "\.(html|png|svg|css|js|jpeg|jpg)$") {
+    if (req.url !~ "\.(html|png|svg|css|js|jpeg|jpg|ico)$") {
         set bereq.url = bereq.url "index.html";
     }
 
