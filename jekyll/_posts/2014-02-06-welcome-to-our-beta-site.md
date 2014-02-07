@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Welcome to our Beta site
+title: Welcome to our beta site
 author: guardian
 summary: You may be wondering why we are redesigning our site now, and the reason is simple.
 ---
