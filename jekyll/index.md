@@ -3,9 +3,9 @@ layout: homepage
 
 title: Faster, smarter, cleaner
 
-strapline: Join us in shaping the future of <b>theguardian.com</b>
+strapline: Join us in shaping the future of theguardian.com
 
-proposition: A core principle of the way we work is that we test as we develop. We'll be constantly updating elements of the site over the next few months.<br/>Your feedback is important to us – [share it with us today](#).<br/>You can follow our updates on our blog [here](#).
+proposition: "There's one principle at the core of how we work: we test as we develop. That's why we'll be updating elements of this site constantly over the next few months.<br />It's also why your feedback is so important to us – <a href='/feedback/'>please share yours</a>.<br />You can follow updates on our blog <a href='/blog/'>here</a>."
 
 sections:
 ---
