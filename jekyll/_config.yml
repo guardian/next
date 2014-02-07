@@ -25,9 +25,9 @@ navigation:
 - text: Blog
   mobiletext: Blog
   url: /blog/
-- text: Feedback
-  mobiletext: Feedback
-  url: /feedback/
+#- text: Feedback
+#  mobiletext: Feedback
+#  url: /feedback/
 
 # Authors
 authors:
