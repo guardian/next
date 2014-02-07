@@ -5,7 +5,7 @@
             "apps":[ "aws-s3" ],
             "data":{
                 "bucket":"aws-frontend-next-alpha",
-                "cacheControl":"public, max-age=10800"
+                "cacheControl":"public, max-age=60"
             }
         }
     },
