@@ -15,21 +15,5 @@
     {{ content }}
 
     {% include footer.html %}
-
-    <script>
-        (function() {
-            var location = document.location.toString();
-            var hash = location.split('#')[1]
-            if(hash === "unhide") {
-                var body = document.querySelector('body');
-                body.style.display = 'block';
-            
-                var links = document.querySelectorAll('a:not([data-nohash=true])');
-                for(var i = 0; i < links.length; i++) {
-                    links[i].href = links[i].href + '#unhide';
-                }
-            }
-        })();
-    </script>
 </body>
 </html>
