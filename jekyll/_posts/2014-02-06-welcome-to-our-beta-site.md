@@ -8,7 +8,7 @@ Hello. This blog is where we'll share our latest thinking as we test ideas for o
 
 The reason for this evolution of our apps and website is simple. We have rapidly evolved from a UK newspaper to a global, cross-platform digital news brand with a global audience of more than 40m readers. We're now the third most popular English-language newspaper website in the world and our journalism is reaching more people than ever before.
 
-This growth has been fuelled by the explosion in smartphones and tablets, and we want you to have the best experience of our content, whatever device you're using. One way we'll ensure this is with responsive design. See it in action by clicking here and making your browser window bigger and smaller; you'll see the pages adapt to fit.
+This growth has been fuelled by the explosion in smartphones and tablets, and we want you to have the best experience of our content, whatever device you're using. One way we'll ensure this is with responsive design. See it in action by [clicking here](http://www.theguardian.com/preference/platform/mobile?page=http%3A%2F%2Fwww.theguardian.com%2Fuk%3Fview%3Dmobile) and making your browser window bigger and smaller; you'll see the pages adapt to fit.
 
 The beta site is faster than the current site and our new designs are beautiful and simple, so you can find the content you're looking for, discover new writers and stories, and, crucially, come back to read more.
 
