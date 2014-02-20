@@ -3,6 +3,7 @@ layout: article
 title: Making the beta better
 author: anthonysullivan
 summary: The way that we are creating the new Guardian website is different from how we’ve made big changes before.
+discussion: p/3nvt5
 ---
 The way that we are creating the new Guardian website is different from how we’ve made big changes before. Previously, we’d have spent quite a long time designing and then building everything. We would then get the thoughts and opinions from a wide range of our readers once we’d launched it to the world.
 
