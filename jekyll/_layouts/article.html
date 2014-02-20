@@ -13,8 +13,8 @@ layout: main
     <footer class="article__footer h-card">
         {% assign author = site.authors[page.author] %}
         <a class="u-url" href="https://twitter.com/{{ author.twitter }}">
-            <!-- <img class="u-photo" src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=120&#38;d=http%3A%2F%2Fnext.theguardian.com%2Fassets%2Fimages%2Fgravatar.png" width="60" height="60" alt=""/> -->
-            <img class="u-photo" src="http://next.theguardian.com/assets/images/gravatar.png" width="60" height="60" alt="" />
+            <img class="u-photo" src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=120&#38;d=http%3A%2F%2Fnext.theguardian.com%2Fassets%2Fimages%2Fgravatar.png" width="60" height="60" alt=""/>
+            <!-- <img class="u-photo" src="http://next.theguardian.com/assets/images/gravatar.png" width="60" height="60" alt="" /> -->
             <span class="p-name">{{ author.display_name }}</span>
         </a>
         <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date_to_string }}</time>

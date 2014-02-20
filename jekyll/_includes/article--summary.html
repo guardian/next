@@ -1,6 +1,6 @@
 <article class="article article--post article--post-summary">
     <header class="article__header">
-        <h1 class="article__title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+        <h1 class="article__title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
     </header>
 
     <div class="article__main">
@@ -10,8 +10,8 @@
     <footer class="article__footer h-card">
         {% assign author = site.authors[post.author] %}
         <a class="u-url" href="https://twitter.com/{{ author.twitter }}">
-            <!-- <img class="u-photo" src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=120&#38;d=http%3A%2F%2Fguardian.github.io%2Fnext%2Fassets%2Fimages%2Fgravatar.png" width="60" height="60" alt=""/> -->
-            <img class="u-photo" src="http://next.theguardian.com/assets/images/gravatar.png" width="60" height="60" alt="" />
+            <img class="u-photo" src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=120&#38;d=http%3A%2F%2Fguardian.github.io%2Fnext%2Fassets%2Fimages%2Fgravatar.png" width="60" height="60" alt=""/>
+            <!-- <img class="u-photo" src="http://next.theguardian.com/assets/images/gravatar.png" width="60" height="60" alt="" /> -->
             <span class="p-name">{{ author.display_name }}</span>
         </a>
         <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
