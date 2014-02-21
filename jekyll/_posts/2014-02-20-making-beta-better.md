@@ -41,4 +41,4 @@ We’ll be writing about all our releases here on our blog. If you’d like to g
 
 ## What do you think?
 
-Please use the [feedback form](https://s.userzoom.com/m/MSBDMTBTMTE5) to let us know your views. There is also the comment thread below. These will be open for the next few days and we’ll be reading everything that comes in and responding where we can. 
+Please use the [feedback form](https://www.surveymonkey.com/s/theguardian-beta-feedback) to let us know your views. There is also the comment thread below. These will be open for the next few days and we’ll be reading everything that comes in and responding where we can. 
