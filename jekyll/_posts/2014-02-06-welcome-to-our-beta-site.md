@@ -16,6 +16,6 @@ We believe in testing as we develop, in an open, live environment – in the sam
 
 At the moment we're only testing the beta front page and article pages, but we will be experimenting and enriching the beta site every day. We want to hear from you at every step of the way: what works and what doesn't? The more feedback the better.
 
-We'll also learn from the way you explore the beta site, so please take your time and have a good look round. And when you're ready to share your thoughts, head [here](https://s.userzoom.com/m/MSBDMTBTMTE5).
+We'll also learn from the way you explore the beta site, so please take your time and have a good look round. And when you're ready to share your thoughts, head [here](https://www.surveymonkey.com/s/theguardian-beta-feedback).
 
 We hope you like it.
