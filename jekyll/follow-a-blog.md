@@ -1,11 +1,9 @@
 ---
 layout: follow
-title: Follow blog
+title: Follow live blog
 author: guardian
 summary: Thanks for asking to follow following live blog name.
 ---
-
-<div id="live-blog-name"></div>
 
 We're considering building this feature.
 

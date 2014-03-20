@@ -7,6 +7,8 @@ layout: main
     </header>
 
     <div class="article__main">
+        <div id="live-blog-name"></div>
+
         {{ content }}
         <script language="javascript">
 
@@ -16,7 +18,7 @@ layout: main
 
             function init() {
                 var node = document.getElementById("live-blog-name");
-                node.textContent = "Thanks for asking to follow " + getURLParameter("blog");
+                node.innerHTML = "<p>Thanks for asking to follow <b>" + getURLParameter("blog") + "</b></p>";
             };
 
             function getURLParameter(name) {
