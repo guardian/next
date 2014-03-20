@@ -9,37 +9,4 @@ layout: main
     <div class="article__main">
         {{ content }}
     </div>
-
-    <footer class="article__footer h-card">
-        {% assign author = site.authors[page.author] %}
-        <a class="u-url" href="https://twitter.com/{{ author.twitter }}">
-            {% if author.gravatar %}
-                <img class="u-photo" src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=120&#38;d=http://next.theguardian.com/assets/images/gravatar.png" width="60" height="60" alt=""/>
-            {% else %}
-                <img class="u-photo" src="http://next.theguardian.com/assets/images/gravatar.png" width="60" height="60" alt="" />
-            {% endif %}
-            <span class="p-name">{{ author.display_name }}</span>
-        </a>
-    </footer>
-    {% comment %}
-    <section class="section section--related">
-        <h1 class="section__title">Related Posts</h1>
-
-        {% for post in site.related_posts limit:3 %}
-        <article class="article">
-            <header class="article__header">
-                <h1 class="article__title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
-            </header>
-            <footer class="article__footer">
-                <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
-            </footer>
-        </article>
-        {% endfor %}
-    </section>
-    {% endcomment %}
-    {% if page.discussion %}
-    <br />&nbsp;
-    <br />
-    <iframe height="600px" allowtransparency="true" frameborder="0" border="0" style="border:1px solid #eee; padding:0 10px; max-width:720px; width:100%" role="application" horizontalscrolling="no" name="d2-iframe" src="http://discussion.theguardian.com/discussion/{{ page.discussion }}?commentpage=1&amp;orderby=oldest&amp;threads=collapsed&amp;tab=all&amp;iframe=true&amp;noposting=true"></iframe>
-    {% endif %}
-</div>
+</article>
