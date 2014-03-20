@@ -1,10 +1,10 @@
 ---
 layout: follow
-title: Follow live blog
+title: Follow a live blog
 author: guardian
-summary: Thanks for asking to follow following live blog name.
+summary: Thanks for asking to follow a live blog.
 ---
 
-We're considering building this feature.
+We’re considering building this feature.
 
-Add your email below if you'd like to know when it's when it's ready.
+Enter your email below if you’d like to know when it’s ready.
