@@ -10,75 +10,36 @@ layout: main
         <div id="live-blog-name"></div>
 
         {{ content }}
-        <script language="javascript">
+        <script>
 
             window.addEventListener("load", init, false);
 
-            var submitted = false
+            var submitted = false;
 
             function init() {
                 var node = document.getElementById("live-blog-name");
                 node.innerHTML = "<p>Thanks for asking to follow <b>" + getURLParameter("blog") + "</b></p>";
-            };
+            }
 
             function getURLParameter(name) {
-                return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+                return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
             }
 
         </script>
-        <iframe name="hidden" id="hidden" style="display:none;" onload="if(submitted){window.location='/thanks.html';}"></iframe>
+        <iframe name="hidden" id="hidden" style="display: none;" onload="if(submitted){window.location='/thanks.html';}"></iframe>
 
-        <form action="https://docs.google.com/forms/d/1nqtWJ6BQr_ScBGOn-PnFuxpSBHz1ZI_mh2UyeI-a7-8/formResponse" method="POST" id="ss-form" target="hidden" onsubmit="submitted=true"><div role="list">
-            <div class="ss-form-question errorbox-good" role="listitem">
-                <div dir="ltr" class="ss-item  ss-text">
-                    <div class="ss-form-entry">
-                         <input type="text" name="entry.921283928" value="" class="ss-q-short" id="entry_921283928" dir="auto" aria-label="Email Address Enter your email address " title="">
-                    <div class="error-message"></div>
-
-                </div></div>
+        <form action="https://docs.google.com/forms/d/1nqtWJ6BQr_ScBGOn-PnFuxpSBHz1ZI_mh2UyeI-a7-8/formResponse" method="POST" id="ss-form" target="hidden" onsubmit="submitted=true">
+            <div>
+                <input type="email" name="entry.921283928" placeholder="Enter your email address" id="entry_921283928" aria-label="Enter your email address" />
+                <input type="hidden" name="draftResponse" value="[,,&quot;-3900038302668457940&quot;]" />
+                <input type="hidden" name="pageHistory" value="0" />
+                <input type="hidden" name="fromEmail" value="false" />
+    
+                <input type="hidden" name="fbzx" value="-3900038302668457940" />
+    
+                <input type="submit" name="submit" value="Submit" id="ss-submit" />
             </div>
-            <input type="hidden" name="draftResponse" value="[,,&quot;-3900038302668457940&quot;]">
-            <input type="hidden" name="pageHistory" value="0">
-            <input type="hidden" name="fromEmail" value="false">
-
-            <input type="hidden" name="fbzx" value="-3900038302668457940">
-
-            <div class="ss-item ss-navigate"><table id="navigation-table"><tbody><tr><td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
-                <input type="submit" name="submit" value="Submit" id="ss-submit">
-            </tr></tbody></table></div></div></form>
+        </form>
     </div>
 
-    <footer class="article__footer h-card">
-        {% assign author = site.authors[page.author] %}
-        <a class="u-url" href="https://twitter.com/{{ author.twitter }}">
-            {% if author.gravatar %}
-                <img class="u-photo" src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=120&#38;d=http://next.theguardian.com/assets/images/gravatar.png" width="60" height="60" alt=""/>
-            {% else %}
-                <img class="u-photo" src="http://next.theguardian.com/assets/images/gravatar.png" width="60" height="60" alt="" />
-            {% endif %}
-            <span class="p-name">{{ author.display_name }}</span>
-        </a>
-    </footer>
-
-    {% comment %}
-    <section class="section section--related">
-        <h1 class="section__title">Related Posts</h1>
-
-        {% for post in site.related_posts limit:3 %}
-        <article class="article">
-            <header class="article__header">
-                <h1 class="article__title"><a href="{{ post.url }}">{{ post.title }}</a></h1>
-            </header>
-            <footer class="article__footer">
-                <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
-            </footer>
-        </article>
-        {% endfor %}
-    </section>
-    {% endcomment %}
-{% if page.discussion %}
-<br />&nbsp;
-<br />
-<iframe height="600px" allowtransparency="true" frameborder="0" border="0" style="border:1px solid #eee; padding:0 10px; max-width:720px; width:100%" role="application" horizontalscrolling="no" name="d2-iframe" src="http://discussion.theguardian.com/discussion/{{ page.discussion }}?commentpage=1&amp;orderby=oldest&amp;threads=collapsed&amp;tab=all&amp;iframe=true&amp;noposting=true"></iframe>
-{% endif %}
 </div>
