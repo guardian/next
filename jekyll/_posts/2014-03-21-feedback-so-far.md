@@ -40,7 +40,7 @@ We’re looking at ways to make it easier to access full comment threads on an a
 I must admit to being a bit surprised when I first read negative comments around font size, however after doing some digging into the feedback I now feel I understand the problem. It’s not necessarily that the font itself is too big, but the effect the size of the font has on the ease in which an article can be read. There is a perception that there is now too much scrolling needed to read an article compared to the old site and this increased effort needed to read an article is frustrating. 
 
 ### What are we planning to do to address this?
-My colleague Alex has spoken more about our use of typography in a separate post so I will leave it to him to reply in depth. However font sizes are definitely something we are experimenting with right now while
+My colleague Alex [has spoken](http://next.theguardian.com/blog/designing-in-the-open/) more about our use of typography in a separate post so I will leave it to him to reply in depth. However font sizes are definitely something we are experimenting with right now while
 we optimise the reading experience across different devices.
 
 ## 5. Search is poor
