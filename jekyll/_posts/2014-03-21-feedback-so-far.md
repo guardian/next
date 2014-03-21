@@ -27,7 +27,7 @@ Density is a key challenge for us with a responsive redesign, and is a challenge
 When we first launched the beta site we knew we hadn't fully built our responsive navigation and this is definitely causing you problems. A lot of your feedback has been that the lack of subsections appearing in the navigation is affecting findability of content. It’s very hard to find secondary level sections like education, US news, food etc without using search (which I'll come onto). This is compounded by fact the section pages are simple lists right now as we initially focus our attention on the homepage and our article pages.
 
 ### What are we planning to do to address this?
-Well we've already added all the secondary sections to the navigation, as you can see here on our money page: http://www.theguardian.com/uk/money. We’ve also added pagination to our sub-sections so you can step back 
+Well we've already added all the secondary sections to the navigation, as you can see here on our [money page](http://www.theguardian.com/uk/money). We’ve also added pagination to our sub-sections so you can step back 
 through our content. The next steps are to replace the existing navigation bar with a new enhanced responsive design, whilst also looking at how we increase the amount of content on our section pages through adding additional elements to the page. 
 
 ## 3. The comment functionality is poor for those who engage heavily in comments
