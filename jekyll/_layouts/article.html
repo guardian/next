@@ -15,6 +15,8 @@ layout: main
         <a class="u-url" href="https://twitter.com/{{ author.twitter }}">
             {% if author.gravatar %}
                 <img class="u-photo" src="http://www.gravatar.com/avatar/{{ author.gravatar }}?s=120&#38;d=http://next.theguardian.com/assets/images/gravatar.png" width="60" height="60" alt=""/>
+            {% elsif author.image %}
+                <img class="u-photo" src="{{ author.image }}" width="60" height="60" alt="" />
             {% else %}
                 <img class="u-photo" src="http://next.theguardian.com/assets/images/gravatar.png" width="60" height="60" alt="" />
             {% endif %}

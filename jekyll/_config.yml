@@ -49,13 +49,20 @@ authors:
   anthonysullivan:
     display_name: Anthony Sullivan
     gravatar: 22d5144cc26bd0dc556c30180cea6b55
-    twitter: 
+    twitter: antsullivan
     github: 
   alexbreuer:
     display_name: Alex Breuer
     gravatar: 
-    twitter: 
+    image: /assets/images/ab.jpg
+    twitter: ajbreuer
     github: 
+  nickhaley:
+    display_name: Nick Haley
+    gravatar: 
+    image: /assets/images/nh.jpg
+    twitter: twobobswerver
+    github:
   kungpochicken:
     display_name: Chris Mulholland
     gravatar: 
