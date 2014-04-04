@@ -1,8 +1,8 @@
 ---
 layout: article
-title: "Next gen: the global perspective"
+title: Changing with the times
 author: ceciliamarie
-summary: How does a UK news website make a splash over the pond?
+summary: How the beta helps Guardian editors meet the needs of a global digital readership
 ---
 
 > Every newspaper is on a journey into some kind of digital future. That doesn't mean getting out of print, but it does require a greater focus of attention, imagination and resource on the various forms that digital future is likely to take."
