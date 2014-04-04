@@ -2,7 +2,7 @@
 layout: article
 title: "Next gen: the global perspective"
 author: ceciliamarie
-summary: How does a UK newspaper website make a splash over the pond?
+summary: How does a UK news website make a splash over the pond?
 ---
 
 > Every newspaper is on a journey into some kind of digital future. That doesn't mean getting out of print, but it does require a greater focus of attention, imagination and resource on the various forms that digital future is likely to take."
