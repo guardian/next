@@ -20,7 +20,7 @@ Today, our audience are increasingly mobile-users. Here in the US, the Guardian 
 
 Ideally, an experience geared toward an American audience would enable editors to highlight news produced specifically for that audience, whilst still capitalising on the wealth of content produced elsewhere, but minimising or filtering out things that are very UK-centric.
 
-Easy, right? I won’t bore you with the details, but suffice to say that the answer to questions like, “How can we keep this page the way it is, but just hide that box with the all the book offers priced in pounds?” always started with a deep breath and, “It’s not quite that simple …”
+Easy, right? I won’t bore you with the details, but suffice to say that the answer to questions like, “How can we keep this page the way it is, but just hide that box with all the book offers priced in pounds?” always started with a deep breath and, “It’s not quite that simple …”
 
 With the beta site, it finally is that simple. The underlying architecture was created with flexibility in mind; it’s easy to hide things that aren’t relevant - and easy to share things that are. If an editor in New York pulls together a lovely collection of stories and picture galleries on the Oscars to use on the homepage, the team in London can easily grab that same collection and feature it on the Film section front.
 
