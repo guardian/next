@@ -1,13 +1,25 @@
 /* Article patterns
    ========================================================================== */
 .article--post {
-    margin-left: $gs-gutter;
-    border-left: 1px dotted $c-nextBlue;
-    padding: $gs-row-height 0 $gs-row-height $gs-gutter*2;
     position: relative;
-    
-    @include mq($from: desktop) {
-        margin-left: $gs-column-width*3+$gs-gutter;
+    @include rem((
+        padding: $gs-row-height*1.75 0 $gs-row-height 0
+    ));
+
+    @include mq(tablet) {
+        border-left: 1px dotted $c-nextBlue;
+
+        @include rem((
+            margin-left: $gs-gutter,
+            padding: $gs-row-height,
+            padding-left: $gs-gutter*2
+        ));
+    }
+
+    @include mq(desktop) {
+        @include rem((
+            margin-left: $gs-column-width*3+$gs-gutter
+        ));
     }
 }
 .article__title {
@@ -38,7 +50,7 @@
     @include mq($from: wide) {
         padding-right: gs-span(3);
     }
-    
+
     a {
         text-decoration: underline;
     }
@@ -48,7 +60,7 @@
             @include font-size(18, 28);
         }
     }
-    
+
     blockquote {
         margin: $gs-baseline*2 0;
         color: $c-neutral2;
@@ -89,19 +101,31 @@
         padding: 1px;
         position: absolute;
         @include rem ((
-            left: -($gs-gutter+10px),
+            left: -4px,
             top: -($gs-baseline/3)
-        ))
+        ));
+
+        @include mq(tablet) {
+            @include rem((
+                left: -($gs-gutter*1.5)
+            ));
+        }
     }
 
     .p-name {
         float: left;
+
+        @include mq($to: tablet) {
+            @include rem((
+                margin-left: $gs-gutter
+            ));
+        }
     }
 
     .dt-published {
         float: right;
     }
-    
+
     a {
         color: $c-neutral2;
     }
@@ -110,7 +134,7 @@
 .section--related {
     border-top: 1px dotted $c-neutral4;
     overflow: hidden;
-    
+
     .article {
         margin: $gs-row-height 0 0 0;
         border: 0;
@@ -123,25 +147,25 @@
             float: left;
         }
     }
-    
+
     .article__title {
         @include font-size(20, 24);
         margin: 0;
         border-top: 2px solid $c-nextBlue;
         padding-top: $gs-baseline/3;
     }
-    
+
     .article__footer {
         border: 0;
         padding: 0;
         position: static;
-        
+
         @include mq($from: desktop) {
             position: absolute;
             top: auto;
             bottom: 0;
         }
-        
+
         .dt-published {
             float: none;
         }

@@ -894,14 +894,25 @@ textarea {
 /* Article patterns
    ========================================================================== */
 .article--post {
-  margin-left: 20px;
-  border-left: 1px dotted #4bc6df;
-  padding: 36px 0 36px 40px;
   position: relative;
+  padding: 63px 0 36px 0;
+  padding: 6.3rem 0 3.6rem 0;
+}
+@media all and (min-width: 46.25em) {
+  .article--post {
+    border-left: 1px dotted #4bc6df;
+    margin-left: 20px;
+    margin-left: 2rem;
+    padding: 36px;
+    padding: 3.6rem;
+    padding-left: 40px;
+    padding-left: 4rem;
+  }
 }
 @media all and (min-width: 61.25em) {
   .article--post {
     margin-left: 200px;
+    margin-left: 20rem;
   }
 }
 
@@ -1000,13 +1011,25 @@ textarea {
   border-radius: 100%;
   padding: 1px;
   position: absolute;
-  left: -30px;
-  left: -3rem;
+  left: -4px;
+  left: -0.4rem;
   top: -4px;
   top: -0.4rem;
 }
+@media all and (min-width: 46.25em) {
+  .article__footer .u-photo {
+    left: -30px;
+    left: -3rem;
+  }
+}
 .article__footer .p-name {
   float: left;
+}
+@media all and (max-width: 46.24em) {
+  .article__footer .p-name {
+    margin-left: 20px;
+    margin-left: 2rem;
+  }
 }
 .article__footer .dt-published {
   float: right;
