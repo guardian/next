@@ -107,7 +107,7 @@
 
         @include mq(tablet) {
             @include rem((
-                left: -($gs-gutter+10px)
+                left: -($gs-gutter*1.5)
             ));
         }
     }
