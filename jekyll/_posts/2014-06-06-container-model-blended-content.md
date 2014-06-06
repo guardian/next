@@ -46,7 +46,7 @@ The anatomy of a container is as follows. A container contains multiple slices o
 
 We quickly realised that the container model gave us the beginnings of a really flexible reusable design system, something we believed would help facilitate the engaging content discovery experience we were striving for. 
 
-As stacked together containers are in effect just a series of lists, the container model also helps us internally when defining what appears on a new front, article or vertical page.  We felt this was important because when the relative importance of content is clearly defined on the page, it is more easily understood by our audience. It also speeds up the creation process, one of our editorial colleagues was able to configure twenty six section fronts in a single day using an internal tool and api queries.
+As stacked together containers are in effect just a series of lists, the container model also helps us internally when defining what appears on a new front, article or vertical page.  We felt this was important because when the relative importance of content is clearly defined on the page, it is more easily understood by our audience. It also speeds up the creation process, one of our editorial colleagues was able to configure multiple section fronts in a single day using an internal tool and API queries.
 
 As well as speed of creation, the container model allow us to distribute content quickly and easily across multiple page types. A container such as “most popular” can appear on the homepage, an article or a live blog in different positions, however it only needs to be built once and we know it will work straightaway. 
 
