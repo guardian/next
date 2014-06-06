@@ -19,7 +19,7 @@ We looked at things like fast vs slow content areas, text vs visual display, str
 
 <img src="/assets/images/containers/sketch.png" style="width:100%;max-width:650px;" />
 
-*Early wireframes explorations by UX architect [Karima Saad](https://twitter.com/_karima).*
+*Early wireframe explorations by Katrina Stubbings.*
 
 As part of our product discovery process the team ran several ideation workshops with colleagues in editorial and commercial, as well as involving [Information Architects](http://ia.net), a design agency with experience in digital news. It was during these workshops with Oliver Reichenstein and Konstantin Weiss of iA where the concept of containers and the container model really came to life.
 
