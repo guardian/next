@@ -119,3 +119,5 @@ The container model is now in place on our new site and apps, and blended contai
 Our ability to experiment is limited only by our ability to think of interesting new ways to curate and present our content. We believe this flexibility will allow us over time to create the best experience possible for our audience on any device they choose.
 
 Please feel free to leave any comments you have below. 
+
+<div style="font-size:15px;background-color:#eee;font-style:italic;width:100%;border:1px solid #ddd;padding:10px;margin-top:25px;">Nick Haley is Director of User Experience for the Guardian. Follow him on Twitter <a href="https://twitter.com/twobobswerver">here</a>.</div>
