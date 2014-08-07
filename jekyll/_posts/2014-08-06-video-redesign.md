@@ -10,7 +10,7 @@ This week we have launched a completely redesigned video player and a new design
 
 ## What has changed?
 
-The first change many users will notice is the bold use of colour - greys and oranges - that will let our viewers know they are visiting a multimedia section of our site. We have already written about <a href="http://next.theguardian.com/blog/bison/">the new ways we are using colour</a> to quickly indicate to a reader whether she has landed on a news article, a feature text, an opinion piece or a video, but for the majority of our users, this will be the first time they will see this in practice.
+The first change many users will notice is the bold use of colour - greys and oranges - that will let our viewers know they are visiting a multimedia section of our site. We have already written about <a href="http://next.theguardian.com/blog/bison/">the new ways we are using colour</a> to quickly indicate to a reader whether they have landed on a news article, a feature text, an opinion piece or a video, but for the majority of our users, this will be the first time they will see this in practice.
 
 <img src="/assets/images/video_eg_1.jpg" style="width:100%;padding:10px 0;" />
 
