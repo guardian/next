@@ -3,7 +3,7 @@ layout: article
 title: The sooner we share, the better things are
 author: chrisclarke
 summary: Kicking off rapid product discovery with a panel of users.
-discussion: p/3ppcq
+discussion:
 ---
 The product team I work in strongly believes in user research, but we were starting to get the feeling that we were becoming too reliant on a lab environment for all our research.
 We wanted to try something different, something which was quicker and led to more iterations before we launched something. We wanted to create a user panel.
@@ -31,17 +31,17 @@ When we started to test our new responsive navigation, users were then placed in
 
 Here’s an example of a first prototype iteration:
 
-<img src="/assets/images/up_1.png" style="width:100%;max-width:650px;" />
+<img src="/assets/images/userpanel/up_1.png" style="width:100%;max-width:650px;" />
 
 The response was immediate and informative, and resulted in small tweaks to the original prototype and sent to another ten users.
 
-<img src="/assets/images/up_2.png" style="width:100%;max-width:650px;" />
+<img src="/assets/images/userpanel/up_2.png" style="width:100%;max-width:650px;" />
 
 There wasn’t a huge difference between the first and second iteration, but crucially user feedback was already having an impact, if only minor at first. 
 
 Once we were happy the direction the prototypes were going we worked hard to re-touch the design and re-build in production code, ready for deeper testing, and sent  to 20 users on the panel.
 
-<img src="/assets/images/up_3.png" style="width:100%;max-width:650px;" />
+<img src="/assets/images/userpanel/up_3.png" style="width:100%;max-width:650px;" />
 
 *Design by Katrina Stubbings*
 
