@@ -92,4 +92,4 @@ If you’re interested in joining our user panel you can <a href="">join up here
 
 Please feel free to leave any comments you have below. 
 
-<div style="font-size:15px;background-color:#eee;font-style:italic;width:100%;border:1px solid #ddd;padding:10px;margin-top:25px;">Nick Haley is Director of User Experience for the Guardian. Follow him on Twitter <a href="https://twitter.com/twobobswerver">here</a>.</div>
+<div style="font-size:15px;background-color:#eee;font-style:italic;width:100%;border:1px solid #ddd;padding:10px;margin-top:25px;">Chris Clarke is a User Experience Architect for the Guardian. Follow him on Twitter <a href="https://twitter.com/mr_mr">here</a>.</div>
