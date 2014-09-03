@@ -88,7 +88,7 @@ Just over a month later, we’re  still using the panel, and it’s getting bett
 From here we’re  looking into one-to-one engagement to explore remote international testing without the lengthy trips and set up between them. If successful then there’s no doubt this is something we’ll recommend when user research and testing is brought up to discuss.
 
 
-If you’re interested in joining our user panel you can <a href="">join up here</a>
+If you’re interested in joining our user panel you can <a href="https://s.userzoom.com/m/MSBDMTBTMTU0">join up here</a>
 
 Please feel free to leave any comments you have below. 
 
