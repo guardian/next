@@ -48,25 +48,24 @@ Once we were happy the direction the prototypes were going we worked hard to re-
 This whole process took two weeks. Overall, we showed three prototypes to 30 users. We also tested in our UX lab the following week to get more depth on the initial feedback.
 
 ##Things we’ve learned: the good
-
-#Panels (so far) are responsive
+###Panels (so far) are responsive
 Users responded much better than anticipated. They were adept to the panel environment and detailed in their responses, as well as eager to help, timely, friendly and constructive. Not a single user mentioned their experience of the Guardian had been hindered from seeing early prototypes or concepts. There were some concerns about sending  too many requests but we actually found that most users wanted to be contacted even more, and wanted exposure to many more concepts in the process.
 
-#Panels are fast
+###Panels are fast
 After the initial setup of the panel, contacting them was relatively straightforward and, if the tasks, questions and expectations are clear, we could expect responses in a matter of hours. Add scale to the mix and you’re looking at a lot of responses over a very short period.
 
-#Panels are free (if you want them to be)
+###Panels are free (if you want them to be)
 The incentive for many of our users was simply to know that they were helping to improve the site for themselves, and others. They didn’t need a monetary incentive. That said, we are still exploring how we can incentivise our panel without skewing the results.
 
 ##The not so good
 
-#We don't always get the outcome we expect
+###We don't always get the outcome we expect
 
 * Questions cannot be re-explained over email, or delved into. Panels can often miss the point or misinterpret the question.
 * Panels won’t always perform tasks the way you intended. Being explicit over email and can be a challenge when you want to get to the point quickly.
 * Anything the user doesn’t understand is on you for not being detailed enough from the start.
 
-#Panels take effort
+###Panels take effort
 Users will engage with the right amount of contact. Don't ask too many questions and demand too much of them. And don’t email them too much. We kept a rule to only contact each user no more than three times a month, explicitly stating that in the first email. 
 
 Unless there is a monetary incentive, constantly contacting users often can put them off. To keep users interested with tests, vary your tasks and questions.
@@ -82,13 +81,13 @@ Creating a large panel of users is of course much easier in large product organi
 
 Any confusion on the users part is on you, not them. If you get confused feedback, make a note for following contact to be more explicit in what you’re asking them to do. If there’s pushback in your team when suggesting panels, setup a test panel with a small number of users first and try that. If you’re lucky and the turnaround is quick, it might just be the example you need to prove to other team members that it’s worth doing.
 
-##Next steps
+###Next steps
 Just over a month later, we’re  still using the panel, and it’s getting better and better. We’re testing in week long stints, showing prototypes everyday, refining and always moving forward. The panel has helped improve lab sessions as well, making sure the tests we perform in the lab are with the most viable product.
 
 From here we’re  looking into one-to-one engagement to explore remote international testing without the lengthy trips and set up between them. If successful then there’s no doubt this is something we’ll recommend when user research and testing is brought up to discuss.
 
 
-If you’re interested in joining our user panel you can <a href="https://s.userzoom.com/m/MSBDMTBTMTU0">join up here</a>
+If you’re interested in joining our user panel you can <a href="https://s.userzoom.com/m/MSBDMTBTMTU0" target="_blank">join up here</a>.
 
 Please feel free to leave any comments you have below. 
 
