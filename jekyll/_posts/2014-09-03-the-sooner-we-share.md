@@ -3,8 +3,9 @@ layout: article
 title: The sooner we share, the better things are
 author: chrisclarke
 summary: Kicking off rapid product discovery with a panel of users.
-discussion:
+discussion: p/4xbac
 ---
+
 The product team I work in strongly believes in user research, but we were starting to get the feeling that we were becoming too reliant on a lab environment for all our research.
 We wanted to try something different, something which was quicker and led to more iterations before we launched something. We wanted to create a user panel.
 
