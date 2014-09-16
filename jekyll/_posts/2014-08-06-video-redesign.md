@@ -18,7 +18,7 @@ Next, our video player has been redesigned in line with the <a href="http://next
 
 Our video pages group together related videos into <em>"series"</em>, making it easier to discover and watch videos on similar topics of the same series, while the new "popular videos" section lets readers see what Guardian videos are trending right now.
 
-<img src="/assets/images/responsive_video.gif"></img>
+<img src="/assets/images/responsive_video.gif" />
 
 Crucially, the new video pages are entirely responsive, meaning our video content looks exactly the same regardless of the platform, device and screen size it is being watched on. This focus on responsiveness is at the heart of the new website which is being visited by several thousand different device types with different screen sizes at any given time.
 
