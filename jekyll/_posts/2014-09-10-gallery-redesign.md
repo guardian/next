@@ -3,6 +3,7 @@ layout: article
 title: Introducing our new gallery pages
 author: cantlin
 summary: Letting the pictures do the talking.
+discussion: p/4xtma
 ---
 
 Whether it's North America's [most extreme weather in a decade](http://www.theguardian.com/world/gallery/2014/jan/09/us-polar-vortex-the-best-pictures) or a case study in [jazzing up your dog](http://www.theguardian.com/lifeandstyle/gallery/2013/jun/18/dog-grooming-competition-in-pictures), there's always more to discover in the Guardian's photo journalism archives. There are almost thirty thousand galleries available on the site and in our apps, from [Lebanon in 2006](http://www.theguardian.com/world/gallery/2008/jan/30/lebanon.israelandthepalestinians) to [Gaza in 2014](http://www.theguardian.com/world/gallery/2014/aug/12/living-with-loss-in-gaza-in-pictures). In the paper too imagery is central to what we do, quite literally – every day the centrefold is a picture from our [Eyewitness](http://www.theguardian.com/world/series/eyewitness) series. As in the case of this [gay pride](http://www.theguardian.com/world/gallery/2014/sep/08/celebrating-gay-pride-your-photos) collection, galleries can also be a great outlet for readers who share with us through [Guardian Witness](http://witness.theguardian.com).
