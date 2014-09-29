@@ -3,7 +3,7 @@ layout: article
 title: Introducing our new live blogs
 author: cantlin
 summary: Making it easier to get the whole picture.
-discussion: p/4xtma
+discussion: p/42xbd
 ---
 
 The Guardian's [first ever live blog](http://www.theguardian.com/football/1999/mar/17/newsstory.sport10?view=desktop), coverage of an apparently eventful 1-1 draw between Inter Milan and Manchester United, was published just over fifteen years ago. The now adolescent format has blossomed since birth to encompass breaking news, politics, business and the major events of the calendar, from the [Scottish referendum](http://www.theguardian.com/politics/scottish-independence+tone/minutebyminute) to the [Great British Bake Off](http://www.theguardian.com/tv-and-radio/the-great-british-bake-off+tone/minutebyminute). As recently as June 2014 Guardian live blogs won Best Commentary/Blogging at the [Online Media Awards](http://www.onlinemediaawards.net/results).
