@@ -281,9 +281,8 @@ ol {
 
 ul {
   list-style-position: inside;
-  list-style-type: circle;
   margin: 1rem 0;
-  padding: 0;
+  padding: 1rem 0 1rem 3rem;
 }
 
 @media screen and (min-width: 50em) {
