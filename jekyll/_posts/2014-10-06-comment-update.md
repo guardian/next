@@ -30,21 +30,15 @@ By far the most common feedback was that there was too much white space in the n
 
 > "The white space is sickening - don't mean that metaphorically, when I tried to read the page I feel physically sick."
 
- Looking at the old comment layout side by side with the one we originally released, the difference in the density of the content is clear.
+Looking at the old comment layout side by side with the one we originally released, the difference in the density of the content is clear.
 
 <img src="/assets/images/r2-vs-old.png" width="100%" style="margin:30px 0 25px 0;" />
 
 The old layout – on the left – fits seven comments into a space 640 pixels wide and 845 pixels high. On the right, the new layout fits *fewer* comments into a space **37% larger**.
 
-Two weeks ago we introduced a much more compact design that both compresses the vertical height of the comments and shorterns the line length, making them easier to read.
+Two weeks ago we introduced a much more compact design that both compresses the vertical height of the comments and shorterns the line length, making them easier to read. Set next to the old version, it's clear the density of the comments is back to a much more familiar level.
 
-Below is the same thread from the first release, left, and the update, right.
-
-<img src="/assets/images/old-vs-new.png" width="100%" style="margin:30px 0 25px 0;" />
-
-Set next to the old version, it's clear the density of the comments is back to a much more familiar level.
-
-<img src="/assets/images/r2-vs-new.png" width="100%" style="margin:30px 0 25px 0;" />
+<img src="/assets/images/r2-vs-new-2.png" width="100%" style="margin:30px 0 25px 0;" />
 
 ## Text legibility
 
