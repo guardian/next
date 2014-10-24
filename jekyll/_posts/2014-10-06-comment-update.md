@@ -3,7 +3,7 @@ layout: article
 title: Updates below the line
 author: cantlin
 summary: We're reacting to your feedback.
-discussion: p/42xbd
+discussion: p/42m5y
 ---
 
 At the beginning of this month we released [new live blogs](http://next.theguardian.com/blog/liveblog-redesign/) on theguardian.com. The reaction from readers to the new layout for the content, including the key events timeline, has been great so far. Please keep giving us your thoughts in the [feedback form](https://www.surveymonkey.com/s/guardianliveblogs).
