@@ -5,7 +5,7 @@ author: guardian
 summary: "Over the last year we have been working on a new version of theguardian.com website. As we’ve been doing that, we’ve been inviting readers into the new site and asking them for their thoughts."
 ---
 
-<img src="/assets/images/devices.png" style="margin:20px 0;" />
+<img src="/assets/images/devices.jpg" style="margin:20px 0;" />
 
 Over the last year we have been working on a new version of the Guardian website. Along the way, we’ve been inviting readers into the new site and asking them for their thoughts. To date we’ve received over 26,000 pieces of feedback, helping us make the site better.
 
