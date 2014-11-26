@@ -19,16 +19,16 @@ What we did about it? We developed the concept of a headlines and highlights con
 
 ## The issue: comment experience
 
-What you told us: The layout wasn’t compact enough, the text was not legible, refreshing comments and visiting permalinks. When we first launched the beta there was also no un-threaded view of comments. 
+What you told us: The layout wasn’t compact enough, the text was not legible, refreshing comments took you to random places in the comments. When we first launched the beta there was also no unthreaded view of comments. 
 
-What we did about it? We’ve addressed all these issues, and more. Being open is at the heart of our journalism so it was hugely important for us to get this right. In fact, we place so much importance on commenting that Cantlin, one of our product managers here at the Guardian, has written a whole blog on comments [here](http://next.theguardian.com/blog/comment-update/). We hope you find the comment threads much easier to use and to read. An on-going issues is the amount of comments you can read in one joint view. We keep increasing this amount gradually to test the impact this has on server load. We will soon increase the number to 500 comments. 
+What we did about it? We’ve addressed all these issues, and more. Being open is at the heart of our journalism so it was hugely important for us to get this right. In fact, we place so much importance on commenting that Cantlin, one of our product managers here at the Guardian, has written a whole blog on comments [here](http://next.theguardian.com/blog/comment-update/). We hope you find the comment threads much easier to use and to read. An ongoing issues is the amount of comments you can read in one single view. We keep increasing this amount gradually to test the impact this has on server load. 
 
 ## The issue: finding your favourite content 
 
 What you told us: Help - you can’t find your favourites! With the new design and navigation, lots of you were finding it difficult to find content.
 
-What we did about it? Lots. We’ve worked hard to make sure that our navigation is simpler, easier and faster to find sections regardless of the device that you’re on. Sections are now clearly displayed on page load - not hidden behind a menu - with a greater level of discoverability available under our ‘all sections’ button.  We’re also adding crosswords, Today’s paper and other items to the navigation. Our regular features, like football weekly, will soon be found in their related section in their own container, where you can clearly see the latest of each feature. We’re not saying it’s perfect, but as more and more readers use the site, we will continue to improve it in the future.
-With the ‘all sections’ function, all sub-sections are only one click away from the homepage. And, for for the first time, you can see all of the Guardian’s sections and subsections in one joint view. 
+What we did about it? Lots. We’ve worked hard to make sure that our navigation is simpler, easier and faster to find sections regardless of the device that you’re on. Sections are now clearly displayed on page load - not hidden behind a menu - with a greater level of discoverability available under our ‘all sections’ button.  We’re also adding crosswords, Today’s paper and other items to the navigation. Our regular features, like Football Weekly, will soon be found in their related section in their own container, where you can clearly see the latest of each feature. We’re not saying it’s perfect, but as more and more readers use the site, we will continue to improve it in the future.
+With the ‘all sections’ function, all sub-sections are only one click away from the homepage. And, for the first time, you can see all of the Guardian’s sections and subsections in one single view. 
 
 # Other feedback
 
@@ -40,7 +40,7 @@ Some of you like the font, others don’t. Some of you think it’s too large, o
 
 ## Image sizes
 
-Images are a key element of great storytelling, and we know how much our readers value our attention to the quality of the photojournalism we use.The consensus was that the current site had a large number of images but often the quantity and size of these (many are what we call thumbnail) meant they didn’t really contribute to the narrative of a particular story or to the hierarchy of stories.  Our new layout (using, what we call, “containers”) enables us to integrate images more effectively. As part of the evolution of the new website we also want our pictures to communicate hierarchy or what we call the relative importance of stories to each other, so on the new site you will often see fewer, but better displayed images. 
+Images are a key element of great storytelling, and we know how much our readers value our attention to the quality of the photojournalism we use. The consensus was that the current site had a large number of images but often the quantity and size of these (many are what we call thumbnail) meant they didn’t really contribute to the narrative of a particular story or to the hierarchy of stories.  Our new layout (using, what we call, “containers”) enables us to integrate images more effectively. As part of the evolution of the new website we also want our pictures to communicate hierarchy or what we call the relative importance of stories to each other, so on the new site you will often see fewer, but better displayed images. 
 
 ## Use of colour
 
@@ -56,10 +56,10 @@ Our breaking news ticker is no more, but that doesn’t mean it’s gone for goo
 
 ## “The site was built for mobile, with no desktop consideration”
 
-This simply isn’t the case. As Nick Haley [outlined in his blog](http://next.theguardian.com/blog/feedback-so-far/), we started with a mobile solution and scaled appropriately. The new website has been carefully crafted to deliver a greater journalistic experience across any device, regardless of the screen’s size, and mobile was the first step in delivering this experience. We can also see that while there is a lot of talk in the media about desktop traffic going away Both, the Guardian’s desktop traffic as well as its mobile traffic are both growing strongly. We have a strong interest in providing you with an excellent experience on desktop devices as much as on tablets or smartphones. 
+This simply isn’t the case. As Nick Haley [outlined in his blog](http://next.theguardian.com/blog/feedback-so-far/), we started with a mobile solution and scaled appropriately. The new website has been carefully crafted to deliver a greater journalistic experience across any device, regardless of the screen’s size, and mobile was the first step in delivering this experience. We can also see that while there is a lot of talk in the media about desktop traffic going away. Both the Guardian’s desktop traffic as well as its mobile traffic are growing strongly. We have a strong interest in providing you with an excellent experience on desktop devices as much as on tablets or smartphones. 
 
 ## Keep your comments coming
 
-Thank you for all your comments - positive or negative - and please keep it coming. We are listening and want to make sure you can see the changes and the decisions behind them Some of the changes mentioned here will be coming over the coming weeks so please bear with us. 
+Thank you for all your comments - positive or negative - and please keep it coming. We are listening and want to make sure you can see the changes and the decisions behind them. Some of the changes mentioned here will be coming over the coming weeks so please bear with us. 
 
 We really value your feedback.  Please fill in our survey [here](https://www.surveymonkey.com/s/theguardian-beta-feedback).
