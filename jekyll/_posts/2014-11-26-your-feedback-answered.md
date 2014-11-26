@@ -21,7 +21,7 @@ What we did about it? We developed the concept of a headlines and highlights con
 
 What you told us: The layout wasn’t compact enough, the text was not legible, refreshing comments took you to random places in the comments. When we first launched the beta there was also no unthreaded view of comments. 
 
-What we did about it? We’ve addressed all these issues, and more. Being open is at the heart of our journalism so it was hugely important for us to get this right. In fact, we place so much importance on commenting that Cantlin, one of our product managers here at the Guardian, has written a whole blog on comments [here](http://next.theguardian.com/blog/comment-update/). We hope you find the comment threads much easier to use and to read. An ongoing issues is the amount of comments you can read in one single view. We keep increasing this amount gradually to test the impact this has on server load. 
+What we did about it? We’ve addressed all these issues, and more. Being open is at the heart of our journalism so it was hugely important for us to get this right. In fact, we place so much importance on commenting that Cantlin, one of our product managers here at the Guardian, has written a whole blog on comments [here](http://next.theguardian.com/blog/comment-update/). We hope you find the comment threads much easier to use and to read. An ongoing issue is the amount of comments you can read in one single view. We keep increasing this amount gradually to test the impact this has on server load. 
 
 ## The issue: finding your favourite content 
 
