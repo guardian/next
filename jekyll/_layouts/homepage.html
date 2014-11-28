@@ -4,211 +4,273 @@ layout: base
 
 <script type="text/javascript">
 
-  var render = function(fn) {
-    fn();
+    var render = function (fn) {
+        fn();
 //    (window.requestAnimationFrame && requestAnimationFrame(fn)) || window.setTimeout(fn,0);
-  };
+    };
 
-  var scrollEl = (function getScrollTop() {
-    return document.body;
-  })();
+    var scrollEl = (function getScrollTop() {
+        return document.body;
+    })();
 
-  function scrollTop(val) {
-    if(val === undefined) {
-      return window.pageYOffset;
-    } else {
-      document.body.scrollTop = val;
-      document.documentElement.scrollTop = val;
-    }
-  }
-
-  function initSmoothScroll() {
-    var interval,
-        toMove = 0;
-
-    function handleScroll(e) {
-      var delta;
-      if (e.type == 'mousewheel') {
-        delta = (e.wheelDelta * -1);
-      } else {
-        delta = 40 * e.detail;
-      }
-
-      toMove += delta * 0.5;
-      if (!interval) {
-        var last = new Date();
-        var move = function () {
-          var now = new Date(),
-              dt = now - last,
-              perc = (dt / 100) * 0.99, // 98% towards target every 100ms
-              moveAmount = toMove * perc;
-          toMove -= moveAmount;
-          scrollTop(scrollTop() + moveAmount);
-          if (Math.abs(toMove) < 20) {
-            clearInterval(interval);
-            interval = false;
-          }
-          last = now;
-        };
-        interval = setInterval(move, 10);
-      }
-
-      e.preventDefault();
-
-    }
-
-    document.addEventListener('mousewheel', handleScroll);
-    document.addEventListener('DOMMouseScroll', handleScroll);
-  }
-
-  function initParallax() {
-    var parallaxEls = {},
-        parallaxSpec = {
-          '.nxt-container--top .nxt-backgrounds': {
-            transform: {top: 0, bottom: 800, from: -10, to: 35, prefix: 'translateY(', suffix: '%)'}
-          },
-          '.nxt-container--top .nxt-copy': {
-            opacity: {top: 100, bottom: 800, from: 1.0, to: 0.0}
-          },
-          '.nxt-container--top .nxt-copy h2': {
-            lineHeight: {top: 0, bottom: 800, from: 48, to: 82, suffix: 'px'},
-            marginTop: {top: 0, bottom: 800, from: 0, to: 5, suffix: '%'}
-          },
-          '.nxt-container--top .nxt-copy p': {
-            lineHeight: {top: 0, bottom: 800, from: 22, to: 45, suffix: 'px'}
-          }
-        };
-    for (var selector in parallaxSpec) { // pre-select elements
-      parallaxEls[selector] = Array.prototype.slice.call(document.querySelectorAll(selector));
-    }
-
-    function updateParallax(){
-      for (var selector in parallaxSpec) {
-        var props = parallaxSpec[selector];
-        for (var prop in props) {
-          var p = props[prop],
-              progress = Math.max(0, Math.min((scrollTop() - p.top) / p.bottom, 1.0)),
-              newVal = p.from + (progress * (p.to - p.from)),
-              value =(p.prefix || '') + newVal.toFixed(2) + (p.suffix || '');
-
-          render(function(els, prop, val) {
-            els.forEach(function(el) {
-              el.style[prop] = val;
-            })
-          }.bind(undefined, parallaxEls[selector], prop, value));
+    function scrollTop(val) {
+        if (val === undefined) {
+            return window.pageYOffset;
+        } else {
+            document.body.scrollTop = val;
+            document.documentElement.scrollTop = val;
         }
-      }
     }
-    document.addEventListener('scroll', updateParallax);
-    updateParallax();
-  }
 
-  function initSlideshow() {
-    var current = 1,
-        classPrefix = 'nxt-backgrounds--',
-        bgEl = document.querySelector('.nxt-backgrounds');
-    function next() {
-      bgEl.classList.remove(classPrefix + current);
-      current = current === 3 ? 1 : ++current;
-      bgEl.classList.add(classPrefix + current);
+    function initVideo() {
+        var videoEl = document.querySelector('.nxt-speedcurve video');
+        document.addEventListener('scroll', function() {
+            if (videoEl.getBoundingClientRect().top < 200) {
+                videoEl.play();
+            }
+        });
     }
-    window.setInterval(next, 4000);
-  }
 
-  document.addEventListener('DOMContentLoaded', function(){
-    // this is to smooth out mousewheel style coarse scrolls (better for parallax / animations)
-    // should probably skip it on OSX and touch devices
-    initSmoothScroll();
+    function initSmoothScroll() {
+        var interval,
+                toMove = 0;
 
-    initParallax();
-    initSlideshow();
-  });
+        function handleScroll(e) {
+            var delta;
+            if (e.type == 'mousewheel') {
+                delta = (e.wheelDelta * -1);
+            } else {
+                delta = 40 * e.detail;
+            }
+
+            toMove += delta * 0.5;
+            if (!interval) {
+                var last = new Date();
+                var move = function () {
+                    var now = new Date(),
+                            dt = now - last,
+                            perc = (dt / 100) * 0.99, // 98% towards target every 100ms
+                            moveAmount = toMove * perc;
+                    toMove -= moveAmount;
+                    scrollTop(scrollTop() + moveAmount);
+                    if (Math.abs(toMove) < 20) {
+                        clearInterval(interval);
+                        interval = false;
+                    }
+                    last = now;
+                };
+                interval = setInterval(move, 10);
+            }
+
+            e.preventDefault();
+
+        }
+
+        document.addEventListener('mousewheel', handleScroll);
+        document.addEventListener('DOMMouseScroll', handleScroll);
+    }
+
+    function initParallax() {
+        var contentEl = document.querySelector('.nxt-container--content');
+        function topOfContent() {
+            return -1 * contentEl.getBoundingClientRect().top;
+        }
+        var parallaxEls = {},
+                parallaxSpec = {
+                    '.nxt-container--top .nxt-backgrounds': {
+                        transform: {top: 0, bottom: 800, from: -10, to: 35, prefix: 'translateY(', suffix: '%)'}
+                    },
+                    '.nxt-container--top .nxt-copy': {
+                        opacity: {top: 300, bottom: 800, from: 1.0, to: 0.0}
+                    },
+                    '.nxt-container--top .nxt-copy h2': {
+                        lineHeight: {top: 300, bottom: 900, from: 48, to: 82, suffix: 'px'},
+                        marginTop: {top: 300, bottom: 900, from: 0, to: 5, suffix: '%'}
+                    },
+                    '.nxt-container--top .nxt-copy p': {
+                        lineHeight: {top: 300, bottom: 900, from: 22, to: 45, suffix: 'px'}
+                    },
+                    '.nxt-after-content': {
+                        transform: {measure: topOfContent, top: 0, bottom: 1800, from: -1800, to: 0, prefix: 'translateY(', suffix: 'px)'}
+                    },
+                    '.nxt-container--content .nxt-copy': {
+                        transform: {measure: topOfContent, top: 0, bottom: 1800, from: 0, to: 1800, prefix: 'translateY(', suffix: 'px)'}
+                    },
+                    '.nxt-copy--articles': {
+                        opacity: {measure: topOfContent, top: 400, bottom: 500, from: 0, to: 1, hide: true}
+                    },
+                    '.nxt-copy--galleries': {
+                        opacity: {measure: topOfContent, top: 850, bottom: 950, from: 0, to: 1, hide: true}
+                    },
+                    '.nxt-copy--liveblogs': {
+                        opacity: {measure: topOfContent, top: 1300, bottom: 1400, from: 0, to: 1, hide: true}
+                    },
+                    '.nxt-laptop': {
+                        transform: {measure: topOfContent, top: 0, bottom: 1800, from: 0, to: 1800, prefix: 'translateY(', suffix: 'px)'}
+                    },
+                    '.nxt-laptop__grab--fronts': {
+                        transform: {measure: topOfContent, top: 100, bottom: 450, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'}
+                    },
+                    '.nxt-laptop__grab--articles': {
+                        transform: {measure: topOfContent, top: 600, bottom: 950, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
+                        opacity: {measure: topOfContent, top: 400, bottom: 500, from: 0, to: 1, hide: true}
+                    },
+                    '.nxt-laptop__grab--media': {
+                        transform: {measure: topOfContent, top: 1050, bottom: 1400, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
+                        opacity: {measure: topOfContent, top: 850, bottom: 950, from: 0, to: 1, hide: true}
+                    },
+                    '.nxt-laptop__grab--liveblogs': {
+                        transform: {measure: topOfContent, top: 1500, bottom: 1800, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
+                        opacity: {measure: topOfContent, top: 1300, bottom: 1400, from: 0, to: 1, hide: true}
+                    }
+                };
+        for (var selector in parallaxSpec) { // pre-select elements
+            parallaxEls[selector] = Array.prototype.slice.call(document.querySelectorAll(selector));
+        }
+
+        function updateParallax() {
+            for (var selector in parallaxSpec) {
+                var props = parallaxSpec[selector];
+                for (var prop in props) {
+                    var p = props[prop],
+                        value;
+                    if (typeof p === 'function') {
+                        value = p();
+                    } else {
+                        var _scrollTop = p.measure ? p.measure() : scrollTop(),
+                            progress = Math.max(0, Math.min((_scrollTop - p.top) / (p.bottom - p.top), 1.0)),
+                            newVal = p.from + (progress * (p.to - p.from)),
+                        value = (p.prefix || '') + newVal + (p.suffix || '');
+                    }
+                    render(function (els, prop, val, spec) {
+                        els.forEach(function (el) {
+                            el.style[prop] = val;
+                            if (spec.hide) {
+                                el.style.display = prop === 'opacity' && val == 0 ? 'none' : '';
+                            }
+                        })
+                    }.bind(undefined, parallaxEls[selector], prop, value, p));
+                }
+            }
+        }
+
+        document.addEventListener('scroll', updateParallax);
+        updateParallax();
+    }
+
+    function initSlideshow() {
+        var current = 1,
+                classPrefix = 'nxt-backgrounds--',
+                bgEl = document.querySelector('.nxt-backgrounds');
+
+        function next() {
+            bgEl.classList.remove(classPrefix + current);
+            current = current === 3 ? 1 : ++current;
+            bgEl.classList.add(classPrefix + current);
+        }
+
+        window.setInterval(next, 4000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // this is to smooth out mousewheel style coarse scrolls (better for parallax / animations)
+        // should probably skip it on OSX and touch devices
+        initSmoothScroll();
+
+        if (window.innerWidth > 740) {
+            initParallax();
+        }
+
+        initSlideshow();
+        initVideo();
+    });
 </script>
 
 <div class="main-body-container">
 
-  <div class="nxt-container nxt-container--top">
-    <div class="nxt-backgrounds">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="nxt-container nxt-container--top">
+        <div class="nxt-body    ">
+            <div class="nxt-parallax-container">
+                <div class="nxt-backgrounds">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="nxt-copy">
+                    <h2>{{ page.sections.top.title }}</h2>
+                    <p>{{ page.sections.top.text }}</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="nxt-body">
-      <div class="nxt-copy">
-        <h2 >{{ page.sections.top.title }}</h2>
-        <p prlx-start="0" plrx-end="500" prlx-min="22" prlx-max="">{{ page.sections.top.text }}</p>
-      </div>
+
+    <div class="nxt-container nxt-container--content">
+        <div class="nxt-body">
+            <div class="nxt-copy nxt-copy--fronts">
+                <h2>{{ page.sections.fronts.title }}</h2>
+                <img src="/assets/images/homepage/laptop_mobile_front.png">
+                <p>{{ page.sections.fronts.text }}</p>
+            </div>
+            <div class="nxt-copy nxt-copy--articles">
+                <h2>{{ page.sections.article.title }}</h2>
+                <img src="/assets/images/homepage/laptop_mobile_article.png">
+                <p>{{ page.sections.article.text }}</p>
+            </div>
+            <div class="nxt-copy nxt-copy--galleries">
+                <h2>{{ page.sections.galleries.title }}</h2>
+                <img src="/assets/images/homepage/laptop_mobile_gallery.png">
+                <p>{{ page.sections.galleries.text }}</p>
+            </div>
+            <div class="nxt-copy nxt-copy--liveblogs">
+                <h2>{{ page.sections.liveblog.title }}</h2>
+                <img src="/assets/images/homepage/laptop_mobile_live.png">
+                <p>{{ page.sections.liveblog.text }}</p>
+            </div>
+            <div class="nxt-laptop">
+                <img class="nxt-laptop__screen" src="/assets/images/homepage/laptop_cutout.png">
+                <img class="nxt-laptop__grab nxt-laptop__grab--fronts" src="/assets/images/homepage/grab_front.jpg">
+                <img class="nxt-laptop__grab nxt-laptop__grab--articles" src="/assets/images/homepage/grab_article.jpg">
+                <img class="nxt-laptop__grab nxt-laptop__grab--media" src="/assets/images/homepage/grab_gallery.jpg">
+                <img class="nxt-laptop__grab nxt-laptop__grab--liveblogs" src="/assets/images/homepage/grab_liveblog.jpg">
+            </div>
+        </div>
     </div>
-  </div>
 
+    <div class="nxt-after-content">
 
-  <div class="nxt-container nxt-container--content nxt-container--fronts">
-    <div class="nxt-body">
-      <div class="nxt-copy">
-        <h2>{{ page.sections.fronts.title }}</h2>
-        <p>{{ page.sections.fronts.text }}</p>
-      </div>
+        <div class="nxt-container nxt-container--performance">
+            <div class="nxt-body">
+                <div class="nxt-copy">
+                    <h2>{{ page.sections.performance.title }}</h2>
+                    <p>{{ page.sections.performance.text }}</p>
+                </div>
+                <div class="nxt-speedcurve u-cf">
+                    <video>
+                        <source type="video/mp4" src="/assets/videos/speedtest.mp4" >
+                    </video>
+                </div>
+                <div class="u-cf"></div>
+            </div>
+        </div>
+
+        <div class="nxt-container nxt-container--sharing">
+            <div class="nxt-body">
+                <div class="nxt-copy">
+                    <h2>{{ page.sections.sharing.title }}</h2>
+                    <p>{{ page.sections.sharing.text }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nxt-container nxt-container--open">
+            <div class="nxt-body">
+                <div class="nxt-copy">
+                    <h2>{{ page.sections.open.title }}</h2>
+                    <p>{{ page.sections.open.text }}</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-
-  <div class="nxt-container nxt-container--content nxt-container--articles">
-    <div class="nxt-body">
-      <div class="nxt-copy">
-        <h2>{{ page.sections.article.title }}</h2>
-        <p>{{ page.sections.article.text }}</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="nxt-container nxt-container--content nxt-container--galleries">
-    <div class="nxt-body">
-      <div class="nxt-copy">
-        <h2>{{ page.sections.galleries.title }}</h2>
-        <p>{{ page.sections.galleries.text }}</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="nxt-container nxt-container--content nxt-container--liveblogs">
-    <div class="nxt-body">
-      <div class="nxt-copy">
-        <h2>{{ page.sections.liveblog.title }}</h2>
-        <p>{{ page.sections.liveblog.text }}</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="nxt-container nxt-container--performance">
-    <div class="nxt-body">
-      <div class="nxt-copy">
-        <h2>{{ page.sections.performance.title }}</h2>
-        <p>{{ page.sections.performance.text }}</p>
-      </div>
-      <div class="nxt-speedcurve u-cf">
-
-      </div>
-      <div class="u-cf"></div>
-    </div>
-  </div>
-
-  <div class="nxt-container nxt-container--sharing">
-    <div class="nxt-body">
-      <div class="nxt-copy">
-        <h2>{{ page.sections.sharing.title }}</h2>
-        <p>{{ page.sections.sharing.text }}</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="nxt-container nxt-container--open">
-    <div class="nxt-body">
-      <div class="nxt-copy">
-        <h2>{{ page.sections.open.title }}</h2>
-        <p>{{ page.sections.open.text }}</p>
-      </div>
-    </div>
-  </div>
 
 
 </div>

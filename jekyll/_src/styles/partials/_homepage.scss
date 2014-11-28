@@ -7,11 +7,6 @@ body { height: auto; }
   margin-top: 50px;
   position: relative;
   border-top: 2px solid #dfdfdf;
-}
-
-.nxt-container {
-  width: 100%;
-  min-height: 200px;
 
   &:before,
   &:after {
@@ -20,7 +15,8 @@ body { height: auto; }
     top: 0;
     height: 100%;
     width: calc((100% - 1300px) / 2);
-    background: rgba(50,50,50,0.005);
+    background: rgba(0,0,0,0.05);
+    z-index: 10;
   }
   &:before {
     left: 0;
@@ -28,6 +24,11 @@ body { height: auto; }
   &:after {
     right: 0;
   }
+}
+
+.nxt-container {
+  width: 100%;
+  min-height: 200px;
 
   .nxt-copy {
     h2 {
@@ -45,32 +46,53 @@ body { height: auto; }
 .nxt-container--top {
   overflow: hidden;
   position: relative;
-  padding-bottom: 40%;
-  height: 0;
   margin-top: -2px; // overlap top border
 
+  @include mq(tablet) {
+    .nxt-parallax-container {
+      padding-bottom: 40%;
+      height: 0;
+    }
+  }
+
+  .nxt-body {
+    position: relative;
+  }
 
   .nxt-backgrounds {
-    height: 720px;
     width: 100%;
-    max-width: 1300px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+
+    @include mq($to: tablet) {
+      padding-bottom: 100% * (600/740);
+      position: relative;
+    }
+
+    @include mq(tablet) {
+      max-width: 1300px;
+      height: 720px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
     div {
       -webkit-transform: translate3d(0,0,0); // force to GPU for performance
       transform: translate3d(0,0,0);
       background-size: contain !important;
-      background-position: fixed;
       width: 100%;
       height: 100%;
       position: absolute;
       transition: opacity 1.5s;
-      &:nth-child(1) { z-index: 3; background: url(/assets/images/homepage/desktop_big.jpg) no-repeat; }
-      &:nth-child(2) { z-index: 2; background: url(/assets/images/homepage/mobile_big.jpg) no-repeat; }
-      &:nth-child(3) { z-index: 1; background: url(/assets/images/homepage/tablet_big.jpg) no-repeat; }
+      &:nth-child(1) { z-index: 3; background: url(/assets/images/homepage/desktop_small.jpg) no-repeat; }
+      &:nth-child(2) { z-index: 2; background: url(/assets/images/homepage/mobile_small.jpg) no-repeat; }
+      &:nth-child(3) { z-index: 1; background: url(/assets/images/homepage/tablet_small.jpg) no-repeat; }
+      @include mq(tablet) {
+        &:nth-child(1) { background: url(/assets/images/homepage/desktop_big.jpg) no-repeat; }
+        &:nth-child(2) { background: url(/assets/images/homepage/mobile_big.jpg) no-repeat; }
+        &:nth-child(3) { background: url(/assets/images/homepage/tablet_big.jpg) no-repeat; }
+      }
     }
 
     // the instant transition overrides here are so the fade is direct from one image to the next
@@ -93,15 +115,30 @@ body { height: auto; }
   .nxt-copy {
     position: relative;
     z-index: 4;
-    width: 480px;
-    padding: $gs-baseline*2 $gs-gutter;
-    color: #f1f1f1;
+    max-width: 480px;
+    color: #333;
+    text-align: center;
+    padding: $gs-baseline/2 $gs-gutter/2;
+    @include mq(tablet) {
+      color: #f1f1f1;
+      text-align: left;
+      padding: $gs-baseline*2 $gs-gutter;
+    }
     h2 {
       margin-top: 0;
-      @include font-size(42, 48);
+      @include font-size(32, 36);
+      font-weight: normal;
+      padding: 0;
+      @include mq(tablet){
+        @include font-size(42, 48);
+        font-weight: bold;
+      }
     }
     p {
-      @include font-size(16, 22);
+      @include font-size(14, 20);
+      @include mq(tablet) {
+        @include font-size(16, 22);
+      }
     }
   }
 }
@@ -117,9 +154,15 @@ body { height: auto; }
       @include font-size(28, 32);
     }
     p {
-      margin: 0;
       @include font-size(14, 20);
     }
+
+    @include mq($to: tablet) {
+      h2, p {
+        margin: 0 $gs-gutter / 2;
+      }
+    }
+
     @include mq(tablet) {
       h2 {
         @include font-size(32, 36);
@@ -131,16 +174,6 @@ body { height: auto; }
   }
 }
 
-.nxt-container--content {
-  @include mq(tablet) {
-    padding-top: $gs-baseline;
-    .nxt-copy {
-      width: 45%;
-      margin-left: 5%;
-    }
-  }
-}
-
 .nxt-container--performance {
   background: #343434;
   color: #f1f1f1;
@@ -148,16 +181,22 @@ body { height: auto; }
     text-align: center;
     p {
       color: #dfdfdf;
-      width: 720px;
+      max-width: 720px;
       margin: auto;
     }
   }
 }
 .nxt-speedcurve {
-  width: 900px;
-  height: 400px;
+  max-width: 900px;
+  width: 100%;
   background: #777;
   margin: $gs-baseline auto;
+  padding-bottom: 38.9%;
+  position: relative;
+  video {
+    width: 100%;
+    position: absolute;
+  }
 }
 
 .nxt-container--sharing {
@@ -166,7 +205,7 @@ body { height: auto; }
   color: #333;
   text-align: center;
   .nxt-copy {
-    width: 600px;
+    max-width: 400px;
     margin: auto;
   }
 }
@@ -185,15 +224,112 @@ body { height: auto; }
   }
 }
 
+
+// Content
+// -----------
+
+.nxt-container--content {
+  @include mq(tablet) {
+    height: 600px;
+    margin-bottom: 600px * 3;
+    position: relative;
+
+    .nxt-body {
+      position: relative;
+    }
+    .nxt-copy {
+      padding-top: $gs-baseline * 10;
+      width: 30%;
+      padding-left: $gs-gutter;
+      height: 600px;
+      position: absolute;
+      background-color: white;
+      img {
+        display: none;
+      }
+    }
+  }
+}
+
+.nxt-copy--fronts    { z-index: 1; }
+.nxt-copy--articles  { z-index: 2; }
+.nxt-copy--galleries { z-index: 3; }
+.nxt-copy--liveblogs { z-index: 4; }
+
 @include mq($to: tablet) {
   .nxt-container--content {
     color: #f1f1f1;
     .nxt-copy {
       text-align: center;
+      padding-top: 0;
+      padding-bottom: $gs-baseline;
+      img {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 $gs-baseline $gs-baseline;
+      }
+      p, h2 {
+        color: rgba(255,255,255, 0.9);
+      }
+      p a {
+        color: rgba(255,255,255, 0.9);
+        display: inline-block;
+        height: 16px;
+        border-bottom: 1px solid rgba(#ffffff,0.6);
+        &:hover {
+          color: #ffffff;
+          border-bottom: 1px solid #f1f1f1;
+        }
+      }
     }
   }
-  .nxt-container--fronts    { background: #035688; }
-  .nxt-container--articles  { background: #961c55; }
-  .nxt-container--galleries { background: #494949; }
-  .nxt-container--liveblogs { background: #800c0c; }
+  .nxt-copy--fronts    { background: #035688; }
+  .nxt-copy--articles  { background: #961c55; }
+  .nxt-copy--galleries { background: #494949; }
+  .nxt-copy--liveblogs { background: #800c0c; }
+}
+
+.nxt-after-content,
+.nxt-container--content .nxt-copy {
+  -webkit-transform: translate3d(0,0,0); // force to GPU for performance
+  transform: translate3d(0,0,0);
+}
+
+.nxt-laptop {
+  position: absolute;
+  width: 45%;
+  right: 5%;
+  overflow: hidden;
+  top: 80px;
+  -webkit-transform: translate3d(0,0,0); // force to GPU for performance
+  transform: translate3d(0,0,0);
+  background: #ffffff;
+  box-shadow: 0px 1px 0px 3px #FFF;
+  &:after {
+    position: absolute;
+    bottom: -1px;
+    height: 2px;
+    width: 100%;
+    color: red;
+  }
+}
+
+.nxt-laptop__screen {
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.nxt-laptop__grab {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 13%;
+  margin-top: 4.6%;
+  top: 0;
+  z-index: 4;
+  -webkit-transform: translate3d(0,0,0); // force to GPU for performance
+  transform: translate3d(0,0,0);
 }
