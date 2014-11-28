@@ -1,48 +1,214 @@
 ---
 layout: base
 ---
-<div class="main" role="main">
-    <div class="homepage__gradient">
-        <div class="container">
-            <div id="homepage__section0" class="homepage__section">
-                <div class="homepage__section-copy">
-                    <h2 class="homepage__section-title">{{ page.strapline }}</h2>
-                    <span class="dottedline"></span>
-                    <div class="homepage__section-description">
-                        {{ page.proposition | markdownify }}
-                    </div>
-                    <a href="http://www.theguardian.com/preference/platform/mobile?page=http%3A%2F%2Fwww.theguardian.com%2Fuk%3Fview%3Dmobile%23opt-in-message" id="homepage__try-ngw-link"><i class="i i-arrow-right-blue"></i><i class="i i-arrow-right-white"></i> Try the beta</a>
-                </div>
-                <div class="homepage__section-image-container">
-                    <img class="homepage__section-image" alt="" src="/assets/images/devices.png"/>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="container">
-        {% for section in page.sections %}
-        <div id="homepage__section{{ forloop.index }}" class="homepage__section">
-            <div class="homepage__section-copy">
-                <h2 class="homepage__section-title">{{ section.title }}</h2>
-                <p class="homepage__section-description">{{ section.description }}</p>
-                {% if section.linkheading %}
-                <div class="homepage__section-links">
-                    <h4>{{ section.linkheading }}</h4>
-                    {% for link in section.links %}
-                        <a href="{{ link.href }}"><i class="i i-arrow-right-blue"></i> {{ link.label }}</a>
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </div>
-            <div class="homepage__section-image-container">
-                <img class="homepage__section-image" alt="" src="{{ section.image }}"/>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+<script type="text/javascript">
 
-    {% for post in paginator.posts %}
-        {% include article--summary.html %}
-    {% endfor %}
+  var render = function(fn) {
+    fn();
+//    (window.requestAnimationFrame && requestAnimationFrame(fn)) || window.setTimeout(fn,0);
+  };
+
+  var scrollEl = (function getScrollTop() {
+    return document.body;
+  })();
+
+  function scrollTop(val) {
+    if(val === undefined) {
+      return window.pageYOffset;
+    } else {
+      document.body.scrollTop = val;
+      document.documentElement.scrollTop = val;
+    }
+  }
+
+  function initSmoothScroll() {
+    var interval,
+        toMove = 0;
+
+    function handleScroll(e) {
+      var delta;
+      if (e.type == 'mousewheel') {
+        delta = (e.wheelDelta * -1);
+      } else {
+        delta = 40 * e.detail;
+      }
+
+      toMove += delta * 0.5;
+      if (!interval) {
+        var last = new Date();
+        var move = function () {
+          var now = new Date(),
+              dt = now - last,
+              perc = (dt / 100) * 0.99, // 98% towards target every 100ms
+              moveAmount = toMove * perc;
+          toMove -= moveAmount;
+          scrollTop(scrollTop() + moveAmount);
+          if (Math.abs(toMove) < 20) {
+            clearInterval(interval);
+            interval = false;
+          }
+          last = now;
+        };
+        interval = setInterval(move, 10);
+      }
+
+      e.preventDefault();
+
+    }
+
+    document.addEventListener('mousewheel', handleScroll);
+    document.addEventListener('DOMMouseScroll', handleScroll);
+  }
+
+  function initParallax() {
+    var parallaxEls = {},
+        parallaxSpec = {
+          '.nxt-container--top .nxt-backgrounds': {
+            transform: {top: 0, bottom: 800, from: -10, to: 35, prefix: 'translateY(', suffix: '%)'}
+          },
+          '.nxt-container--top .nxt-copy': {
+            opacity: {top: 100, bottom: 800, from: 1.0, to: 0.0}
+          },
+          '.nxt-container--top .nxt-copy h2': {
+            lineHeight: {top: 0, bottom: 800, from: 48, to: 82, suffix: 'px'},
+            marginTop: {top: 0, bottom: 800, from: 0, to: 5, suffix: '%'}
+          },
+          '.nxt-container--top .nxt-copy p': {
+            lineHeight: {top: 0, bottom: 800, from: 22, to: 45, suffix: 'px'}
+          }
+        };
+    for (var selector in parallaxSpec) { // pre-select elements
+      parallaxEls[selector] = Array.prototype.slice.call(document.querySelectorAll(selector));
+    }
+
+    function updateParallax(){
+      for (var selector in parallaxSpec) {
+        var props = parallaxSpec[selector];
+        for (var prop in props) {
+          var p = props[prop],
+              progress = Math.max(0, Math.min((scrollTop() - p.top) / p.bottom, 1.0)),
+              newVal = p.from + (progress * (p.to - p.from)),
+              value =(p.prefix || '') + newVal.toFixed(2) + (p.suffix || '');
+
+          render(function(els, prop, val) {
+            els.forEach(function(el) {
+              el.style[prop] = val;
+            })
+          }.bind(undefined, parallaxEls[selector], prop, value));
+        }
+      }
+    }
+    document.addEventListener('scroll', updateParallax);
+    updateParallax();
+  }
+
+  function initSlideshow() {
+    var current = 1,
+        classPrefix = 'nxt-backgrounds--',
+        bgEl = document.querySelector('.nxt-backgrounds');
+    function next() {
+      bgEl.classList.remove(classPrefix + current);
+      current = current === 3 ? 1 : ++current;
+      bgEl.classList.add(classPrefix + current);
+    }
+    window.setInterval(next, 4000);
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    // this is to smooth out mousewheel style coarse scrolls (better for parallax / animations)
+    // should probably skip it on OSX and touch devices
+    initSmoothScroll();
+
+    initParallax();
+    initSlideshow();
+  });
+</script>
+
+<div class="main-body-container">
+
+  <div class="nxt-container nxt-container--top">
+    <div class="nxt-backgrounds">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="nxt-body">
+      <div class="nxt-copy">
+        <h2 >{{ page.sections.top.title }}</h2>
+        <p prlx-start="0" plrx-end="500" prlx-min="22" prlx-max="">{{ page.sections.top.text }}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="nxt-container nxt-container--content nxt-container--fronts">
+    <div class="nxt-body">
+      <div class="nxt-copy">
+        <h2>{{ page.sections.fronts.title }}</h2>
+        <p>{{ page.sections.fronts.text }}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="nxt-container nxt-container--content nxt-container--articles">
+    <div class="nxt-body">
+      <div class="nxt-copy">
+        <h2>{{ page.sections.article.title }}</h2>
+        <p>{{ page.sections.article.text }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nxt-container nxt-container--content nxt-container--galleries">
+    <div class="nxt-body">
+      <div class="nxt-copy">
+        <h2>{{ page.sections.galleries.title }}</h2>
+        <p>{{ page.sections.galleries.text }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nxt-container nxt-container--content nxt-container--liveblogs">
+    <div class="nxt-body">
+      <div class="nxt-copy">
+        <h2>{{ page.sections.liveblog.title }}</h2>
+        <p>{{ page.sections.liveblog.text }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nxt-container nxt-container--performance">
+    <div class="nxt-body">
+      <div class="nxt-copy">
+        <h2>{{ page.sections.performance.title }}</h2>
+        <p>{{ page.sections.performance.text }}</p>
+      </div>
+      <div class="nxt-speedcurve u-cf">
+
+      </div>
+      <div class="u-cf"></div>
+    </div>
+  </div>
+
+  <div class="nxt-container nxt-container--sharing">
+    <div class="nxt-body">
+      <div class="nxt-copy">
+        <h2>{{ page.sections.sharing.title }}</h2>
+        <p>{{ page.sections.sharing.text }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nxt-container nxt-container--open">
+    <div class="nxt-body">
+      <div class="nxt-copy">
+        <h2>{{ page.sections.open.title }}</h2>
+        <p>{{ page.sections.open.text }}</p>
+      </div>
+    </div>
+  </div>
+
+
 </div>
