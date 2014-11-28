@@ -1,157 +1,198 @@
+/* Banner
+   ========================================================================== */
+.banner {
+  background: #f1f1f1;
+  border-bottom: 1px solid #aaa;
+  border-top: 1px solid $c-nextBlue;
+  overflow: hidden;
+  height: $gs-baseline * 5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.banner__title {
+  margin: 0;
+  overflow: hidden;
+  float: left;
+  margin-top: $gs-baseline;
+
+  a {
+    text-indent: 100%;
+    white-space: nowrap;
+    background: url(/assets/images/logo.png) no-repeat 0 0;
+    @include rem((
+            background-size: 201px 27px,
+            width: 201px,
+            height: 27px
+    ));
+    display: block;
+    @include mq($from: tablet) {
+      @include rem((
+              background-size: 268px 36px,
+              width: 268px,
+              height: 36px
+      ));
+    }
+    .svg & {
+      background-image: url(/assets/images/embed/logo.svg);
+    }
+  }
+
+  @include mq($from: desktop) {
+    &:before {
+      content: "";
+      display: block;
+      height: 140px;
+      border-right: 1px dotted $c-nextBlue;
+      float: right;
+      position: absolute;
+      left: gs-span(3);
+      top: 24px;
+    }
+  }
+}
+
 /* Common navigation styles
    ========================================================================== */
 .nav__item {
-    list-style: none;
+  list-style: none;
 }
-
 
 /* Pagination
    ========================================================================== */
 .nav--pagination {
-    padding-bottom: $gs-row-height;
-    @include mq($from: tablet) {
-        margin-left: 178px;
-    }
+  padding-bottom: $gs-row-height;
+  @include mq($from: tablet) {
+    margin-left: 178px;
+  }
 
-    .nav__item {
-        @include font-size(0, 0);
-        text-indent: 100%;
-        background-repeat: no-repeat;
-        display: block;
-        @include rem ((
+  .nav__item {
+    @include font-size(0, 0);
+    text-indent: 100%;
+    background-repeat: no-repeat;
+    display: block;
+    @include rem((
             width: 44px,
             height: 44px
-        ));
-        &::after {
-            font-family: $sans-serif;
-            @include font-size(14, 44);
-            display: none;
-            margin-left: $gs-gutter/2;
-        }
+    ));
+    &::after {
+      font-family: $sans-serif;
+      @include font-size(14, 44);
+      display: none;
+      margin-left: $gs-gutter/2;
     }
+  }
 
-    .nav__item--next {
-        background-image: url(/assets/images/i-pagination-next.png);
-        opacity: 0.9;
-        .svg & {
-            background-image: url(/assets/images/embed/i-pagination-next.svg);
-        }
-        &:hover {
-            opacity: 1;
-            &::after {
-                content: "newer";
-                display: block;
-            }
-        }
+  .nav__item--next {
+    background-image: url(/assets/images/i-pagination-next.png);
+    opacity: 0.9;
+    .svg & {
+      background-image: url(/assets/images/embed/i-pagination-next.svg);
     }
+    &:hover {
+      opacity: 1;
+      &::after {
+        content: "newer";
+        display: block;
+      }
+    }
+  }
 
-    .nav__item--prev {
-        background-image: url(/assets/images/i-pagination-prev.png);
-        opacity: 0.9;
-        .svg & {
-            background-image: url(/assets/images/embed/i-pagination-prev.svg);
-        }
-        &:hover {
-            opacity: 1;
-            &::after {
-                content: "older";
-                display: block;
-            }
-        }
+  .nav__item--prev {
+    background-image: url(/assets/images/i-pagination-prev.png);
+    opacity: 0.9;
+    .svg & {
+      background-image: url(/assets/images/embed/i-pagination-prev.svg);
     }
+    &:hover {
+      opacity: 1;
+      &::after {
+        content: "older";
+        display: block;
+      }
+    }
+  }
 }
 
 .nav__text {
-    display: none;
-    @include mq(tablet) {
-        display: inline;
-    }
-}
-.nav__text--mobile {
-    @include mq(tablet) {
-        display: none;
-    }
+  display: none;
+  @include mq(tablet) {
+    display: inline;
+  }
 }
 
-.navigation {
-    @include mq($from: tablet) {
-        @include rem ((
-            top: 112px,
-        ));
-    }
-    margin-top: 50px;
-    @include mq(tablet) {
-        margin-top: 0;
-    }
+.nav__text--mobile {
+  @include mq(tablet) {
+    display: none;
+  }
 }
 
 .navigation__site {
-    border-top: 1px dotted $c-nextBlue;
-    padding-bottom: $gs-gutter;
+  line-height: $gs-baseline * 5;
+  overflow: hidden;
+  @include mq(mobile) {
+    padding-right: 200px;
+    box-sizing: border-box;
+  }
 
-    .nav__item {
-        display: block;
-        @include mq($from: mobile) {
-            float: left;
-            width: 25%;
-        }
-        
-        .nav__text, .nav__text--mobile {
-            color: $c-neutral1;
-            @include font-size(14, 16);
-            padding-top: $gs-baseline/2;
-            padding-right: $gs-baseline;
-            display: inline-block;
-            @include mq($from: tablet) {
-                @include font-size(16, 20);
-            }
-        }
-        .nav__text {
-            display: none;
-            @include mq(tablet) {
-                display: inline-block;
-            }
-        }
-        
-        .nav__text--mobile {
-            display: inline-block;
-            @include mq(tablet){
-                display: none;
-            }
-        }
+  .nav__item {
+    display: block;
+    @include mq(mobile) {
+      float: left;
+      width: 25%;
+      text-align: center;
     }
 
-    .nav__item--active {
-        a {
-            margin-top: -1px;
-            border-top: 3px solid $c-nextBlue;
-            padding-top: 5px;
-        }
+    .nav__text, .nav__text--mobile {
+      -webkit-font-smoothing: antialiased;
+      font-family: $serifheadline;
+      text-transform: lowercase;
+      @include font-size(18, 20);
+      font-weight: 900;
+      text-rendering: optimizeLegibility;
     }
+
+    .nav__text {
+      display: none;
+      @include mq(tablet) {
+        display: inline-block;
+      }
+    }
+
+    .nav__text--mobile {
+      display: inline-block;
+      @include mq(tablet) {
+        display: none;
+      }
+    }
+  }
+
+  .nav__item--active {
+    a {
+      color: $c-nextBlue;
+      border-bottom: 2px solid $c-nextBlue;
+    }
+  }
 }
 
 .navigation__social {
-    margin-right: $gs-gutter;
-    overflow: hidden;
-    position: absolute;
-    @include rem ((
-        top: -56px,
-    ));
-    
+  overflow: hidden;
+  position: absolute;
+  top: 12px;
+  right: 0;
+  .nav__item {
+    float: left;
+    margin: 0 $gs-gutter/2 0 0;
     @include mq($from: tablet) {
-        @include rem ((
-            top: -72px,
-        ));
-        right: 0;
+      @include rem((
+              margin: 0 0 0 $gs-gutter,
+      ));
     }
-    
-    .nav__item {
-        float: left;
-        margin: 0 $gs-gutter/2 0 0;
-        @include mq($from: tablet) {
-            @include rem ((
-                margin: 0 0 0 $gs-gutter,
-            ));
-        }
+    &:hover {
+      -webkit-filter: contrast(130%);
+      filter: contrast(130%);
     }
+  }
 }

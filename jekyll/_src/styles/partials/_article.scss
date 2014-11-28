@@ -171,3 +171,12 @@
         }
     }
 }
+
+.article--post:first-child:before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -100px;
+  border-left: 1px dotted #4bc6df;
+  height: 100px;
+}

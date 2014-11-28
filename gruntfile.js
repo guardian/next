@@ -110,5 +110,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jekyll');
     grunt.loadNpmTasks('grunt-bower-task');
 
-    grunt.registerTask('default', ['bower', 'imagemin', 'svgmin', 'sass', 'cssmin', 'jekyll']);
+    grunt.registerTask('default', ['bower', 'imagemin', 'svgmin', 'sass', 'cssmin', 'copy', 'jekyll']);
 };

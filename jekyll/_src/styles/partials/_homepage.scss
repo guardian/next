@@ -4,7 +4,7 @@ html { height: auto; }
 body { height: auto; }
 
 .main-body-container {
-  margin-top: 50px;
+  margin-top: $gs-baseline * 5;
   position: relative;
   border-top: 2px solid #dfdfdf;
 
@@ -187,15 +187,36 @@ body { height: auto; }
   }
 }
 .nxt-speedcurve {
-  max-width: 900px;
   width: 100%;
-  background: #777;
   margin: $gs-baseline auto;
-  padding-bottom: 38.9%;
   position: relative;
+  max-width: 900px;
+  @include mq($to: tablet) {
+    padding: 0 $gs-gutter/2;
+  }
+}
+
+.nxt-speedcurve__container {
+  position: relative;
+  padding-bottom: 100%;
+  @include mq(tablet) {
+    padding-bottom: 100% / (900 / 506);
+  }
   video {
     width: 100%;
     position: absolute;
+  }
+}
+
+@include mq($to: tablet) {
+  .nxt-speedcurve__video--desktop {
+    display: none
+  }
+}
+
+@include mq(tablet) {
+  .nxt-speedcurve__video--mobile {
+    display: none;
   }
 }
 
@@ -212,15 +233,18 @@ body { height: auto; }
 
 .nxt-container--open {
   padding-top: $gs-baseline;
-  .nxt-body {
-    position: relative;
-    text-align: right;
-  }
-  .nxt-copy {
-    width: 35%;
-    display: inline-block;
-    margin-right: 10%;
-    text-align: left;
+  text-align: center;
+  @include mq(tablet) {
+    .nxt-body {
+      position: relative;
+      text-align: right;
+    }
+    .nxt-copy {
+      width: 35%;
+      display: inline-block;
+      margin-right: 10%;
+      text-align: left;
+    }
   }
 }
 
@@ -298,7 +322,7 @@ body { height: auto; }
 
 .nxt-laptop {
   position: absolute;
-  width: 45%;
+  width: 60%;
   right: 5%;
   overflow: hidden;
   top: 80px;

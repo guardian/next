@@ -245,9 +245,14 @@ layout: base
                     <p>{{ page.sections.performance.text }}</p>
                 </div>
                 <div class="nxt-speedcurve u-cf">
-                    <video>
-                        <source type="video/mp4" src="/assets/videos/speedtest.mp4" >
-                    </video>
+                    <div class="nxt-speedcurve__container">
+                        <video class="nxt-speedcurve__video--desktop">
+                            <source type="video/mp4" src="/assets/videos/speedtest.mp4" >
+                        </video>
+                        <video class="nxt-speedcurve__video--mobile">
+                            <source type="video/mp4" src="/assets/videos/speedtest_mobile.mp4" >
+                        </video>
+                    </div>
                 </div>
                 <div class="u-cf"></div>
             </div>
