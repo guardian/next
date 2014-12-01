@@ -227,8 +227,22 @@ body { height: auto; }
   }
 }
 
+.nxt-speedcurve__screenshot {
+  display: none;
+  .is-ie & {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+}
+
 .nxt-speedcurve__video {
   width: 100%;
+  .is-ie & {
+    display: none;
+  }
 }
 
 .nxt-speedcurve__video--desktop {

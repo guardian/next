@@ -47,11 +47,12 @@ layout: base
     //------------------------
 
     function initVideo() {
-        var videoEl = document.querySelector('.nxt-speedcurve__video');
+        var videoEls = document.querySelectorAll('.nxt-speedcurve__video');
         document.addEventListener('scroll', function() {
-            if (videoEl.getBoundingClientRect().top < 300) {
-                videoEl.play();
-            }
+            Array.prototype.forEach.call(videoEls, function(videoEl) {
+                var top = videoEl.getBoundingClientRect().top;
+                if (top !== 0 && top < 300) { videoEl.play(); }
+            })
         });
 
         if (isHandheld) {
@@ -266,7 +267,12 @@ layout: base
         }
     };
 
+    function initCompatibility() {
+        if (isIE) { addClass(document.body, 'is-ie'); }
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
+        initCompatibility();
         initSmoothScroll();
         initParallax();
         initSlideshow();
@@ -346,6 +352,7 @@ layout: base
                             <source type="video/mp4" src="/assets/videos/speedtest.mp4" >
                             <source type="video/webm" src="/assets/videos/speedtest.webm" >
                         </video>
+                        <img class="nxt-speedcurve__screenshot" src="/assets/images/homepage/speedtest_desktop.png" alt="speedcurve comparison">
                     </div>
                 </div>
                 <div class="u-cf"></div>
