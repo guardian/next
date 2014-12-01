@@ -16,6 +16,7 @@ body {
 /* Main body
    ========================================================================== */
 .main {
+    margin-top: $gs-baseline * 4;
     padding: $gs-row-height 0;
     @include mq($from: tablet) {
         padding: $gs-row-height*2 + $gs-baseline*2 0;

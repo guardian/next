@@ -3,6 +3,16 @@
 html { height: auto; }
 body { height: auto; }
 
+@mixin manual-link {
+  color: rgba(255,255,255, 0.9);
+  display: inline-block;
+  border-bottom: 1px solid rgba(#ffffff,0.6);
+  &:hover {
+    color: #ffffff;
+    border-bottom: 1px solid #f1f1f1;
+  }
+}
+
 .main-body-container {
   margin-top: $gs-baseline * 5;
   position: relative;
@@ -175,14 +185,27 @@ body { height: auto; }
 }
 
 .nxt-container--performance {
-  background: #343434;
-  color: #f1f1f1;
+  background: #f1f1f1;
+  padding-bottom: $gs-baseline;
+  @include mq(tablet){
+    background: #343434;
+  }
   .nxt-copy {
     text-align: center;
     p {
-      color: #dfdfdf;
       max-width: 720px;
       margin: auto;
+    }
+    @include mq(tablet) {
+      color: #f1f1f1;
+      p {
+        color: #dfdfdf;
+        a {
+          display: inline-block;
+          height: 19px;
+          @include manual-link;
+        }
+      }
     }
   }
 }
@@ -192,7 +215,7 @@ body { height: auto; }
   position: relative;
   max-width: 900px;
   @include mq($to: tablet) {
-    padding: 0 $gs-gutter/2;
+    display: none;
   }
 }
 
@@ -202,86 +225,103 @@ body { height: auto; }
   @include mq(tablet) {
     padding-bottom: 100% / (900 / 506);
   }
-  video {
-    width: 100%;
-    position: absolute;
+}
+
+.nxt-speedcurve__video {
+  width: 100%;
+}
+
+.nxt-speedcurve__video--desktop {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  @include mq($to: tablet) {
+      display: none
   }
 }
 
-@include mq($to: tablet) {
-  .nxt-speedcurve__video--desktop {
-    display: none
-  }
-}
-
-@include mq(tablet) {
-  .nxt-speedcurve__video--mobile {
+.nxt-speedcurve__video--mobile {
+  padding: 0 $gs-gutter / 2;
+  max-width: 320px;
+  @include mq(tablet) {
     display: none;
   }
 }
 
 .nxt-container--sharing {
-  padding-top: $gs-baseline;
-  background: #f6f6f6;
+  padding: $gs-baseline 0;
+  background: #ffffff;
   color: #333;
   text-align: center;
-  .nxt-copy {
-    max-width: 400px;
+  @include mq($to: tablet) {
+    .nxt-copy {
+      margin: auto;
+      max-width: 400px;
+    }
+  }
+  .nxt-sharing-img--icons,
+  .nxt-sharing-img--selectnshare {
     margin: auto;
-  }
-}
-
-.nxt-container--open {
-  padding-top: $gs-baseline;
-  text-align: center;
-  @include mq(tablet) {
-    .nxt-body {
-      position: relative;
-      text-align: right;
-    }
-    .nxt-copy {
-      width: 35%;
-      display: inline-block;
-      margin-right: 10%;
-      text-align: left;
+    img {
+      max-width: 300px;
     }
   }
-}
-
-
-// Content
-// -----------
-
-.nxt-container--content {
-  @include mq(tablet) {
-    height: 600px;
-    margin-bottom: 600px * 3;
-    position: relative;
-
-    .nxt-body {
-      position: relative;
+  @include mq($to:tablet) {
+    .nxt-sharing-img--selectnshare {
+      border: 1px solid #dfdfdf;
+      box-sizing: content-box;
     }
-    .nxt-copy {
-      padding-top: $gs-baseline * 10;
-      width: 30%;
-      padding-left: $gs-gutter;
-      height: 600px;
-      position: absolute;
-      background-color: white;
+  }
+  @include mq(tablet) {
+    background: #f6f6f6;
+    .nxt-copy,
+    .nxt-sharing-img--icons,
+    .nxt-sharing-img--selectnshare {
+      width: 33%;
+      float:left;
+      padding: $gs-gutter / 2;
+    }
+
+    .nxt-sharing-img--icons,
+    .nxt-sharing-img--selectnshare {
+      padding-top: $gs-baseline * 7;
       img {
-        display: none;
+        width: 100%;
+        margin: auto;
       }
     }
   }
 }
 
-.nxt-copy--fronts    { z-index: 1; }
-.nxt-copy--articles  { z-index: 2; }
-.nxt-copy--galleries { z-index: 3; }
-.nxt-copy--liveblogs { z-index: 4; }
+// Content
+// -----------
 
-@include mq($to: tablet) {
-  .nxt-container--content {
+@mixin unstacked-style {
+  height: 600px;
+  margin-bottom: 600px * 3;
+  position: relative;
+
+  .nxt-body {
+    position: relative;
+  }
+  .nxt-copy {
+    padding-top: $gs-baseline * 10;
+    width: 30%;
+    padding-left: $gs-gutter;
+    height: 600px;
+    position: absolute;
+    background-color: white;
+    img {
+      display: none;
+    }
+  }
+  .nxt-copy--fronts    { z-index: 1; }
+  .nxt-copy--articles  { z-index: 2; }
+  .nxt-copy--galleries { z-index: 3; }
+  .nxt-copy--liveblogs { z-index: 4; }
+}
+
+@mixin stacked-style {
     color: #f1f1f1;
     .nxt-copy {
       text-align: center;
@@ -293,25 +333,48 @@ body { height: auto; }
         box-sizing: border-box;
         padding: 0 $gs-baseline $gs-baseline;
       }
+      @include mq(tablet) {
+        padding-top: $gs-baseline;
+        &:after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+        img, h2, p {
+          width: 50%;
+          padding: 0 $gs-gutter;
+          box-sizing: border-box;
+        }
+        img { float: left; }
+        h2, p { float: right; }
+        &:nth-child(2n+1) {
+          img { float: right; }
+          h2, p { float: left; }
+        }
+
+      }
       p, h2 {
         color: rgba(255,255,255, 0.9);
       }
       p a {
-        color: rgba(255,255,255, 0.9);
-        display: inline-block;
         height: 16px;
-        border-bottom: 1px solid rgba(#ffffff,0.6);
-        &:hover {
-          color: #ffffff;
-          border-bottom: 1px solid #f1f1f1;
-        }
+        @include manual-link;
       }
     }
-  }
   .nxt-copy--fronts    { background: #035688; }
   .nxt-copy--articles  { background: #961c55; }
   .nxt-copy--galleries { background: #494949; }
   .nxt-copy--liveblogs { background: #800c0c; }
+
+  .nxt-laptop { display: none; }
+}
+
+.nxt-container--content.nxt-container--content-stacked {
+  @include stacked-style;
+}
+
+.nxt-container--content:not(.nxt-container--content-stacked) {
+  @include unstacked-style;
 }
 
 .nxt-after-content,
@@ -330,13 +393,6 @@ body { height: auto; }
   transform: translate3d(0,0,0);
   background: #ffffff;
   box-shadow: 0px 1px 0px 3px #FFF;
-  &:after {
-    position: absolute;
-    bottom: -1px;
-    height: 2px;
-    width: 100%;
-    color: red;
-  }
 }
 
 .nxt-laptop__screen {
@@ -357,3 +413,54 @@ body { height: auto; }
   -webkit-transform: translate3d(0,0,0); // force to GPU for performance
   transform: translate3d(0,0,0);
 }
+
+
+// Open
+//------------------------
+
+.nxt-container--open {
+  padding-top: $gs-baseline;
+  padding-bottom: $gs-baseline * 2;
+  text-align: center;
+  background: #f1f1f1;
+  @include mq(tablet) {
+    background: #ffffff;
+    .nxt-body {
+      position: relative;
+      text-align: right;
+    }
+    .nxt-copy {
+      position: absolute;
+      width: 50%;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      height: 220px;
+      text-align: left;
+      p, h2 {
+        max-width: 400px;
+        margin: auto;
+      }
+    }
+  }
+}
+
+.nxt-open-img--mobile {
+  @include mq(tablet) {
+    display: none;
+  }
+  width: 100%;
+  padding: 0 $gs-gutter/2  $gs-baseline * 2;
+  box-sizing: border-box;
+}
+.nxt-open-img--desktop {
+  @include mq($to: tablet) {
+    display: none;
+  }
+  width: 45%;
+  float: left;
+  padding-left: 5%;
+  padding-bottom: $gs-baseline * 2;
+}
+

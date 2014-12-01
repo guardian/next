@@ -1,7 +1,29 @@
 
 <header class="banner" role="banner">
-    <div class="container">
+
+    <script type="text/javascript">
+
+        function initMobileMenu() {
+            var burgerContainer = document.querySelector('.burger-container');
+            var navigation= document.querySelector('.navigation');
+            burgerContainer.addEventListener('click', function() {
+                burgerContainer.classList.toggle('burger-container--expanded');
+                navigation.classList.toggle('navigation--expanded');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initMobileMenu();
+        });
+
+    </script>
+
+    <div class="container u-cf">
         <h1 class="banner__title"><a rel="home" href="{{ site.baseurl }}">{{ site.title }}</a></h1>
+
+        <div class="burger-container">
+            <div class="burger-icon"></div>
+        </div>
 
         <nav class="navigation" role="navigation">
             <ul class="navigation__site nav">
@@ -14,6 +36,7 @@
                 {% endfor %}
                 <li class="nav__item">
                     <a class="nav__text" data-nohash="true" href="https://www.surveymonkey.com/s/theguardian-beta-feedback" target="_blank">Feedback</a>
+                    <a class="nav__text--mobile" data-nohash="true" href="https://www.surveymonkey.com/s/theguardian-beta-feedback" target="_blank">Feedback</a>
                 </li>
                 <li class="nav__item"><strong>
                     <a class="nav__text" href="http://www.theguardian.com/preference/platform/mobile?page=http%3A%2F%2Fwww.theguardian.com%2Fuk%3Fview%3Dmobile%23opt-in-message">Try it »</a>

@@ -4,14 +4,11 @@ layout: base
 
 <script type="text/javascript">
 
+    // UTIL
+    //-------------
     var render = function (fn) {
         fn();
-//    (window.requestAnimationFrame && requestAnimationFrame(fn)) || window.setTimeout(fn,0);
     };
-
-    var scrollEl = (function getScrollTop() {
-        return document.body;
-    })();
 
     function scrollTop(val) {
         if (val === undefined) {
@@ -22,16 +19,52 @@ layout: base
         }
     }
 
+    var isHandheld = (function() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    })();
+
+    var isIE = (function() {
+        return /MSIE/.test(navigator.userAgent);
+    })();
+
+    function removeClass(el, className) {
+        if (el.classList) {
+            el.classList.remove(className);
+        } else {
+            el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ')
+        }
+    }
+
+    function addClass(el, className) {
+        if (el.classList) {
+            el.classList.add(className);
+        } else {
+            el.className += ' ' + className;
+        }
+    }
+
+    // INIT FUNCS
+    //------------------------
+
     function initVideo() {
-        var videoEl = document.querySelector('.nxt-speedcurve video');
+        var videoEl = document.querySelector('.nxt-speedcurve__video');
         document.addEventListener('scroll', function() {
-            if (videoEl.getBoundingClientRect().top < 200) {
+            if (videoEl.getBoundingClientRect().top < 300) {
                 videoEl.play();
             }
         });
+
+        if (isHandheld) {
+            Array.prototype.forEach.call(
+                document.querySelectorAll('video'),
+                function(el){ el.setAttribute('controls', 'true'); });
+        }
+
     }
 
     function initSmoothScroll() {
+        // this is to smooth out mousewheel style coarse scrolls (better for parallax / animations)
+        // should probably skip it on OSX and touch devices
         var interval,
                 toMove = 0;
 
@@ -70,119 +103,178 @@ layout: base
         document.addEventListener('DOMMouseScroll', handleScroll);
     }
 
-    function initParallax() {
-        var contentEl = document.querySelector('.nxt-container--content');
-        function topOfContent() {
-            return -1 * contentEl.getBoundingClientRect().top;
-        }
-        var parallaxEls = {},
-                parallaxSpec = {
-                    '.nxt-container--top .nxt-backgrounds': {
-                        transform: {top: 0, bottom: 800, from: -10, to: 35, prefix: 'translateY(', suffix: '%)'}
-                    },
-                    '.nxt-container--top .nxt-copy': {
-                        opacity: {top: 300, bottom: 800, from: 1.0, to: 0.0}
-                    },
-                    '.nxt-container--top .nxt-copy h2': {
-                        lineHeight: {top: 300, bottom: 900, from: 48, to: 82, suffix: 'px'},
-                        marginTop: {top: 300, bottom: 900, from: 0, to: 5, suffix: '%'}
-                    },
-                    '.nxt-container--top .nxt-copy p': {
-                        lineHeight: {top: 300, bottom: 900, from: 22, to: 45, suffix: 'px'}
-                    },
-                    '.nxt-after-content': {
-                        transform: {measure: topOfContent, top: 0, bottom: 1800, from: -1800, to: 0, prefix: 'translateY(', suffix: 'px)'}
-                    },
-                    '.nxt-container--content .nxt-copy': {
-                        transform: {measure: topOfContent, top: 0, bottom: 1800, from: 0, to: 1800, prefix: 'translateY(', suffix: 'px)'}
-                    },
-                    '.nxt-copy--articles': {
-                        opacity: {measure: topOfContent, top: 400, bottom: 500, from: 0, to: 1, hide: true}
-                    },
-                    '.nxt-copy--galleries': {
-                        opacity: {measure: topOfContent, top: 850, bottom: 950, from: 0, to: 1, hide: true}
-                    },
-                    '.nxt-copy--liveblogs': {
-                        opacity: {measure: topOfContent, top: 1300, bottom: 1400, from: 0, to: 1, hide: true}
-                    },
-                    '.nxt-laptop': {
-                        transform: {measure: topOfContent, top: 0, bottom: 1800, from: 0, to: 1800, prefix: 'translateY(', suffix: 'px)'}
-                    },
-                    '.nxt-laptop__grab--fronts': {
-                        transform: {measure: topOfContent, top: 100, bottom: 450, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'}
-                    },
-                    '.nxt-laptop__grab--articles': {
-                        transform: {measure: topOfContent, top: 600, bottom: 950, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
-                        opacity: {measure: topOfContent, top: 400, bottom: 500, from: 0, to: 1, hide: true}
-                    },
-                    '.nxt-laptop__grab--media': {
-                        transform: {measure: topOfContent, top: 1050, bottom: 1400, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
-                        opacity: {measure: topOfContent, top: 850, bottom: 950, from: 0, to: 1, hide: true}
-                    },
-                    '.nxt-laptop__grab--liveblogs': {
-                        transform: {measure: topOfContent, top: 1500, bottom: 1800, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
-                        opacity: {measure: topOfContent, top: 1300, bottom: 1400, from: 0, to: 1, hide: true}
-                    }
-                };
-        for (var selector in parallaxSpec) { // pre-select elements
-            parallaxEls[selector] = Array.prototype.slice.call(document.querySelectorAll(selector));
-        }
-
-        function updateParallax() {
-            for (var selector in parallaxSpec) {
-                var props = parallaxSpec[selector];
-                for (var prop in props) {
-                    var p = props[prop],
-                        value;
-                    if (typeof p === 'function') {
-                        value = p();
-                    } else {
-                        var _scrollTop = p.measure ? p.measure() : scrollTop(),
-                            progress = Math.max(0, Math.min((_scrollTop - p.top) / (p.bottom - p.top), 1.0)),
-                            newVal = p.from + (progress * (p.to - p.from)),
-                        value = (p.prefix || '') + newVal + (p.suffix || '');
-                    }
-                    render(function (els, prop, val, spec) {
-                        els.forEach(function (el) {
-                            el.style[prop] = val;
-                            if (spec.hide) {
-                                el.style.display = prop === 'opacity' && val == 0 ? 'none' : '';
-                            }
-                        })
-                    }.bind(undefined, parallaxEls[selector], prop, value, p));
-                }
-            }
-        }
-
-        document.addEventListener('scroll', updateParallax);
-        updateParallax();
-    }
-
     function initSlideshow() {
         var current = 1,
                 classPrefix = 'nxt-backgrounds--',
                 bgEl = document.querySelector('.nxt-backgrounds');
 
         function next() {
-            bgEl.classList.remove(classPrefix + current);
+            removeClass(bgEl, classPrefix + current);
             current = current === 3 ? 1 : ++current;
-            bgEl.classList.add(classPrefix + current);
+            addClass(bgEl, classPrefix + current);
         }
 
         window.setInterval(next, 4000);
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        // this is to smooth out mousewheel style coarse scrolls (better for parallax / animations)
-        // should probably skip it on OSX and touch devices
-        initSmoothScroll();
-
-        if (window.innerWidth > 740) {
-            initParallax();
+    function initParallax() {
+        if (!isIE && !isHandheld) {
+            var parallax = new Parallax(parallaxSpec);
+            window.parallax = parallax;
+            function updateBasedonWidth() {
+                if (window.innerWidth < 740) {
+                    addClass(document.querySelector('.nxt-container--content'), 'nxt-container--content-stacked');
+                    parallax.enabled && parallax.disable();
+                } else {
+                    removeClass(document.querySelector('.nxt-container--content'), 'nxt-container--content-stacked');
+                    !parallax.enabled && parallax.enable();
+                }
+            }
+            window.addEventListener('resize', updateBasedonWidth);
+            updateBasedonWidth();
+            document.addEventListener('scroll', function(e) {
+                e.preventDefault();
+            });
         }
+    }
 
+    // PARALLAX SPEC
+    //-----------------------------
+
+    var parallaxSpec = function() {
+        var contentEl = null;
+        function topOfContent() {
+            contentEl = contentEl || document.querySelector('.nxt-container--content');
+            return -1 * contentEl.getBoundingClientRect().top;
+        }
+        return {
+            '.nxt-container--top .nxt-backgrounds': {
+                transform: {top: 0, bottom: 800, from: -10, to: 35, prefix: 'translateY(', suffix: '%)'}
+            },
+            '.nxt-container--top .nxt-copy': {
+                opacity: {top: 300, bottom: 800, from: 1.0, to: 0.0}
+            },
+            '.nxt-container--top .nxt-copy h2': {
+                lineHeight: {top: 300, bottom: 900, from: 48, to: 82, suffix: 'px'},
+                marginTop: {top: 300, bottom: 900, from: 0, to: 5, suffix: '%'}
+            },
+            '.nxt-container--top .nxt-copy p': {
+                lineHeight: {top: 300, bottom: 900, from: 22, to: 45, suffix: 'px'}
+            },
+            '.nxt-after-content': {
+                transform: {measure: topOfContent, top: 0, bottom: 1800, from: -1800, to: 0, prefix: 'translateY(', suffix: 'px)'}
+            },
+            '.nxt-container--content .nxt-copy': {
+                transform: {measure: topOfContent, top: 0, bottom: 1800, from: 0, to: 1800, prefix: 'translateY(', suffix: 'px)'}
+            },
+            '.nxt-copy--articles': {
+                opacity: {measure: topOfContent, top: 400, bottom: 500, from: 0, to: 1, hide: true}
+            },
+            '.nxt-copy--galleries': {
+                opacity: {measure: topOfContent, top: 850, bottom: 950, from: 0, to: 1, hide: true}
+            },
+            '.nxt-copy--liveblogs': {
+                opacity: {measure: topOfContent, top: 1300, bottom: 1400, from: 0, to: 1, hide: true}
+            },
+            '.nxt-laptop': {
+                transform: {measure: topOfContent, top: 0, bottom: 1800, from: 0, to: 1800, prefix: 'translateY(', suffix: 'px)'}
+            },
+            '.nxt-laptop__grab--fronts': {
+                transform: {measure: topOfContent, top: 100, bottom: 450, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'}
+            },
+            '.nxt-laptop__grab--articles': {
+                transform: {measure: topOfContent, top: 600, bottom: 950, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
+                opacity: {measure: topOfContent, top: 400, bottom: 500, from: 0, to: 1, hide: true}
+            },
+            '.nxt-laptop__grab--media': {
+                transform: {measure: topOfContent, top: 1050, bottom: 1400, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
+                opacity: {measure: topOfContent, top: 850, bottom: 950, from: 0, to: 1, hide: true}
+            },
+            '.nxt-laptop__grab--liveblogs': {
+                transform: {measure: topOfContent, top: 1500, bottom: 1800, from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
+                opacity: {measure: topOfContent, top: 1300, bottom: 1400, from: 0, to: 1, hide: true}
+            }
+        };
+    }();
+
+    // PARALLAX CODE
+    //----------------------------
+
+    function Parallax(spec) {
+        this.parallaxEls = {};
+        this.parallaxSpec = spec;
+        this.enabled = true;
+        this.needsReset = false;
+        for (var selector in this.parallaxSpec) { // pre-select elements
+            this.parallaxEls[selector] = Array.prototype.slice.call(document.querySelectorAll(selector));
+        }
+        this.init();
+    }
+
+    Parallax.prototype.init = function() {
+        document.addEventListener('scroll', this.update.bind(this));
+        this.update();
+    };
+
+    Parallax.prototype.disable = function() {
+        this.enabled = false;
+        this.needsReset = true;
+        this.update();
+    };
+
+    Parallax.prototype.enable = function() {
+        this.enabled = true;
+        this.needsReset = false;
+        this.update();
+    };
+
+    Parallax.prototype.update = function() {
+        if (this.enabled || this.needsReset) {
+            for (var selector in parallaxSpec) {
+                var props = parallaxSpec[selector];
+                for (var prop in props) {
+                    var p = props[prop],
+                            value;
+                    if (typeof p === 'function') {
+                        value = p();
+                    } else {
+                        var _scrollTop = p.measure ? p.measure() : scrollTop(),
+                            progress, newVal, value;
+                        if (!this.enabled) {
+                            value = '';
+                            this.needsReset = false;
+                        } else {
+                            if (_scrollTop < p.top) { progress = 0; }
+                            else if (p.top < _scrollTop && _scrollTop < p.bottom) {
+                                progress = (_scrollTop - p.top) / (p.bottom - p.top);
+                            }
+                            else if (_scrollTop > p.bottom) { progress = 1; }
+                            newVal = p.from + (progress * (p.to - p.from));
+                            value = (p.prefix || '') + newVal + (p.suffix || '');
+                        }
+                    }
+                    render(function (els, prop, val, spec) {
+                        els.forEach(function (el) {
+                            el.style[prop] = val;
+                            if (spec.hide) {
+                                el.style.display = prop === 'opacity' && parseFloat(val, 10) === 0.0 ? 'none' : '';
+                            }
+                        })
+                    }.bind(undefined, this.parallaxEls[selector], prop, value, p));
+                }
+            }
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        initSmoothScroll();
+        initParallax();
         initSlideshow();
         initVideo();
+
+        if(isHandheld) {
+            addClass(document.body.querySelector('.main-body-container'),'nxt-handheld');
+        }
     });
 </script>
 
@@ -204,7 +296,7 @@ layout: base
         </div>
     </div>
 
-    <div class="nxt-container nxt-container--content">
+    <div class="nxt-container nxt-container--content nxt-container--content-stacked">
         <div class="nxt-body">
             <div class="nxt-copy nxt-copy--fronts">
                 <h2>{{ page.sections.fronts.title }}</h2>
@@ -242,15 +334,17 @@ layout: base
             <div class="nxt-body">
                 <div class="nxt-copy">
                     <h2>{{ page.sections.performance.title }}</h2>
+                    <video class="nxt-speedcurve__video nxt-speedcurve__video--mobile" preload >
+                        <source type="video/mp4" src="/assets/videos/speedtest_mobile.mp4" >
+                        <source type="video/webm" src="/assets/videos/speedtest_mobile.webm" >
+                    </video>
                     <p>{{ page.sections.performance.text }}</p>
                 </div>
                 <div class="nxt-speedcurve u-cf">
                     <div class="nxt-speedcurve__container">
-                        <video class="nxt-speedcurve__video--desktop">
+                        <video class="nxt-speedcurve__video nxt-speedcurve__video--desktop" preload>
                             <source type="video/mp4" src="/assets/videos/speedtest.mp4" >
-                        </video>
-                        <video class="nxt-speedcurve__video--mobile">
-                            <source type="video/mp4" src="/assets/videos/speedtest_mobile.mp4" >
+                            <source type="video/webm" src="/assets/videos/speedtest.webm" >
                         </video>
                     </div>
                 </div>
@@ -258,24 +352,32 @@ layout: base
             </div>
         </div>
 
-        <div class="nxt-container nxt-container--sharing">
+        <div class="nxt-container nxt-container--sharing u-cf">
             <div class="nxt-body">
+                <div class="nxt-sharing-img--icons">
+                    <img src="/assets/images/homepage/shareicons.png">
+                </div>
                 <div class="nxt-copy">
                     <h2>{{ page.sections.sharing.title }}</h2>
                     <p>{{ page.sections.sharing.text }}</p>
+                </div>
+                <div class="nxt-sharing-img--selectnshare">
+                    <img src="/assets/images/homepage/selectnshare.png">
                 </div>
             </div>
         </div>
 
         <div class="nxt-container nxt-container--open">
-            <div class="nxt-body">
+            <div class="nxt-body u-cf">
                 <div class="nxt-copy">
                     <h2>{{ page.sections.open.title }}</h2>
+                    <img class="nxt-open-img--mobile" src="/assets/images/homepage/workin.jpg" alt="developed in the open">
                     <p>{{ page.sections.open.text }}</p>
                 </div>
+                <img class="nxt-open-img--desktop" src="/assets/images/homepage/workin.jpg" alt="developed in the open">
             </div>
         </div>
-    </div>
 
+    </div>
 
 </div>
