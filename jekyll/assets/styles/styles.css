@@ -231,7 +231,7 @@ hr {
 }
 
 hr::after {
-  color: gainsboro;
+  color: #dcdcdc;
   content: "• • •";
   letter-spacing: 0.75rem;
   height: 0;
@@ -281,8 +281,9 @@ ol {
 
 ul {
   list-style-position: inside;
+  list-style-type: circle;
   margin: 1rem 0;
-  padding: 1rem 0 1rem 3rem;
+  padding: 0;
 }
 
 @media screen and (min-width: 50em) {
@@ -326,7 +327,7 @@ figcaption {
   color: #767676;
   font-size: 0.875rem;
   line-height: 1.1429;
-  border-bottom: 1px solid gainsboro;
+  border-bottom: 1px solid #dcdcdc;
   padding: 0.5714em 0;
   display: block;
 }
@@ -429,7 +430,7 @@ mark, ins {
 
 ins {
   text-decoration: none;
-  background-color: gainsboro;
+  background-color: #dcdcdc;
 }
 
 /* ==========================================================================
@@ -445,12 +446,12 @@ a:focus {
   outline: thin dotted;
 }
 a:active, a:hover {
-  color: #4bc6df;
+  color: #4BC6DF;
   /*  Improve readability when focused and also mouse hovered in all browsers */
   outline: 0;
 }
 a:active {
-  color: #4bc6df;
+  color: #4BC6DF;
 }
 
 @media print {
@@ -518,7 +519,7 @@ td,
 th {
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid gainsboro;
+  border-bottom: 1px solid #dcdcdc;
   padding: 0.25rem 2rem 0.25rem 0;
 }
 
@@ -646,7 +647,7 @@ textarea {
 }
 
 :focus::-webkit-input-placeholder {
-  color: gainsboro;
+  color: #dcdcdc;
 }
 
 :-moz-placeholder {
@@ -654,7 +655,7 @@ textarea {
 }
 
 :focus:-moz-placeholder {
-  color: gainsboro;
+  color: #dcdcdc;
 }
 
 :-ms-input-placeholder {
@@ -662,7 +663,7 @@ textarea {
 }
 
 :focus:-ms-input-placeholder {
-  color: gainsboro;
+  color: #dcdcdc;
 }
 
 /* ==========================================================================
@@ -813,7 +814,7 @@ textarea {
 }
 
 .navigation__site {
-  border-top: 1px dotted #4bc6df;
+  border-top: 1px dotted #4BC6DF;
   padding-bottom: 20px;
 }
 .navigation__site .nav__item {
@@ -861,7 +862,7 @@ textarea {
 }
 .navigation__site .nav__item--active a {
   margin-top: -1px;
-  border-top: 3px solid #4bc6df;
+  border-top: 3px solid #4BC6DF;
   padding-top: 5px;
 }
 
@@ -899,7 +900,7 @@ textarea {
 }
 @media all and (min-width: 46.25em) {
   .article--post {
-    border-left: 1px dotted #4bc6df;
+    border-left: 1px dotted #4BC6DF;
     margin-left: 20px;
     margin-left: 2rem;
     padding: 36px;
@@ -997,7 +998,7 @@ textarea {
   line-height: 24px;
   line-height: 2.4rem;
   text-transform: uppercase;
-  border-bottom: 1px dotted #4bc6df;
+  border-bottom: 1px dotted #4BC6DF;
   padding-left: 40px;
   position: absolute;
   top: 0;
@@ -1038,7 +1039,7 @@ textarea {
 }
 
 .section--related {
-  border-top: 1px dotted gainsboro;
+  border-top: 1px dotted #dcdcdc;
   overflow: hidden;
 }
 .section--related .article {
@@ -1060,7 +1061,7 @@ textarea {
   line-height: 24px;
   line-height: 2.4rem;
   margin: 0;
-  border-top: 2px solid #4bc6df;
+  border-top: 2px solid #4BC6DF;
   padding-top: 4px;
 }
 .section--related .article__footer {
@@ -1151,12 +1152,12 @@ textarea {
 }
 
 .homepage__gradient {
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(0.87 0.5, #ededed), color-stop(0.87 0.5, white));
-  background-image: -webkit-linear-gradient(bottom, white 0, #ededed 87.5%, white 87.5%);
-  background-image: -moz-linear-gradient(bottom, white 0, #ededed 87.5%, white 87.5%);
-  background-image: -ms-linear-gradient(bottom, white 0, #ededed 87.5%, white 87.5%);
-  background-image: -o-linear-gradient(bottom, white 0, #ededed 87.5%, white 87.5%);
-  background-image: linear-gradient(to bottom, white 0, #ededed 87.5%, white 87.5%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF), color-stop(0.87 0.5, #EDEDED), color-stop(0.87 0.5, #FFF));
+  background-image: -webkit-linear-gradient(bottom, #FFF 0, #EDEDED 87.5%, #FFF 87.5%);
+  background-image: -moz-linear-gradient(bottom, #FFF 0, #EDEDED 87.5%, #FFF 87.5%);
+  background-image: -ms-linear-gradient(bottom, #FFF 0, #EDEDED 87.5%, #FFF 87.5%);
+  background-image: -o-linear-gradient(bottom, #FFF 0, #EDEDED 87.5%, #FFF 87.5%);
+  background-image: linear-gradient(to bottom, #FFF 0, #EDEDED 87.5%, #FFF 87.5%);
   overflow: hidden;
 }
 .homepage__gradient:after, .homepage__gradient:before {
@@ -1299,7 +1300,7 @@ textarea {
   #homepage__section1 .homepage__section-copy:after {
     content: "";
     background-color: #fff;
-    border: 1px solid #4bc6df;
+    border: 1px solid #4BC6DF;
     border-radius: 100%;
     width: 7px;
     height: 7px;
@@ -1396,7 +1397,7 @@ textarea {
   #homepage__section2 .homepage__section-copy:after {
     content: "";
     background-color: #fff;
-    border: 1px solid #4bc6df;
+    border: 1px solid #4BC6DF;
     border-radius: 100%;
     width: 7px;
     height: 7px;
@@ -1503,7 +1504,7 @@ textarea {
   #homepage__section3 .homepage__section-copy:after {
     content: "";
     background-color: #fff;
-    border: 1px solid #4bc6df;
+    border: 1px solid #4BC6DF;
     border-radius: 100%;
     width: 7px;
     height: 7px;
@@ -1610,7 +1611,7 @@ textarea {
   #homepage__section4 .homepage__section-copy:after {
     content: "";
     background-color: #fff;
-    border: 1px solid #4bc6df;
+    border: 1px solid #4BC6DF;
     border-radius: 100%;
     width: 7px;
     height: 7px;
@@ -1670,7 +1671,7 @@ textarea {
   #homepage__section0 .homepage__section-copy:before {
     content: "";
     background-color: #fff;
-    border: 1px solid #4bc6df;
+    border: 1px solid #4BC6DF;
     border-radius: 100%;
     width: 7px;
     height: 7px;
@@ -1682,7 +1683,7 @@ textarea {
   }
 }
 #homepage__section0 .homepage__section-copy .homepage__section-title {
-  color: #4bc6df;
+  color: #4BC6DF;
   font-size: 28px;
   font-size: 2.8rem;
   line-height: 32px;
@@ -1738,7 +1739,7 @@ textarea {
     bottom: -4px;
     content: "";
     background-color: #fff;
-    border: 1px solid #4bc6df;
+    border: 1px solid #4BC6DF;
     border-radius: 100%;
     width: 7px;
     height: 7px;
@@ -1858,7 +1859,7 @@ textarea {
 /* Comment */
 .err {
   color: #AA0000;
-  background-color: #ffaaaa;
+  background-color: #FFAAAA;
 }
 
 /* Error */
@@ -1895,7 +1896,7 @@ textarea {
 /* Comment.Special */
 .gd {
   background-color: #FFCCCC;
-  border: 1px solid #cc0000;
+  border: 1px solid #CC0000;
 }
 
 /* Generic.Deleted */
@@ -1905,7 +1906,7 @@ textarea {
 
 /* Generic.Emph */
 .gr {
-  color: red;
+  color: #FF0000;
 }
 
 /* Generic.Error */
@@ -1916,12 +1917,12 @@ textarea {
 /* Generic.Heading */
 .gi {
   background-color: #CCFFCC;
-  border: 1px solid #00cc00;
+  border: 1px solid #00CC00;
 }
 
 /* Generic.Inserted */
 .go {
-  color: #aaaaaa;
+  color: #AAAAAA;
 }
 
 /* Generic.Output */
@@ -1937,7 +1938,7 @@ textarea {
 
 /* Generic.Subheading */
 .gt {
-  color: #99cc66;
+  color: #99CC66;
 }
 
 /* Generic.Traceback */
@@ -1972,7 +1973,7 @@ textarea {
 
 /* Keyword.Type */
 .m {
-  color: #ff6600;
+  color: #FF6600;
 }
 
 /* Literal.Number */
@@ -2002,7 +2003,7 @@ textarea {
 
 /* Name.Constant */
 .nd {
-  color: #9999ff;
+  color: #9999FF;
 }
 
 /* Name.Decorator */
@@ -2017,12 +2018,12 @@ textarea {
 
 /* Name.Exception */
 .nf {
-  color: #cc00ff;
+  color: #CC00FF;
 }
 
 /* Name.Function */
 .nl {
-  color: #9999ff;
+  color: #9999FF;
 }
 
 /* Name.Label */
@@ -2052,32 +2053,32 @@ textarea {
 
 /* Text.Whitespace */
 .mf {
-  color: #ff6600;
+  color: #FF6600;
 }
 
 /* Literal.Number.Float */
 .mh {
-  color: #ff6600;
+  color: #FF6600;
 }
 
 /* Literal.Number.Hex */
 .mi {
-  color: #ff6600;
+  color: #FF6600;
 }
 
 /* Literal.Number.Integer */
 .mo {
-  color: #ff6600;
+  color: #FF6600;
 }
 
 /* Literal.Number.Oct */
 .sb {
-  color: #cc3300;
+  color: #CC3300;
 }
 
 /* Literal.String.Backtick */
 .sc {
-  color: #cc3300;
+  color: #CC3300;
 }
 
 /* Literal.String.Char */
@@ -2088,7 +2089,7 @@ textarea {
 
 /* Literal.String.Doc */
 .s2 {
-  color: #cc3300;
+  color: #CC3300;
 }
 
 /* Literal.String.Double */
@@ -2098,32 +2099,32 @@ textarea {
 
 /* Literal.String.Escape */
 .sh {
-  color: #cc3300;
+  color: #CC3300;
 }
 
 /* Literal.String.Heredoc */
 .si {
-  color: #aa0000;
+  color: #AA0000;
 }
 
 /* Literal.String.Interpol */
 .sx {
-  color: #cc3300;
+  color: #CC3300;
 }
 
 /* Literal.String.Other */
 .sr {
-  color: #33aaaa;
+  color: #33AAAA;
 }
 
 /* Literal.String.Regex */
 .s1 {
-  color: #cc3300;
+  color: #CC3300;
 }
 
 /* Literal.String.Single */
 .ss {
-  color: #ffcc33;
+  color: #FFCC33;
 }
 
 /* Literal.String.Symbol */
@@ -2148,7 +2149,7 @@ textarea {
 
 /* Name.Variable.Instance */
 .il {
-  color: #ff6600;
+  color: #FF6600;
 }
 
 /* Literal.Number.Integer.Long */
@@ -2252,7 +2253,7 @@ textarea {
 ============================================================ */
 body {
   margin: 0 auto;
-  border-top: 4px solid #4bc6df;
+  border-top: 4px solid #4BC6DF;
 }
 
 /* Containers
@@ -2318,7 +2319,7 @@ body {
     content: "";
     display: block;
     height: 140px;
-    border-right: 1px dotted #4bc6df;
+    border-right: 1px dotted #4BC6DF;
     float: right;
     position: absolute;
     left: 221px;
@@ -2521,3 +2522,5 @@ body {
   position: relative;
   top: -1px;
 }
+
+/*# sourceMappingURL=styles.css.map */
