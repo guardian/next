@@ -1,157 +1,321 @@
+/* Banner
+   ========================================================================== */
+.banner {
+  background: #f1f1f1;
+  border-bottom: 1px solid #aaa;
+  border-top: 3px solid $c-nextBlue;
+  height: $gs-baseline * 4;
+  @include mq(tablet) {
+    height: $gs-baseline * 5;
+  }
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.banner__title {
+  margin: 0;
+  overflow: hidden;
+  float: left;
+  margin-top: $gs-baseline * 0.8;
+  @include mq(tablet) {
+    margin-top: $gs-baseline * 1;
+  }
+
+  a {
+    text-indent: 100%;
+    white-space: nowrap;
+    background: url(/assets/images/logo.png) no-repeat 0 0;
+    @include rem((
+            background-size: 201px 27px,
+            width: 201px,
+            height: 27px
+    ));
+    display: block;
+    @include mq($from: tablet) {
+      @include rem((
+              background-size: 268px 36px,
+              width: 268px,
+              height: 36px
+      ));
+    }
+    .svg & {
+      background-image: url(/assets/images/embed/logo.svg);
+    }
+  }
+
+  @include mq($from: desktop) {
+    &:before {
+      content: "";
+      display: block;
+      height: 33px;
+      border-right: 1px dotted $c-nextBlue;
+      float: right;
+      position: absolute;
+      left: gs-span(3);
+      top: 24px;
+    }
+  }
+}
+
 /* Common navigation styles
    ========================================================================== */
 .nav__item {
-    list-style: none;
+  list-style: none;
 }
-
 
 /* Pagination
    ========================================================================== */
 .nav--pagination {
-    padding-bottom: $gs-row-height;
-    @include mq($from: tablet) {
-        margin-left: 178px;
-    }
+  padding-bottom: $gs-row-height;
+  @include mq($from: tablet) {
+    margin-left: 178px;
+  }
 
-    .nav__item {
-        @include font-size(0, 0);
-        text-indent: 100%;
-        background-repeat: no-repeat;
-        display: block;
-        @include rem ((
+  .nav__item {
+    @include font-size(0, 0);
+    text-indent: 100%;
+    background-repeat: no-repeat;
+    display: block;
+    @include rem((
             width: 44px,
             height: 44px
-        ));
-        &::after {
-            font-family: $sans-serif;
-            @include font-size(14, 44);
-            display: none;
-            margin-left: $gs-gutter/2;
-        }
+    ));
+    &::after {
+      font-family: $sans-serif;
+      @include font-size(14, 44);
+      display: none;
+      margin-left: $gs-gutter/2;
     }
+  }
 
-    .nav__item--next {
-        background-image: url(/assets/images/i-pagination-next.png);
-        opacity: 0.9;
-        .svg & {
-            background-image: url(/assets/images/embed/i-pagination-next.svg);
-        }
-        &:hover {
-            opacity: 1;
-            &::after {
-                content: "newer";
-                display: block;
-            }
-        }
+  .nav__item--next {
+    background-image: url(/assets/images/i-pagination-next.png);
+    opacity: 0.9;
+    .svg & {
+      background-image: url(/assets/images/embed/i-pagination-next.svg);
     }
+    &:hover {
+      opacity: 1;
+      &::after {
+        content: "newer";
+        display: block;
+      }
+    }
+  }
 
-    .nav__item--prev {
-        background-image: url(/assets/images/i-pagination-prev.png);
-        opacity: 0.9;
-        .svg & {
-            background-image: url(/assets/images/embed/i-pagination-prev.svg);
-        }
-        &:hover {
-            opacity: 1;
-            &::after {
-                content: "older";
-                display: block;
-            }
-        }
+  .nav__item--prev {
+    background-image: url(/assets/images/i-pagination-prev.png);
+    opacity: 0.9;
+    .svg & {
+      background-image: url(/assets/images/embed/i-pagination-prev.svg);
     }
+    &:hover {
+      opacity: 1;
+      &::after {
+        content: "older";
+        display: block;
+      }
+    }
+  }
 }
 
 .nav__text {
-    display: none;
-    @include mq(tablet) {
-        display: inline;
-    }
-}
-.nav__text--mobile {
-    @include mq(tablet) {
-        display: none;
-    }
+  display: none;
+  @include mq(tablet) {
+    display: inline;
+  }
 }
 
-.navigation {
-    @include mq($from: tablet) {
-        @include rem ((
-            top: 112px,
-        ));
-    }
-    margin-top: 50px;
-    @include mq(tablet) {
-        margin-top: 0;
-    }
+.nav__text--mobile {
+  @include mq(tablet) {
+    display: none;
+  }
 }
 
 .navigation__site {
-    border-top: 1px dotted $c-nextBlue;
-    padding-bottom: $gs-gutter;
+  line-height: $gs-baseline * 5;
+  overflow: hidden;
+  @include mq($to: tablet) {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  @include mq(tablet) {
+    padding-right: 130px;
+  }
 
-    .nav__item {
-        display: block;
-        @include mq($from: mobile) {
-            float: left;
-            width: 25%;
-        }
-        
-        .nav__text, .nav__text--mobile {
-            color: $c-neutral1;
-            @include font-size(14, 16);
-            padding-top: $gs-baseline/2;
-            padding-right: $gs-baseline;
-            display: inline-block;
-            @include mq($from: tablet) {
-                @include font-size(16, 20);
-            }
-        }
-        .nav__text {
-            display: none;
-            @include mq(tablet) {
-                display: inline-block;
-            }
-        }
-        
-        .nav__text--mobile {
-            display: inline-block;
-            @include mq(tablet){
-                display: none;
-            }
-        }
+  .nav__item {
+    display: block;
+    text-align: center;
+    float: left;
+    @include mq($to:tablet) {
+      width: 45%;
+      padding-left: 5%;
+    }
+    @include mq(tablet) {
+//      display: inline-block;
+      width: 25%;
     }
 
-    .nav__item--active {
-        a {
-            margin-top: -1px;
-            border-top: 3px solid $c-nextBlue;
-            padding-top: 5px;
-        }
+    .nav__text, .nav__text--mobile {
+      -webkit-font-smoothing: antialiased;
+      font-family: $serifheadline;
+      text-transform: lowercase;
+      @include font-size(18, 20);
+      font-weight: 900;
+      text-rendering: optimizeLegibility;
     }
+
+    .nav__text {
+      display: none;
+      @include mq(tablet) {
+        display: inline-block;
+      }
+    }
+
+    .nav__text--mobile {
+      display: inline-block;
+      @include mq(tablet) {
+        display: none;
+      }
+    }
+  }
+
+  .nav__item--active {
+    a {
+      color: $c-nextBlue;
+      border-bottom: 2px solid $c-nextBlue;
+    }
+  }
 }
 
 .navigation__social {
-    margin-right: $gs-gutter;
-    overflow: hidden;
+  overflow: hidden;
+
+  text-align: center;
+
+  @include mq(tablet) {
     position: absolute;
-    @include rem ((
-        top: -56px,
-    ));
-    
+    top: 12px;
+    right: 0;
+  }
+  .nav__item {
+    display: inline-block;
+    margin: 0 $gs-gutter/2 0 0;
     @include mq($from: tablet) {
-        @include rem ((
-            top: -72px,
-        ));
-        right: 0;
+      float: left;
+      @include rem((
+              margin: 0 0 0 $gs-gutter,
+      ));
     }
-    
-    .nav__item {
-        float: left;
-        margin: 0 $gs-gutter/2 0 0;
-        @include mq($from: tablet) {
-            @include rem ((
-                margin: 0 0 0 $gs-gutter,
-            ));
-        }
+    &:hover {
+      -webkit-filter: contrast(130%);
+      filter: contrast(130%);
     }
+  }
+}
+
+
+.navigation {
+  @include mq($to: tablet) {
+//    display: none;
+    background-color: #f1f1f1;
+    z-index: 0;
+    position: absolute;
+    top: 100%;
+    margin-top: 8px;
+    width: 100%;
+    left: 0;
+    max-height: 0;
+    overflow: hidden;
+    &.navigation--expanded {
+      padding-bottom: $gs-baseline;
+      border-bottom: 1px solid #aaa;
+      display: block;
+      max-height: 300px;
+      transition: max-height 0.25s ease;
+    }
+  }
+}
+
+// BURGER
+//---------------------------
+
+/**
+ * Burger icon
+ */
+$burger-line-h: 3px;
+$burger-width: 20px;
+
+/**
+ * Placeholder for burger line.
+ */
+%burger-icon__line {
+  width: 100%;
+  height: $burger-line-h;
+  background-color: rgba($c-nextBlue, .9);
+}
+
+.burger-container {
+  position: absolute;
+  right: $gs-gutter / 2;
+  top: 0;
+  padding: 13px 10px 0px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.burger-icon {
+  @include mq(tablet) {
+    display: none;
+  }
+
+  @extend %burger-icon__line;
+
+  width: $burger-width;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+  }
+
+  &:before {
+    @extend %burger-icon__line;
+
+    top: $burger-line-h * 2;
+  }
+
+  &:after {
+    @extend %burger-icon__line;
+
+    top: $burger-line-h * 4;
+  }
+  .burger-container--expanded & {
+    height: 0;
+
+    &:before {
+      @include transform(rotate(45deg));
+
+      top: 4px;
+    }
+
+    &:after {
+      @include transform(rotate(-45deg) translate(3px, -3px)); // We need to move line to the center
+
+      top: 8px;
+    }
+  }
+
+//  @include mq(tablet) {
+    &,
+    &:before,
+    &:after {
+      transition: opacity .1s, transform .1s ease-in;
+    }
+//  }
 }

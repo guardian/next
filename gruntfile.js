@@ -14,6 +14,14 @@ module.exports = function(grunt) {
             }
         },
 
+        copy: {
+            videos: {
+                files: [
+                    {expand: true, cwd: 'jekyll/_src/videos/', src: '**', dest: 'jekyll/assets/videos/'},
+                ]
+            }
+        },
+
         svgmin: {
             build: {
                 files: [{
@@ -96,10 +104,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-jekyll');
     grunt.loadNpmTasks('grunt-bower-task');
 
-    grunt.registerTask('default', ['bower', 'imagemin', 'svgmin', 'sass', 'cssmin', 'jekyll']);
+    grunt.registerTask('default', ['bower', 'imagemin', 'svgmin', 'sass', 'cssmin', 'copy', 'jekyll']);
 };

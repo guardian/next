@@ -31,3 +31,5 @@ bower_components
 bower_lib
 dev/gems
 target
+
+jekyll/assets

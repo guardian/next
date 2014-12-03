@@ -1,48 +1,441 @@
 ---
 layout: base
 ---
-<div class="main" role="main">
-    <div class="homepage__gradient">
-        <div class="container">
-            <div id="homepage__section0" class="homepage__section">
-                <div class="homepage__section-copy">
-                    <h2 class="homepage__section-title">{{ page.strapline }}</h2>
-                    <span class="dottedline"></span>
-                    <div class="homepage__section-description">
-                        {{ page.proposition | markdownify }}
+
+<!--[if lt IE 9]>
+<style>
+    .main-body-container {
+        display: none !important;
+    }
+    body {
+        min-height: 100%;
+    }
+    .incompatible-browser {
+        display: block !important;
+        margin: 100px;
+        width: 100%;
+    }
+    .incompatible-browser h2 {
+        margin: auto;
+        display: block;
+        color: #333;
+        font-size: 24px;
+    }
+</style>
+<![endif]-->
+
+<script type="text/javascript">
+
+(function () {
+
+    // UTIL
+    //-------------
+    var render = function (fn) { fn(); };
+
+    function scrollTop(val) {
+        if (val === undefined) {
+            return window.pageYOffset;
+        } else {
+            document.body.scrollTop = val;
+            document.documentElement.scrollTop = val;
+        }
+    }
+
+    function removeClass(el, className) {
+        if (el.classList) {
+            el.classList.remove(className);
+        } else {
+            el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ')
+        }
+    }
+
+    function addClass(el, className) {
+        if (el.classList) {
+            el.classList.add(className);
+        } else {
+            el.className += ' ' + className;
+        }
+    }
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
+    var isHandheld = (function() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        })(),
+        isIE = (function() {
+            return ((navigator.appName == 'Microsoft Internet Explorer') ||
+                    ((navigator.appName == 'Netscape') &&
+                            (new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})").exec(navigator.userAgent) != null)));
+        })(),
+        isSafari = (function() {
+            return /Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent);
+        })();
+
+    // INIT FUNCS
+    //------------------------
+
+    function initVideo() {
+        if (isHandheld) { // show native controls on handhelds
+            Array.prototype.forEach.call(
+                document.querySelectorAll('video'),
+                function(el){ el.setAttribute('controls', 'true'); });
+        } else {
+            var videoEl = document.querySelector('.nxt-speedcurve__video');
+            function _playVideoIfVisible() {
+                var top = videoEl.getBoundingClientRect().top;
+                if (top !== 0 && top < 300) {
+                    videoEl.play();
+                    document.removeEventListener('scroll', _playVideoIfVisible);
+                }
+            }
+            document.addEventListener('scroll', _playVideoIfVisible);
+        }
+    }
+
+    function initSmoothScroll() {
+        // this is to smooth out mousewheel style coarse scrolls (better for parallax / animations)
+        // should probably skip it on OSX and touch devices
+        var interval,
+                toMove = 0;
+
+        function handleScroll(e) {
+            var delta;
+            if (e.type == 'mousewheel') {
+                delta = (e.wheelDelta * -1);
+            } else {
+                delta = 40 * e.detail;
+            }
+
+            toMove += delta * 0.5;
+            if (!interval) {
+                var last = new Date();
+                var move = function () {
+                    var now = new Date(),
+                            dt = now - last,
+                            perc = (dt / 100) * 0.99, // 98% towards target every 100ms
+                            moveAmount = toMove * perc;
+                    toMove -= moveAmount;
+                    scrollTop(scrollTop() + moveAmount);
+                    if (Math.abs(toMove) < 20) {
+                        clearInterval(interval);
+                        interval = false;
+                    }
+                    last = now;
+                };
+                interval = setInterval(move, 10);
+            }
+
+            e.preventDefault();
+        }
+
+        document.addEventListener('mousewheel', handleScroll);
+        document.addEventListener('DOMMouseScroll', handleScroll);
+
+        function unbindScrollListeners() {
+            document.removeEventListener('mousewheel', handleScroll);
+            document.removeEventListener('DOMMouseScroll', handleScroll);
+            document.removeEventListener("touchstart", unbindScrollListeners);
+        }
+
+        document.addEventListener("touchstart", unbindScrollListeners);
+    }
+
+    function initSlideshow() {
+        var current = 1,
+                classPrefix = 'nxt-backgrounds--',
+                bgEl = document.querySelector('.nxt-backgrounds');
+
+        function next() {
+            removeClass(bgEl, classPrefix + current);
+            current = current === 3 ? 1 : ++current;
+            addClass(bgEl, classPrefix + current);
+        }
+
+        window.setInterval(next, 4000);
+    }
+
+    function initParallax() {
+        if (!isIE && !isSafari && !isHandheld) {
+            var parallax = new Parallax(parallaxSpec);
+            function updateBasedonWidth() {
+                if (window.innerWidth < 740) {
+                    addClass(document.querySelector('.nxt-container--content'), 'nxt-container--content-stacked');
+                    parallax.enabled && parallax.disable();
+                } else {
+                    removeClass(document.querySelector('.nxt-container--content'), 'nxt-container--content-stacked');
+                    !parallax.enabled && parallax.enable();
+                }
+            }
+            window.addEventListener('resize', debounce(updateBasedonWidth, 200));
+            updateBasedonWidth();
+        }
+    }
+
+    // PARALLAX SPEC
+    //-----------------------------
+
+    var parallaxSpec = (function() {
+        var topEl = null;
+        function topOfContent() {
+            topEl = topEl || document.querySelector('.nxt-container--top');
+            return -1 * (topEl.getBoundingClientRect().bottom - 60);
+        }
+        var contentMargin = 2000;
+        contentBlock = function(n) { return n*(contentMargin/4); };
+        return {
+            selectors: {
+                '.nxt-container--top .nxt-backgrounds': {
+                    transform: {top: 0, bottom: 800, from: 0, to: 35, prefix: 'translateY(', suffix: '%)'}
+                },
+
+                '.nxt-after-content': {
+                    transform: {measure: topOfContent, top: 0, bottom: contentMargin, from: -contentMargin, to: 0, prefix: 'translateY(', suffix: 'px)'}
+                },
+                '.nxt-container--content .nxt-copy-container': {
+                    transform: {measure: topOfContent, top: 0, bottom: contentMargin, from: 0, to: contentMargin, prefix: 'translateY(', suffix: 'px)'}
+                },
+
+                '.nxt-laptop': {
+                    transform: {measure: topOfContent, top: 0, bottom: contentMargin, from: 0, to: contentMargin, prefix: 'translateY(', suffix: 'px)'}
+                },
+
+                '.nxt-copy--fronts': {
+                    transform: {measure: topOfContent, top: contentBlock(1) - 50, bottom: contentBlock(1) + 50, from: 0, to: -100, prefix: 'translateY(', suffix: 'px)'}
+                },
+                '.nxt-copy--articles': {
+                    opacity: {measure: topOfContent, top: contentBlock(1), bottom: contentBlock(1) + 50, from: 0, to: 1, hide: true},
+                    transform: {measure: topOfContent, top: contentBlock(2) - 50, bottom: contentBlock(2), from: 0, to: -100, prefix: 'translateY(', suffix: 'px)'}
+                },
+                '.nxt-copy--galleries': {
+                    opacity: {measure: topOfContent, top: contentBlock(2), bottom: contentBlock(2) + 50, from: 0, to: 1, hide: true},
+                    transform: {measure: topOfContent, top: contentBlock(3) - 50, bottom: contentBlock(3), from: 0, to: -100, prefix: 'translateY(', suffix: 'px)'}
+                },
+                '.nxt-copy--liveblogs': {
+                    opacity: {measure: topOfContent, top: contentBlock(3) - 25, bottom: contentBlock(3) + 50, from: 0, to: 1, hide: true}
+                },
+
+                '.nxt-laptop__grab--fronts': {
+                    transform: {measure: topOfContent, top: 0, bottom: contentBlock(1), from: 0, to: -50, prefix: 'translateY(', suffix: '%)'}
+                },
+                '.nxt-laptop__grab--articles': {
+                    transform: {measure: topOfContent, top: contentBlock(1) + 75, bottom: contentBlock(2), from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
+                    opacity: {measure: topOfContent, top: contentBlock(1) - 50, bottom: contentBlock(1) + 50, from: 0, to: 1, hide: true}
+                },
+                '.nxt-laptop__grab--media': {
+                    transform: {measure: topOfContent, top: contentBlock(2) + 75, bottom: contentBlock(3), from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
+                    opacity: {measure: topOfContent, top: contentBlock(2) - 50, bottom: contentBlock(2) + 50, from: 0, to: 1, hide: true}
+                },
+                '.nxt-laptop__grab--liveblogs': {
+                    transform: {measure: topOfContent, top: contentBlock(3) + 75, bottom: contentBlock(4), from: 0, to: -50, prefix: 'translateY(', suffix: '%)'},
+                    opacity: {measure: topOfContent, top: contentBlock(3) - 50, bottom: contentBlock(3) + 50, from: 0, to: 1, hide: true}
+                }
+            }
+        };
+    })();
+
+    // PARALLAX CODE
+    //----------------------------
+
+    function Parallax(spec) {
+        this.parallaxEls = {};
+        this.parallaxSpec = spec.selectors;
+        this.enabled = false;
+        this.needsReset = false;
+        for (var selector in this.parallaxSpec) { // pre-select elements
+            this.parallaxEls[selector] = Array.prototype.slice.call(document.querySelectorAll(selector));
+        }
+    }
+
+    Parallax.prototype.disable = function() {
+        document.removeEventListener('scroll', this.update.bind(this));
+        this.enabled = false;
+        this.needsReset = true;
+        this.update();
+    };
+
+    Parallax.prototype.enable = function() {
+        this.enabled = true;
+        this.needsReset = false;
+        this.update();
+        document.removeEventListener('scroll', this.update.bind(this));
+        document.addEventListener('scroll', this.update.bind(this));
+    };
+
+    Parallax.prototype.update = function() {
+        if (this.enabled || this.needsReset) {
+            var curScrollTop = scrollTop();
+
+            for (var selector in this.parallaxSpec) {
+                var props = this.parallaxSpec[selector];
+                for (var prop in props) {
+                    var p = props[prop],
+                            value;
+                    if (typeof p === 'function') {
+                        value = p();
+                    } else {
+                        var _scrollTop = p.measure ? p.measure() : curScrollTop,
+                            progress, newVal, value;
+                        if (!this.enabled) {
+                            value = '';
+                            this.needsReset = false;
+                        } else {
+                            if (_scrollTop <= p.top) { progress = 0; }
+                            else if (p.top <= _scrollTop && _scrollTop <= p.bottom) {
+                                progress = (_scrollTop - p.top) / (p.bottom - p.top);
+                            }
+                            else if (_scrollTop >= p.bottom) { progress = 1; }
+                            newVal = p.from + (progress * (p.to - p.from));
+                            value = (p.prefix || '') + newVal + (p.suffix || '');
+                        }
+                    }
+                    render(function (els, prop, val, spec) {
+                        els.forEach(function (el) {
+                            el.style[prop] = val;
+                            if (prop === "transform") {
+                                el.style['-webkit-transform'] = val;
+                            }
+                            if (spec.hide) {
+                                el.style.display = prop === 'opacity' && parseFloat(val, 10) === 0.0 ? 'none' : '';
+                            }
+                        })
+                    }.bind(undefined, this.parallaxEls[selector], prop, value, p));
+                }
+            }
+        }
+    };
+
+    function initCompatibility() {
+        if (isIE) { addClass(document.body, 'is-ie'); }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        initCompatibility();
+        initSmoothScroll();
+        initParallax();
+        initSlideshow();
+        initVideo();
+    });
+})();
+</script>
+
+<div class="incompatible-browser" style="display: none;">
+    <h2>Your browser is not supported.</h2>
+</div>
+<div class="main-body-container">
+
+    <div class="nxt-container nxt-container--top">
+        <div class="nxt-body">
+            <div class="nxt-parallax-container">
+                <div class="nxt-backgrounds">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="nxt-copy">
+                    <h2>{{ page.sections.top.title }}</h2>
+                    <p>{{ page.sections.top.text }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nxt-container nxt-container--content nxt-container--content-stacked">
+        <div class="nxt-body">
+            <div class="nxt-copy-container">
+                <div class="nxt-copy nxt-copy--fronts">
+                    <h2>{{ page.sections.fronts.title }}</h2>
+                    <img src="/assets/images/homepage/laptop_mobile_front.png">
+                    <p>{{ page.sections.fronts.text }}</p>
+                </div>
+                <div class="nxt-copy nxt-copy--articles">
+                    <h2>{{ page.sections.article.title }}</h2>
+                    <img src="/assets/images/homepage/laptop_mobile_article.png">
+                    <p>{{ page.sections.article.text }}</p>
+                </div>
+                <div class="nxt-copy nxt-copy--galleries">
+                    <h2>{{ page.sections.galleries.title }}</h2>
+                    <img src="/assets/images/homepage/laptop_mobile_gallery.png">
+                    <p>{{ page.sections.galleries.text }}</p>
+                </div>
+                <div class="nxt-copy nxt-copy--liveblogs">
+                    <h2>{{ page.sections.liveblog.title }}</h2>
+                    <img src="/assets/images/homepage/laptop_mobile_live.png">
+                    <p>{{ page.sections.liveblog.text }}</p>
+                </div></div>
+            <div class="nxt-laptop">
+                <img class="nxt-laptop__screen" src="/assets/images/homepage/laptop_cutout.png">
+                <img class="nxt-laptop__grab nxt-laptop__grab--fronts" src="/assets/images/homepage/grab_front.jpg">
+                <img class="nxt-laptop__grab nxt-laptop__grab--articles" src="/assets/images/homepage/grab_article.jpg">
+                <img class="nxt-laptop__grab nxt-laptop__grab--media" src="/assets/images/homepage/grab_gallery.jpg">
+                <img class="nxt-laptop__grab nxt-laptop__grab--liveblogs" src="/assets/images/homepage/grab_liveblog.jpg">
+            </div>
+        </div>
+    </div>
+
+    <div class="nxt-after-content">
+
+        <div class="nxt-container nxt-container--performance">
+            <div class="nxt-body">
+                <div class="nxt-copy">
+                    <h2>{{ page.sections.performance.title }}</h2>
+                    <img class="nxt-performance-still hide-from-tablet" src="/assets/images/homepage/performance_still.jpg" alt="performance comparison">
+                    <p>{{ page.sections.performance.text }}</p>
+                </div>
+                <div class="nxt-speedcurve u-cf">
+                    <div class="nxt-speedcurve__container">
+                        <video class="nxt-speedcurve__video nxt-speedcurve__video--desktop" preload poster="/assets/images/homepage/video_poster.jpg">
+                            <source type="video/mp4" src="/assets/videos/speedtest.mp4" >
+                            <source type="video/webm" src="/assets/videos/speedtest.webm" >
+                        </video>
+                        <img class="nxt-speedcurve__screenshot" src="/assets/images/homepage/speedtest_desktop.png" alt="speedcurve comparison">
                     </div>
-                    <a href="http://www.theguardian.com/preference/platform/mobile?page=http%3A%2F%2Fwww.theguardian.com%2Fuk%3Fview%3Dmobile%23opt-in-message" id="homepage__try-ngw-link"><i class="i i-arrow-right-blue"></i><i class="i i-arrow-right-white"></i> Try the beta</a>
                 </div>
-                <div class="homepage__section-image-container">
-                    <img class="homepage__section-image" alt="" src="/assets/images/devices.png"/>
+                <div class="u-cf"></div>
+            </div>
+        </div>
+
+        <div class="nxt-container nxt-container--sharing u-cf">
+            <div class="nxt-body">
+                <div class="nxt-copy hide-from-tablet">
+                    <h2>{{ page.sections.sharing.title }}</h2>
+                </div>
+                <div class="nxt-sharing-img--icons">
+                    <img src="/assets/images/homepage/shareicons.png">
+                </div>
+                <div class="nxt-copy">
+                    <h2 class="show-from-tablet">{{ page.sections.sharing.title }}</h2>
+                    <p>{{ page.sections.sharing.text }}</p>
+                </div>
+                <div class="nxt-sharing-img--selectnshare">
+                    <img src="/assets/images/homepage/selectnshare.png">
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
-        {% for section in page.sections %}
-        <div id="homepage__section{{ forloop.index }}" class="homepage__section">
-            <div class="homepage__section-copy">
-                <h2 class="homepage__section-title">{{ section.title }}</h2>
-                <p class="homepage__section-description">{{ section.description }}</p>
-                {% if section.linkheading %}
-                <div class="homepage__section-links">
-                    <h4>{{ section.linkheading }}</h4>
-                    {% for link in section.links %}
-                        <a href="{{ link.href }}"><i class="i i-arrow-right-blue"></i> {{ link.label }}</a>
-                    {% endfor %}
+        <div class="nxt-container nxt-container--open">
+            <div class="nxt-body u-cf">
+                <div class="nxt-copy">
+                    <h2>{{ page.sections.open.title }}</h2>
+                    <img class="nxt-open-img--mobile" src="/assets/images/homepage/workin.jpg" alt="developed in the open">
+                    <p>{{ page.sections.open.text }}</p>
                 </div>
-                {% endif %}
-            </div>
-            <div class="homepage__section-image-container">
-                <img class="homepage__section-image" alt="" src="{{ section.image }}"/>
+                <img class="nxt-open-img--desktop" src="/assets/images/homepage/workin.jpg" alt="developed in the open">
             </div>
         </div>
-        {% endfor %}
+
     </div>
 
-    {% for post in paginator.posts %}
-        {% include article--summary.html %}
-    {% endfor %}
 </div>

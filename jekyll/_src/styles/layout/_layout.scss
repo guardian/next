@@ -3,7 +3,6 @@
 ============================================================ */
 body {
     margin: 0 auto;
-    border-top: $gs-baseline/3 solid $c-nextBlue;
 }
 
 
@@ -14,66 +13,13 @@ body {
     padding: 0 $gs-gutter;
 }
 
-
-/* Banner
-   ========================================================================== */
-.banner {
-    @include rem ((
-        padding: $gs-row-height/2 0,
-    ));
-    @include mq($from: tablet) {
-        @include rem ((
-            padding: $gs-row-height 0,
-        ));
-    }
-}
-.banner__title {
-    margin: 0;
-
-    a {
-        text-indent: 100%;
-        white-space: nowrap;
-        background: url(/assets/images/logo.png) no-repeat 0 0;
-        @include rem ((
-            background-size: 201px 27px,
-            width: 201px,
-            height: 27px
-        ));
-        display: block;
-        overflow: hidden;
-        @include mq($from: tablet) {
-            @include rem ((
-                background-size: 268px 36px,
-                width: 268px,
-                height: 36px
-            ));
-        }
-        .svg & {
-            background-image: url(/assets/images/embed/logo.svg);
-        }
-    }
-
-    @include mq($from: desktop) {
-        &:before {
-            content: "";
-            display: block;
-            height: 140px;
-            border-right: 1px dotted $c-nextBlue;
-            float: right;
-            position: absolute;
-            left: gs-span(3)+1px;
-            top: 24px;
-        }
-    }
-}
-
-
 /* Main body
    ========================================================================== */
 .main {
+    margin-top: $gs-baseline * 4;
     padding: $gs-row-height 0;
     @include mq($from: tablet) {
-        padding: $gs-row-height*2 0;
+        padding: $gs-row-height*2 + $gs-baseline*2 0;
     }
 }
 
