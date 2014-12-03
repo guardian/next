@@ -21,7 +21,7 @@ sections:
     text: "Our redesigned <a href=\"http://next.theguardian.com/blog/gallery-redesign/\">gallery</a> and <a href=\"http://next.theguardian.com/blog/video-redesign/\">video</a> pages elevate the viewing experience above all. Click on any picture in a gallery to enter ‘lightbox’ view to enjoy a completely uncluttered experience. There’s no finer way to appreciate the stunning photography of our <a href=\"http://www.theguardian.com/world/series/eyewitness\">Eyewitness</a> series, or to see picture contributions from our readers’ via <a href=\"http://witness.theguardian.com/\">GuardianWitness</a>."
   performance:
     title: Performance
-    text: "We have developed the new <a href=\"http://www.theguardian.com/\">theguardian.com</a> responsive website to be among the fastest news sites to load on mobile, tablet and desktop – all the devices our readers use to access the site through the week; it's more than twice as fast as our previous site (source: <a href=\"http://speedcurve.com/\">SpeedCurve</a>)."
+    text: "We know from talking to you how much you hate waiting for websites to load, so we have developed the new <a href=\"http://www.theguardian.com/\">theguardian.com</a> responsive website to be among the fastest news sites to load on mobile, tablet and desktop – all the devices our readers use to access the site through the week; it's more than twice as fast as our previous site (source: <a href=\"http://speedcurve.com/\">SpeedCurve</a>)."
   sharing:
     title: More ways to share
     text: "The new site has been created in the spirit of our ‘open’ philosophy. It brings our audience closer to our journalism through enhanced ways to <a href=\"http://next.theguardian.com/blog/comment-update/\">share and comment</a> on our journalism."
