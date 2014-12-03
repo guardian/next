@@ -251,6 +251,9 @@ body { height: auto; }
   @include mq($to: tablet) {
     display: none;
   }
+  @include mq($to: desktop) {
+    padding: 0 10px;
+  }
 }
 
 .nxt-speedcurve__container {
@@ -258,7 +261,7 @@ body { height: auto; }
   padding-bottom: 100%;
   overflow: hidden;
   @include mq(tablet) {
-    padding-bottom: 47%;
+    padding-bottom: 100% *(390/900);
   }
 }
 
@@ -283,7 +286,6 @@ body { height: auto; }
 .nxt-speedcurve__video--desktop {
   position: absolute;
   width: 100%;
-  bottom: -6%;
   @include mq($to: tablet) {
       display: none
   }
@@ -576,4 +578,9 @@ body { height: auto; }
       padding: 0 10px;
     }
   }
+}
+
+.nxt-performance-still {
+  width: 100%;
+  padding: 0 10px 12px 10px;
 }
