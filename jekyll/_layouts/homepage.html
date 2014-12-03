@@ -93,15 +93,13 @@ layout: base
                 document.querySelectorAll('video'),
                 function(el){ el.setAttribute('controls', 'true'); });
         } else {
-            var videoEls = document.querySelectorAll('.nxt-speedcurve__video');
+            var videoEl = document.querySelector('.nxt-speedcurve__video');
             function _playVideoIfVisible() {
-                Array.prototype.forEach.call(videoEls, function(videoEl) {
-                    var top = videoEl.getBoundingClientRect().top;
-                    if (top !== 0 && top < 300) {
-                        videoEl.play();
-                        document.removeEventListener('scroll', _playVideoIfVisible);
-                    }
-                });
+                var top = videoEl.getBoundingClientRect().top;
+                if (top !== 0 && top < 300) {
+                    videoEl.play();
+                    document.removeEventListener('scroll', _playVideoIfVisible);
+                }
             }
             document.addEventListener('scroll', _playVideoIfVisible);
         }
