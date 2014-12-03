@@ -65,6 +65,10 @@
   list-style: none;
 }
 
+.nav__item--try-it .nav__text {
+  min-width: 60px; // hack to stop wrapping on some browsers
+}
+
 /* Pagination
    ========================================================================== */
 .nav--pagination {
