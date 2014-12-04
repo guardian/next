@@ -12,7 +12,7 @@ sections:
     text: "The new look and feel presents a clearer, more elegant and engaging blend of images, video and text. Edited and curated to emphasize significant stories and bring the news agenda to life for our readers – the design centers around a flexible ‘<a href=\"http://next.theguardian.com/blog/container-model-blended-content/\">container</a>’ format. The tools behind the new format vastly improve the speed at which we can deliver the news to you."
   article:
     title: Articles
-    text: "The new article design focuses in on our journalists’ writing, providing a clear and accessible reading experience with fewer distractions. Different styles of writing now have unique formats and colour palettes. By emphasizing the picture, the writer or by including quotes and graphics we can now set the right context to our readers about the type of story at a glance – whether it’s <a href=\"http://www.theguardian.com/tone/minutebyminute\">breaking news</a>, <a href=\"http://www.theguardian.com/tone/comment\">opinion</a> or <a href=\"http://www.theguardian.com/news/series/the-long-read\">long-form</a> <a href=\"http://www.theguardian.com/tone/features\">features</a>."
+    text: "The new article design focuses in on our journalists’ writing, providing a clear and accessible reading experience with fewer distractions. Different styles of writing now have unique formats and colour palettes. By emphasizing the picture, the writer or by including quotes and graphics we can now set the right context to our readers about the type of story at a glance – whether it’s <a href=\"http://www.theguardian.com/tone/minutebyminute\">breaking news</a>, <a href=\"http://www.theguardian.com/tone/comment\">opinion</a> or <a href=\"http://www.theguardian.com/news/series/the-long-read\">long-form</a> <a href=\"http://www.theguardian.com/tone/features\">features.</a>"
   liveblog:
     title: Live blogs
     text: "The new <a href=\"http://www.theguardian.com/tone/minutebyminute\">live blog pages</a> balance breaking updates and at-a-glance summaries, with live content marked in red. ‘Key events’ are shown in a timeline so it’s quicker to get up to speed. "
@@ -28,4 +28,7 @@ sections:
   open:
     title: Designed in the open
     text: "<a href=\"http://next.theguardian.com/blog/making-beta-better/\">Developed entirely in the open</a>, the new site has been built around the needs of our readers, including <a href=\"http://next.theguardian.com/blog/the-sooner-we-share/\">feedback</a> from over 40,000 comments received during a nine month beta phase."
+  joinus:
+    title: Join us
+    text: "<a href=\"http://www.theguardian.com/?view=mobile\">Try the new site today</a></p><p>Your feedback is really important to us – please let us know <a href=\"https://www.surveymonkey.com/s/theguardian-beta-feedback\">what you think.</a>"
 ---

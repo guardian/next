@@ -184,6 +184,7 @@ body { height: auto; }
 .nxt-container--performance,
 .nxt-container--sharing,
 .nxt-container--open,
+.nxt-container--joinus,
 .nxt-container--content {
   .nxt-copy {
     h2 {
@@ -452,14 +453,13 @@ body { height: auto; }
     .nxt-copy {
       margin: auto;
       max-width: 400px;
+      p {
+        padding: $gs-baseline 0;
+      }
     }
   }
   @include mq(tablet) {
     text-align: center;
-  }
-  .nxt-sharing-img--icons img {
-    padding: $gs-baseline 0;
-    background: white;
   }
   .nxt-sharing-img--icons,
   .nxt-sharing-img--selectnshare {
@@ -580,4 +580,23 @@ body { height: auto; }
 .nxt-performance-still {
   width: 100%;
   padding: 0 10px 12px 10px;
+}
+
+.nxt-container--joinus {
+  background: #63717a;
+  color: #f6f6f6;
+  text-align: center;
+  min-height: 0;
+  .nxt-copy {
+    max-width: 320px;
+    margin: auto;
+    padding-bottom: $gs-baseline * 2;
+    p {
+      margin-top: 0;
+    }
+    a {
+      @include manual-link;
+      height: 1.2em;
+    }
+  }
 }
