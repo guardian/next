@@ -29,6 +29,9 @@ navigation:
 #  mobiletext: Feedback
 #  url: /feedback/
 
+# Twitter embed plugin
+gems: ['jekyll-twitter-plugin']
+
 # Authors
 authors:
   guardian:
@@ -105,3 +108,6 @@ authors:
     twitter: mr_mr
     gravatar: 6ed0bfb73aafbb294bb90f6a47a8e1af
     github: mr_mr
+  patrickstirling:
+    display_name: Patrick Stirling
+    gravatar: 439ffa585104f82c8901b9812cd9496d

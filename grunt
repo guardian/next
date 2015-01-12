@@ -8,4 +8,10 @@ bundle install --gemfile $BASE/Gemfile-sass --system
 bundle install --gemfile $BASE/Gemfile-jekyll --system
 npm install
 
+# Enter twitter credentials
+export TWITTER_CONSUMER_KEY=foXymfe0fFAgx5vZdemkdzGEg
+export TWITTER_CONSUMER_SECRET=nbCpCHbeLh9dyxBW63Jz9xW1PMel1zYHGtbSqomWwCi6xuw3Ps
+export TWITTER_ACCESS_TOKEN=735596978-3DAn17db0h9o5DLeJTHeJMAQAmjgQT8RLdnXMTZD
+export TWITTER_ACCESS_TOKEN_SECRET=N6ahAenvS7dnEc0Yu0ExjBTEzYOSGqZKwZeMNoNzYY1Jk
+
 grunt "$@"
