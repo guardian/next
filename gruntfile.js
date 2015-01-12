@@ -8,7 +8,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'jekyll/_src/images/',
-                    src: ['**/*.{png,jpg}'],
+                    src: ['**/*.{png,jpg,gif}'],
                     dest: 'jekyll/assets/images/'
                 }]
             }
