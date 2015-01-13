@@ -8,7 +8,7 @@ module.exports = function(grunt) {
                 files: [
                     {expand: true, cwd: 'jekyll/_src/videos/', src: '**', dest: 'jekyll/assets/videos/'}
                 ]
-            }
+            },
             images: {
                 files: [
                     {expand: true, cwd: 'jekyll/_src/images/', src: ['**/*.{png,jpg,gif}'], dest: 'jekyll/assets/images/'}
