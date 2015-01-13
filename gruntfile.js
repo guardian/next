@@ -3,21 +3,15 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        imagemin: {
-            build: {
-                files: [{
-                    expand: true,
-                    cwd: 'jekyll/_src/images/',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: 'jekyll/assets/images/'
-                }]
-            }
-        },
-
         copy: {
             videos: {
                 files: [
-                    {expand: true, cwd: 'jekyll/_src/videos/', src: '**', dest: 'jekyll/assets/videos/'},
+                    {expand: true, cwd: 'jekyll/_src/videos/', src: '**', dest: 'jekyll/assets/videos/'}
+                ]
+            }
+            images: {
+                files: [
+                    {expand: true, cwd: 'jekyll/_src/images/', src: ['**/*.{png,jpg,gif}'], dest: 'jekyll/assets/images/'}
                 ]
             }
         },
@@ -100,8 +94,7 @@ module.exports = function(grunt) {
             }
         }
     });
-
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
