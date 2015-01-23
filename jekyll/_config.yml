@@ -10,7 +10,7 @@ author:
 markdown:         redcarpet
 redcarpet:
   extensions:     [smart]
-pygments:         true
+highlighter: pygments
 
 # Setup
 permalink:        /blog/:title/
