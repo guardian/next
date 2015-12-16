@@ -2,4 +2,4 @@ source "https://rubygems.org"
 
 gem "json", "~> 1.8.1"
 gem "jekyll", "~> 1.4.3"
-gem 'jekyll-twitter-plugin'
+gem "jekyll-twitter-plugin", "~> 1.2.0"
